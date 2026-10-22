@@ -1,0 +1,255 @@
+{
+  "generated_at": "2026-10-22T19:53:57+08:00",
+  "database": "compliance.db",
+  "size_bytes": 40960,
+  "sqlite_version": "3.45.3",
+  "encoding": "UTF-8",
+  "integrity_check": "ok",
+  "views": [],
+  "tables": [
+    {
+      "name": "compliance_rules",
+      "row_count": 10,
+      "create_sql": "CREATE TABLE compliance_rules (\n    rule_id             TEXT PRIMARY KEY,\n    title               TEXT NOT NULL,\n    applies_to_category TEXT NOT NULL,\n    material_keyword    TEXT,\n    origin_keyword      TEXT,\n    severity            TEXT NOT NULL\n)",
+      "columns": [
+        {
+          "cid": 0,
+          "name": "rule_id",
+          "type": "TEXT",
+          "not_null": false,
+          "default": null,
+          "primary_key_position": 1
+        },
+        {
+          "cid": 1,
+          "name": "title",
+          "type": "TEXT",
+          "not_null": true,
+          "default": null,
+          "primary_key_position": 0
+        },
+        {
+          "cid": 2,
+          "name": "applies_to_category",
+          "type": "TEXT",
+          "not_null": true,
+          "default": null,
+          "primary_key_position": 0
+        },
+        {
+          "cid": 3,
+          "name": "material_keyword",
+          "type": "TEXT",
+          "not_null": false,
+          "default": null,
+          "primary_key_position": 0
+        },
+        {
+          "cid": 4,
+          "name": "origin_keyword",
+          "type": "TEXT",
+          "not_null": false,
+          "default": null,
+          "primary_key_position": 0
+        },
+        {
+          "cid": 5,
+          "name": "severity",
+          "type": "TEXT",
+          "not_null": true,
+          "default": null,
+          "primary_key_position": 0
+        }
+      ],
+      "primary_key": [
+        "rule_id"
+      ],
+      "indexes": [
+        {
+          "name": "sqlite_autoindex_compliance_rules_1",
+          "unique": true,
+          "origin": "pk",
+          "partial": false,
+          "columns": [
+            "rule_id"
+          ]
+        }
+      ],
+      "foreign_keys": [],
+      "sample_rows": [
+        {
+          "rule_id": "CR-001",
+          "title": "真皮/牛皮/羊皮制品须提供濒危物种及皮革来源证明",
+          "applies_to_category": "鞋靴,箱包,配饰",
+          "material_keyword": "真皮|牛皮|羊皮",
+          "origin_keyword": "",
+          "severity": "待确认"
+        },
+        {
+          "rule_id": "CR-002",
+          "title": "PU革制品须在主图与详情页标注“人造革”",
+          "applies_to_category": "鞋靴,箱包,配饰",
+          "material_keyword": "PU革",
+          "origin_keyword": "",
+          "severity": "待确认"
+        }
+      ]
+    },
+    {
+      "name": "exchange_rates",
+      "row_count": 5,
+      "create_sql": "CREATE TABLE exchange_rates (\n    currency    TEXT PRIMARY KEY,\n    rate_to_cny REAL NOT NULL\n)",
+      "columns": [
+        {
+          "cid": 0,
+          "name": "currency",
+          "type": "TEXT",
+          "not_null": false,
+          "default": null,
+          "primary_key_position": 1
+        },
+        {
+          "cid": 1,
+          "name": "rate_to_cny",
+          "type": "REAL",
+          "not_null": true,
+          "default": null,
+          "primary_key_position": 0
+        }
+      ],
+      "primary_key": [
+        "currency"
+      ],
+      "indexes": [
+        {
+          "name": "sqlite_autoindex_exchange_rates_1",
+          "unique": true,
+          "origin": "pk",
+          "partial": false,
+          "columns": [
+            "currency"
+          ]
+        }
+      ],
+      "foreign_keys": [],
+      "sample_rows": [
+        {
+          "currency": "CNY",
+          "rate_to_cny": 1.0
+        },
+        {
+          "currency": "EUR",
+          "rate_to_cny": 7.78
+        }
+      ]
+    },
+    {
+      "name": "sku_info",
+      "row_count": 115,
+      "create_sql": "CREATE TABLE sku_info (\n    sku_id    TEXT PRIMARY KEY,\n    name      TEXT NOT NULL,\n    category  TEXT NOT NULL,\n    material  TEXT NOT NULL,\n    origin    TEXT NOT NULL,\n    price     REAL NOT NULL,\n    currency  TEXT NOT NULL,\n    is_deleted INTEGER NOT NULL DEFAULT 0\n)",
+      "columns": [
+        {
+          "cid": 0,
+          "name": "sku_id",
+          "type": "TEXT",
+          "not_null": false,
+          "default": null,
+          "primary_key_position": 1
+        },
+        {
+          "cid": 1,
+          "name": "name",
+          "type": "TEXT",
+          "not_null": true,
+          "default": null,
+          "primary_key_position": 0
+        },
+        {
+          "cid": 2,
+          "name": "category",
+          "type": "TEXT",
+          "not_null": true,
+          "default": null,
+          "primary_key_position": 0
+        },
+        {
+          "cid": 3,
+          "name": "material",
+          "type": "TEXT",
+          "not_null": true,
+          "default": null,
+          "primary_key_position": 0
+        },
+        {
+          "cid": 4,
+          "name": "origin",
+          "type": "TEXT",
+          "not_null": true,
+          "default": null,
+          "primary_key_position": 0
+        },
+        {
+          "cid": 5,
+          "name": "price",
+          "type": "REAL",
+          "not_null": true,
+          "default": null,
+          "primary_key_position": 0
+        },
+        {
+          "cid": 6,
+          "name": "currency",
+          "type": "TEXT",
+          "not_null": true,
+          "default": null,
+          "primary_key_position": 0
+        },
+        {
+          "cid": 7,
+          "name": "is_deleted",
+          "type": "INTEGER",
+          "not_null": true,
+          "default": "0",
+          "primary_key_position": 0
+        }
+      ],
+      "primary_key": [
+        "sku_id"
+      ],
+      "indexes": [
+        {
+          "name": "sqlite_autoindex_sku_info_1",
+          "unique": true,
+          "origin": "pk",
+          "partial": false,
+          "columns": [
+            "sku_id"
+          ]
+        }
+      ],
+      "foreign_keys": [],
+      "sample_rows": [
+        {
+          "sku_id": "SKU-00001",
+          "name": "初野家居套装经典款",
+          "category": "内衣",
+          "material": "棉",
+          "origin": "韩国",
+          "price": 178.97,
+          "currency": "KRW",
+          "is_deleted": 1
+        },
+        {
+          "sku_id": "SKU-00002",
+          "name": "木白衬衫经典款",
+          "category": "上衣",
+          "material": "羊绒",
+          "origin": "意大利",
+          "price": 99.15,
+          "currency": "EUR",
+          "is_deleted": 1
+        }
+      ]
+    }
+  ]
+}

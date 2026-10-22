@@ -1,0 +1,4049 @@
+{
+  "meta": {
+    "audit_stage": "阶段一：数据审计与需求确认",
+    "generated_at": "2026-10-22T19:53:57+08:00",
+    "project_root": "E:/Desktop/AI全栈工程师校招笔试-材料包",
+    "python_version": "3.12.4",
+    "sqlite_version": "3.45.3",
+    "db_connection_mode": "read-only (URI ?mode=ro)",
+    "third_party_dependencies": []
+  },
+  "source_integrity": {
+    "files": [
+      {
+        "path": "instructions.md",
+        "size": 4262,
+        "sha256_before": "a6870dfb697615b2ced53dc23af2c8e04b863d559aa3a107c7ac0142836db7a1",
+        "sha256_after": "a6870dfb697615b2ced53dc23af2c8e04b863d559aa3a107c7ac0142836db7a1",
+        "unchanged": true
+      },
+      {
+        "path": "data-dictionary.md",
+        "size": 1431,
+        "sha256_before": "3897cc8881d9e08b27d1a2059f50ca2a06f4960693ba4953dc027d96bd078c14",
+        "sha256_after": "3897cc8881d9e08b27d1a2059f50ca2a06f4960693ba4953dc027d96bd078c14",
+        "unchanged": true
+      },
+      {
+        "path": "seed.py",
+        "size": 1249,
+        "sha256_before": "834f7f748e7b4db9b626642c4be59ffb278e5a2df4e43d884bfdf4c3b7b77399",
+        "sha256_after": "834f7f748e7b4db9b626642c4be59ffb278e5a2df4e43d884bfdf4c3b7b77399",
+        "unchanged": true
+      },
+      {
+        "path": "sku_list.csv",
+        "size": 1941,
+        "sha256_before": "bc146ce7c529d34b3b2f741209c45ffc5366ae775c64579e2363986d6b653da9",
+        "sha256_after": "bc146ce7c529d34b3b2f741209c45ffc5366ae775c64579e2363986d6b653da9",
+        "unchanged": true
+      },
+      {
+        "path": "compliance.db",
+        "size": 40960,
+        "sha256_before": "e87eb1b9be1a53f547d45af27b49017e01f63d63a8903eb9c717193af9f9ad67",
+        "sha256_after": "e87eb1b9be1a53f547d45af27b49017e01f63d63a8903eb9c717193af9f9ad67",
+        "unchanged": true
+      }
+    ],
+    "sidecar_files_before": [],
+    "sidecar_files_after": [],
+    "all_unchanged": true,
+    "database_opened_read_only": true
+  },
+  "verdict": {
+    "csv_record_count_ok": true,
+    "csv_header_ok": true,
+    "sku_ref_unique": true,
+    "db_integrity_ok": true,
+    "mapping_confirmed": true,
+    "completeness_equations_hold": true,
+    "all_source_files_unchanged": true,
+    "full_business_program_implemented": false
+  },
+  "csv": {
+    "path": "sku_list.csv",
+    "size": 1941,
+    "encoding": "UTF-8 with BOM (utf-8-sig)",
+    "has_bom": true,
+    "line_endings": {
+      "crlf_lines": 121,
+      "lf_only_lines": 0,
+      "ends_with_newline": true
+    },
+    "header": [
+      "sku_ref",
+      "batch_no"
+    ],
+    "record_count": 120,
+    "expected_record_count": 120,
+    "record_count_matches_expected": true,
+    "malformed_rows": [],
+    "fields": {
+      "sku_ref": {
+        "count": 120,
+        "null_count": 0,
+        "empty_count": 0,
+        "blank_or_whitespace_count": 0,
+        "leading_or_trailing_whitespace_count": 0,
+        "min_length": 5,
+        "max_length": 5,
+        "distinct_count": 120,
+        "format_distribution": {
+          "99999": 120
+        },
+        "duplicate_groups": []
+      },
+      "batch_no": {
+        "count": 120,
+        "null_count": 0,
+        "empty_count": 0,
+        "blank_or_whitespace_count": 0,
+        "leading_or_trailing_whitespace_count": 0,
+        "min_length": 8,
+        "max_length": 8,
+        "distinct_count": 110,
+        "format_distribution": {
+          "A9999999": 120
+        },
+        "duplicate_groups": [
+          {
+            "value": "B2026515",
+            "count": 2,
+            "lines": [
+              16,
+              56
+            ]
+          },
+          {
+            "value": "B2026101",
+            "count": 3,
+            "lines": [
+              22,
+              82,
+              92
+            ]
+          },
+          {
+            "value": "B2026581",
+            "count": 2,
+            "lines": [
+              32,
+              62
+            ]
+          },
+          {
+            "value": "B2026793",
+            "count": 2,
+            "lines": [
+              44,
+              114
+            ]
+          },
+          {
+            "value": "B2026306",
+            "count": 2,
+            "lines": [
+              57,
+              107
+            ]
+          },
+          {
+            "value": "B2026138",
+            "count": 2,
+            "lines": [
+              59,
+              119
+            ]
+          },
+          {
+            "value": "B2026753",
+            "count": 2,
+            "lines": [
+              74,
+              104
+            ]
+          },
+          {
+            "value": "B2026324",
+            "count": 2,
+            "lines": [
+              75,
+              95
+            ]
+          },
+          {
+            "value": "B2026899",
+            "count": 2,
+            "lines": [
+              90,
+              110
+            ]
+          }
+        ]
+      }
+    },
+    "sku_ref": {
+      "null_or_blank": [],
+      "duplicate_group_count": 0,
+      "duplicate_value_count": 0,
+      "duplicate_groups": [],
+      "distinct_count": 120,
+      "format_distribution": {
+        "99999": 120
+      },
+      "all_match_5_digits": true,
+      "numeric_min": 1,
+      "numeric_max": 120,
+      "out_of_expected_range": [],
+      "leading_or_trailing_whitespace": []
+    },
+    "batch_no": {
+      "null_or_blank": [],
+      "duplicate_group_count": 9,
+      "duplicate_record_count": 19,
+      "duplicate_groups": [
+        {
+          "value": "B2026515",
+          "count": 2,
+          "lines": [
+            16,
+            56
+          ],
+          "sku_refs": [
+            "00015",
+            "00055"
+          ]
+        },
+        {
+          "value": "B2026101",
+          "count": 3,
+          "lines": [
+            22,
+            82,
+            92
+          ],
+          "sku_refs": [
+            "00021",
+            "00081",
+            "00091"
+          ]
+        },
+        {
+          "value": "B2026581",
+          "count": 2,
+          "lines": [
+            32,
+            62
+          ],
+          "sku_refs": [
+            "00031",
+            "00061"
+          ]
+        },
+        {
+          "value": "B2026793",
+          "count": 2,
+          "lines": [
+            44,
+            114
+          ],
+          "sku_refs": [
+            "00043",
+            "00113"
+          ]
+        },
+        {
+          "value": "B2026306",
+          "count": 2,
+          "lines": [
+            57,
+            107
+          ],
+          "sku_refs": [
+            "00056",
+            "00106"
+          ]
+        },
+        {
+          "value": "B2026138",
+          "count": 2,
+          "lines": [
+            59,
+            119
+          ],
+          "sku_refs": [
+            "00058",
+            "00118"
+          ]
+        },
+        {
+          "value": "B2026753",
+          "count": 2,
+          "lines": [
+            74,
+            104
+          ],
+          "sku_refs": [
+            "00073",
+            "00103"
+          ]
+        },
+        {
+          "value": "B2026324",
+          "count": 2,
+          "lines": [
+            75,
+            95
+          ],
+          "sku_refs": [
+            "00074",
+            "00094"
+          ]
+        },
+        {
+          "value": "B2026899",
+          "count": 2,
+          "lines": [
+            90,
+            110
+          ],
+          "sku_refs": [
+            "00089",
+            "00109"
+          ]
+        }
+      ],
+      "distinct_count": 110,
+      "format_distribution": {
+        "A9999999": 120
+      },
+      "leading_or_trailing_whitespace": []
+    }
+  },
+  "database": {
+    "path": "compliance.db",
+    "size": 40960,
+    "integrity_check": "ok",
+    "encoding": "UTF-8",
+    "tables": [
+      {
+        "name": "compliance_rules",
+        "row_count": 10,
+        "primary_key": [
+          "rule_id"
+        ],
+        "column_names": [
+          "rule_id",
+          "title",
+          "applies_to_category",
+          "material_keyword",
+          "origin_keyword",
+          "severity"
+        ],
+        "column_count": 6,
+        "pk_duplicate_groups": 0
+      },
+      {
+        "name": "exchange_rates",
+        "row_count": 5,
+        "primary_key": [
+          "currency"
+        ],
+        "column_names": [
+          "currency",
+          "rate_to_cny"
+        ],
+        "column_count": 2,
+        "pk_duplicate_groups": 0
+      },
+      {
+        "name": "sku_info",
+        "row_count": 115,
+        "primary_key": [
+          "sku_id"
+        ],
+        "column_names": [
+          "sku_id",
+          "name",
+          "category",
+          "material",
+          "origin",
+          "price",
+          "currency",
+          "is_deleted"
+        ],
+        "column_count": 8,
+        "pk_duplicate_groups": 0
+      }
+    ],
+    "views": []
+  },
+  "sku_info": {
+    "row_count": 115,
+    "sku_id_format_distribution": {
+      "AAA-99999": 115
+    },
+    "category_distribution": [
+      {
+        "value": "箱包",
+        "count": 22
+      },
+      {
+        "value": "内衣",
+        "count": 19
+      },
+      {
+        "value": "裤装",
+        "count": 17
+      },
+      {
+        "value": "上衣",
+        "count": 13
+      },
+      {
+        "value": "裙装",
+        "count": 13
+      },
+      {
+        "value": "配饰",
+        "count": 13
+      },
+      {
+        "value": "鞋靴",
+        "count": 11
+      },
+      {
+        "value": "针织衫",
+        "count": 7
+      }
+    ],
+    "material_distribution": [
+      {
+        "value": "棉",
+        "count": 20
+      },
+      {
+        "value": "锦纶",
+        "count": 14
+      },
+      {
+        "value": "涤纶",
+        "count": 13
+      },
+      {
+        "value": "真皮",
+        "count": 13
+      },
+      {
+        "value": "PU革",
+        "count": 12
+      },
+      {
+        "value": "亚麻",
+        "count": 7
+      },
+      {
+        "value": "牛皮",
+        "count": 7
+      },
+      {
+        "value": "合金",
+        "count": 6
+      },
+      {
+        "value": "羊绒",
+        "count": 6
+      },
+      {
+        "value": "不锈钢",
+        "count": 4
+      },
+      {
+        "value": "再生涤纶",
+        "count": 4
+      },
+      {
+        "value": "羊皮",
+        "count": 4
+      },
+      {
+        "value": "羊毛",
+        "count": 3
+      },
+      {
+        "value": "桑蚕丝",
+        "count": 2
+      }
+    ],
+    "origin_distribution": [
+      {
+        "value": "土耳其",
+        "count": 22
+      },
+      {
+        "value": "越南",
+        "count": 22
+      },
+      {
+        "value": "中国",
+        "count": 16
+      },
+      {
+        "value": "印度",
+        "count": 16
+      },
+      {
+        "value": "日本",
+        "count": 12
+      },
+      {
+        "value": "韩国",
+        "count": 10
+      },
+      {
+        "value": "孟加拉",
+        "count": 9
+      },
+      {
+        "value": "意大利",
+        "count": 8
+      }
+    ],
+    "currency_distribution": [
+      {
+        "value": "EUR",
+        "count": 39
+      },
+      {
+        "value": "USD",
+        "count": 38
+      },
+      {
+        "value": "CNY",
+        "count": 16
+      },
+      {
+        "value": "JPY",
+        "count": 12
+      },
+      {
+        "value": "KRW",
+        "count": 10
+      }
+    ],
+    "is_deleted_distribution": [
+      {
+        "value": "0",
+        "count": 110
+      },
+      {
+        "value": "1",
+        "count": 5
+      }
+    ],
+    "is_deleted_values": [
+      0,
+      1
+    ],
+    "price_range": {
+      "min": 14.21,
+      "max": 415.97
+    },
+    "deleted_skus": [
+      {
+        "sku_id": "SKU-00001",
+        "name": "初野家居套装经典款",
+        "category": "内衣",
+        "material": "棉",
+        "origin": "韩国",
+        "price": 178.97,
+        "currency": "KRW"
+      },
+      {
+        "sku_id": "SKU-00002",
+        "name": "木白衬衫经典款",
+        "category": "上衣",
+        "material": "羊绒",
+        "origin": "意大利",
+        "price": 99.15,
+        "currency": "EUR"
+      },
+      {
+        "sku_id": "SKU-00003",
+        "name": "鹿先休闲裤限量款",
+        "category": "裤装",
+        "material": "涤纶",
+        "origin": "土耳其",
+        "price": 209.64,
+        "currency": "EUR"
+      },
+      {
+        "sku_id": "SKU-00004",
+        "name": "鹿先连衣裙轻奢款",
+        "category": "裙装",
+        "material": "棉",
+        "origin": "土耳其",
+        "price": 249.33,
+        "currency": "EUR"
+      },
+      {
+        "sku_id": "SKU-00005",
+        "name": "青梧双肩包限量款",
+        "category": "箱包",
+        "material": "PU革",
+        "origin": "印度",
+        "price": 338.27,
+        "currency": "USD"
+      }
+    ]
+  },
+  "sku_mapping": {
+    "candidates": [
+      {
+        "id": "A",
+        "name": "sku_ref 直接等于 sku_id",
+        "matched_count": 0,
+        "unmatched_count": 120,
+        "matched_sku_refs": [],
+        "unmatched_sku_refs": [
+          "00001",
+          "00002",
+          "00003",
+          "00004",
+          "00005",
+          "00006",
+          "00007",
+          "00008",
+          "00009",
+          "00010",
+          "00011",
+          "00012",
+          "00013",
+          "00014",
+          "00015",
+          "00016",
+          "00017",
+          "00018",
+          "00019",
+          "00020",
+          "00021",
+          "00022",
+          "00023",
+          "00024",
+          "00025",
+          "00026",
+          "00027",
+          "00028",
+          "00029",
+          "00030",
+          "00031",
+          "00032",
+          "00033",
+          "00034",
+          "00035",
+          "00036",
+          "00037",
+          "00038",
+          "00039",
+          "00040",
+          "00041",
+          "00042",
+          "00043",
+          "00044",
+          "00045",
+          "00046",
+          "00047",
+          "00048",
+          "00049",
+          "00050",
+          "00051",
+          "00052",
+          "00053",
+          "00054",
+          "00055",
+          "00056",
+          "00057",
+          "00058",
+          "00059",
+          "00060",
+          "00061",
+          "00062",
+          "00063",
+          "00064",
+          "00065",
+          "00066",
+          "00067",
+          "00068",
+          "00069",
+          "00070",
+          "00071",
+          "00072",
+          "00073",
+          "00074",
+          "00075",
+          "00076",
+          "00077",
+          "00078",
+          "00079",
+          "00080",
+          "00081",
+          "00082",
+          "00083",
+          "00084",
+          "00085",
+          "00086",
+          "00087",
+          "00088",
+          "00089",
+          "00090",
+          "00091",
+          "00092",
+          "00093",
+          "00094",
+          "00095",
+          "00096",
+          "00097",
+          "00098",
+          "00099",
+          "00100",
+          "00101",
+          "00102",
+          "00103",
+          "00104",
+          "00105",
+          "00106",
+          "00107",
+          "00108",
+          "00109",
+          "00110",
+          "00111",
+          "00112",
+          "00113",
+          "00114",
+          "00115",
+          "00116",
+          "00117",
+          "00118",
+          "00119",
+          "00120"
+        ],
+        "unmatched_records": [
+          {
+            "line": 2,
+            "sku_ref": "00001",
+            "batch_no": "B2026311",
+            "mapped_id": "00001"
+          },
+          {
+            "line": 3,
+            "sku_ref": "00002",
+            "batch_no": "B2026682",
+            "mapped_id": "00002"
+          },
+          {
+            "line": 4,
+            "sku_ref": "00003",
+            "batch_no": "B2026533",
+            "mapped_id": "00003"
+          },
+          {
+            "line": 5,
+            "sku_ref": "00004",
+            "batch_no": "B2026754",
+            "mapped_id": "00004"
+          },
+          {
+            "line": 6,
+            "sku_ref": "00005",
+            "batch_no": "B2026535",
+            "mapped_id": "00005"
+          },
+          {
+            "line": 7,
+            "sku_ref": "00006",
+            "batch_no": "B2026136",
+            "mapped_id": "00006"
+          },
+          {
+            "line": 8,
+            "sku_ref": "00007",
+            "batch_no": "B2026817",
+            "mapped_id": "00007"
+          },
+          {
+            "line": 9,
+            "sku_ref": "00008",
+            "batch_no": "B2026798",
+            "mapped_id": "00008"
+          },
+          {
+            "line": 10,
+            "sku_ref": "00009",
+            "batch_no": "B2026659",
+            "mapped_id": "00009"
+          },
+          {
+            "line": 11,
+            "sku_ref": "00010",
+            "batch_no": "B2026630",
+            "mapped_id": "00010"
+          },
+          {
+            "line": 12,
+            "sku_ref": "00011",
+            "batch_no": "B2026891",
+            "mapped_id": "00011"
+          },
+          {
+            "line": 13,
+            "sku_ref": "00012",
+            "batch_no": "B2026122",
+            "mapped_id": "00012"
+          },
+          {
+            "line": 14,
+            "sku_ref": "00013",
+            "batch_no": "B2026563",
+            "mapped_id": "00013"
+          },
+          {
+            "line": 15,
+            "sku_ref": "00014",
+            "batch_no": "B2026724",
+            "mapped_id": "00014"
+          },
+          {
+            "line": 16,
+            "sku_ref": "00015",
+            "batch_no": "B2026515",
+            "mapped_id": "00015"
+          },
+          {
+            "line": 17,
+            "sku_ref": "00016",
+            "batch_no": "B2026906",
+            "mapped_id": "00016"
+          },
+          {
+            "line": 18,
+            "sku_ref": "00017",
+            "batch_no": "B2026137",
+            "mapped_id": "00017"
+          },
+          {
+            "line": 19,
+            "sku_ref": "00018",
+            "batch_no": "B2026118",
+            "mapped_id": "00018"
+          },
+          {
+            "line": 20,
+            "sku_ref": "00019",
+            "batch_no": "B2026159",
+            "mapped_id": "00019"
+          },
+          {
+            "line": 21,
+            "sku_ref": "00020",
+            "batch_no": "B2026400",
+            "mapped_id": "00020"
+          },
+          {
+            "line": 22,
+            "sku_ref": "00021",
+            "batch_no": "B2026101",
+            "mapped_id": "00021"
+          },
+          {
+            "line": 23,
+            "sku_ref": "00022",
+            "batch_no": "B2026752",
+            "mapped_id": "00022"
+          },
+          {
+            "line": 24,
+            "sku_ref": "00023",
+            "batch_no": "B2026523",
+            "mapped_id": "00023"
+          },
+          {
+            "line": 25,
+            "sku_ref": "00024",
+            "batch_no": "B2026544",
+            "mapped_id": "00024"
+          },
+          {
+            "line": 26,
+            "sku_ref": "00025",
+            "batch_no": "B2026245",
+            "mapped_id": "00025"
+          },
+          {
+            "line": 27,
+            "sku_ref": "00026",
+            "batch_no": "B2026356",
+            "mapped_id": "00026"
+          },
+          {
+            "line": 28,
+            "sku_ref": "00027",
+            "batch_no": "B2026277",
+            "mapped_id": "00027"
+          },
+          {
+            "line": 29,
+            "sku_ref": "00028",
+            "batch_no": "B2026668",
+            "mapped_id": "00028"
+          },
+          {
+            "line": 30,
+            "sku_ref": "00029",
+            "batch_no": "B2026469",
+            "mapped_id": "00029"
+          },
+          {
+            "line": 31,
+            "sku_ref": "00030",
+            "batch_no": "B2026360",
+            "mapped_id": "00030"
+          },
+          {
+            "line": 32,
+            "sku_ref": "00031",
+            "batch_no": "B2026581",
+            "mapped_id": "00031"
+          },
+          {
+            "line": 33,
+            "sku_ref": "00032",
+            "batch_no": "B2026612",
+            "mapped_id": "00032"
+          },
+          {
+            "line": 34,
+            "sku_ref": "00033",
+            "batch_no": "B2026593",
+            "mapped_id": "00033"
+          },
+          {
+            "line": 35,
+            "sku_ref": "00034",
+            "batch_no": "B2026994",
+            "mapped_id": "00034"
+          },
+          {
+            "line": 36,
+            "sku_ref": "00035",
+            "batch_no": "B2026345",
+            "mapped_id": "00035"
+          },
+          {
+            "line": 37,
+            "sku_ref": "00036",
+            "batch_no": "B2026576",
+            "mapped_id": "00036"
+          },
+          {
+            "line": 38,
+            "sku_ref": "00037",
+            "batch_no": "B2026927",
+            "mapped_id": "00037"
+          },
+          {
+            "line": 39,
+            "sku_ref": "00038",
+            "batch_no": "B2026708",
+            "mapped_id": "00038"
+          },
+          {
+            "line": 40,
+            "sku_ref": "00039",
+            "batch_no": "B2026959",
+            "mapped_id": "00039"
+          },
+          {
+            "line": 41,
+            "sku_ref": "00040",
+            "batch_no": "B2026750",
+            "mapped_id": "00040"
+          },
+          {
+            "line": 42,
+            "sku_ref": "00041",
+            "batch_no": "B2026601",
+            "mapped_id": "00041"
+          },
+          {
+            "line": 43,
+            "sku_ref": "00042",
+            "batch_no": "B2026942",
+            "mapped_id": "00042"
+          },
+          {
+            "line": 44,
+            "sku_ref": "00043",
+            "batch_no": "B2026793",
+            "mapped_id": "00043"
+          },
+          {
+            "line": 45,
+            "sku_ref": "00044",
+            "batch_no": "B2026694",
+            "mapped_id": "00044"
+          },
+          {
+            "line": 46,
+            "sku_ref": "00045",
+            "batch_no": "B2026445",
+            "mapped_id": "00045"
+          },
+          {
+            "line": 47,
+            "sku_ref": "00046",
+            "batch_no": "B2026676",
+            "mapped_id": "00046"
+          },
+          {
+            "line": 48,
+            "sku_ref": "00047",
+            "batch_no": "B2026647",
+            "mapped_id": "00047"
+          },
+          {
+            "line": 49,
+            "sku_ref": "00048",
+            "batch_no": "B2026468",
+            "mapped_id": "00048"
+          },
+          {
+            "line": 50,
+            "sku_ref": "00049",
+            "batch_no": "B2026779",
+            "mapped_id": "00049"
+          },
+          {
+            "line": 51,
+            "sku_ref": "00050",
+            "batch_no": "B2026310",
+            "mapped_id": "00050"
+          },
+          {
+            "line": 52,
+            "sku_ref": "00051",
+            "batch_no": "B2026501",
+            "mapped_id": "00051"
+          },
+          {
+            "line": 53,
+            "sku_ref": "00052",
+            "batch_no": "B2026482",
+            "mapped_id": "00052"
+          },
+          {
+            "line": 54,
+            "sku_ref": "00053",
+            "batch_no": "B2026573",
+            "mapped_id": "00053"
+          },
+          {
+            "line": 55,
+            "sku_ref": "00054",
+            "batch_no": "B2026484",
+            "mapped_id": "00054"
+          },
+          {
+            "line": 56,
+            "sku_ref": "00055",
+            "batch_no": "B2026515",
+            "mapped_id": "00055"
+          },
+          {
+            "line": 57,
+            "sku_ref": "00056",
+            "batch_no": "B2026306",
+            "mapped_id": "00056"
+          },
+          {
+            "line": 58,
+            "sku_ref": "00057",
+            "batch_no": "B2026657",
+            "mapped_id": "00057"
+          },
+          {
+            "line": 59,
+            "sku_ref": "00058",
+            "batch_no": "B2026138",
+            "mapped_id": "00058"
+          },
+          {
+            "line": 60,
+            "sku_ref": "00059",
+            "batch_no": "B2026209",
+            "mapped_id": "00059"
+          },
+          {
+            "line": 61,
+            "sku_ref": "00060",
+            "batch_no": "B2026740",
+            "mapped_id": "00060"
+          },
+          {
+            "line": 62,
+            "sku_ref": "00061",
+            "batch_no": "B2026581",
+            "mapped_id": "00061"
+          },
+          {
+            "line": 63,
+            "sku_ref": "00062",
+            "batch_no": "B2026422",
+            "mapped_id": "00062"
+          },
+          {
+            "line": 64,
+            "sku_ref": "00063",
+            "batch_no": "B2026303",
+            "mapped_id": "00063"
+          },
+          {
+            "line": 65,
+            "sku_ref": "00064",
+            "batch_no": "B2026504",
+            "mapped_id": "00064"
+          },
+          {
+            "line": 66,
+            "sku_ref": "00065",
+            "batch_no": "B2026395",
+            "mapped_id": "00065"
+          },
+          {
+            "line": 67,
+            "sku_ref": "00066",
+            "batch_no": "B2026456",
+            "mapped_id": "00066"
+          },
+          {
+            "line": 68,
+            "sku_ref": "00067",
+            "batch_no": "B2026767",
+            "mapped_id": "00067"
+          },
+          {
+            "line": 69,
+            "sku_ref": "00068",
+            "batch_no": "B2026608",
+            "mapped_id": "00068"
+          },
+          {
+            "line": 70,
+            "sku_ref": "00069",
+            "batch_no": "B2026869",
+            "mapped_id": "00069"
+          },
+          {
+            "line": 71,
+            "sku_ref": "00070",
+            "batch_no": "B2026380",
+            "mapped_id": "00070"
+          },
+          {
+            "line": 72,
+            "sku_ref": "00071",
+            "batch_no": "B2026951",
+            "mapped_id": "00071"
+          },
+          {
+            "line": 73,
+            "sku_ref": "00072",
+            "batch_no": "B2026572",
+            "mapped_id": "00072"
+          },
+          {
+            "line": 74,
+            "sku_ref": "00073",
+            "batch_no": "B2026753",
+            "mapped_id": "00073"
+          },
+          {
+            "line": 75,
+            "sku_ref": "00074",
+            "batch_no": "B2026324",
+            "mapped_id": "00074"
+          },
+          {
+            "line": 76,
+            "sku_ref": "00075",
+            "batch_no": "B2026655",
+            "mapped_id": "00075"
+          },
+          {
+            "line": 77,
+            "sku_ref": "00076",
+            "batch_no": "B2026566",
+            "mapped_id": "00076"
+          },
+          {
+            "line": 78,
+            "sku_ref": "00077",
+            "batch_no": "B2026597",
+            "mapped_id": "00077"
+          },
+          {
+            "line": 79,
+            "sku_ref": "00078",
+            "batch_no": "B2026278",
+            "mapped_id": "00078"
+          },
+          {
+            "line": 80,
+            "sku_ref": "00079",
+            "batch_no": "B2026219",
+            "mapped_id": "00079"
+          },
+          {
+            "line": 81,
+            "sku_ref": "00080",
+            "batch_no": "B2026610",
+            "mapped_id": "00080"
+          },
+          {
+            "line": 82,
+            "sku_ref": "00081",
+            "batch_no": "B2026101",
+            "mapped_id": "00081"
+          },
+          {
+            "line": 83,
+            "sku_ref": "00082",
+            "batch_no": "B2026812",
+            "mapped_id": "00082"
+          },
+          {
+            "line": 84,
+            "sku_ref": "00083",
+            "batch_no": "B2026143",
+            "mapped_id": "00083"
+          },
+          {
+            "line": 85,
+            "sku_ref": "00084",
+            "batch_no": "B2026584",
+            "mapped_id": "00084"
+          },
+          {
+            "line": 86,
+            "sku_ref": "00085",
+            "batch_no": "B2026525",
+            "mapped_id": "00085"
+          },
+          {
+            "line": 87,
+            "sku_ref": "00086",
+            "batch_no": "B2026776",
+            "mapped_id": "00086"
+          },
+          {
+            "line": 88,
+            "sku_ref": "00087",
+            "batch_no": "B2026497",
+            "mapped_id": "00087"
+          },
+          {
+            "line": 89,
+            "sku_ref": "00088",
+            "batch_no": "B2026658",
+            "mapped_id": "00088"
+          },
+          {
+            "line": 90,
+            "sku_ref": "00089",
+            "batch_no": "B2026899",
+            "mapped_id": "00089"
+          },
+          {
+            "line": 91,
+            "sku_ref": "00090",
+            "batch_no": "B2026970",
+            "mapped_id": "00090"
+          },
+          {
+            "line": 92,
+            "sku_ref": "00091",
+            "batch_no": "B2026101",
+            "mapped_id": "00091"
+          },
+          {
+            "line": 93,
+            "sku_ref": "00092",
+            "batch_no": "B2026522",
+            "mapped_id": "00092"
+          },
+          {
+            "line": 94,
+            "sku_ref": "00093",
+            "batch_no": "B2026383",
+            "mapped_id": "00093"
+          },
+          {
+            "line": 95,
+            "sku_ref": "00094",
+            "batch_no": "B2026324",
+            "mapped_id": "00094"
+          },
+          {
+            "line": 96,
+            "sku_ref": "00095",
+            "batch_no": "B2026895",
+            "mapped_id": "00095"
+          },
+          {
+            "line": 97,
+            "sku_ref": "00096",
+            "batch_no": "B2026326",
+            "mapped_id": "00096"
+          },
+          {
+            "line": 98,
+            "sku_ref": "00097",
+            "batch_no": "B2026937",
+            "mapped_id": "00097"
+          },
+          {
+            "line": 99,
+            "sku_ref": "00098",
+            "batch_no": "B2026398",
+            "mapped_id": "00098"
+          },
+          {
+            "line": 100,
+            "sku_ref": "00099",
+            "batch_no": "B2026319",
+            "mapped_id": "00099"
+          },
+          {
+            "line": 101,
+            "sku_ref": "00100",
+            "batch_no": "B2026510",
+            "mapped_id": "00100"
+          },
+          {
+            "line": 102,
+            "sku_ref": "00101",
+            "batch_no": "B2026111",
+            "mapped_id": "00101"
+          },
+          {
+            "line": 103,
+            "sku_ref": "00102",
+            "batch_no": "B2026512",
+            "mapped_id": "00102"
+          },
+          {
+            "line": 104,
+            "sku_ref": "00103",
+            "batch_no": "B2026753",
+            "mapped_id": "00103"
+          },
+          {
+            "line": 105,
+            "sku_ref": "00104",
+            "batch_no": "B2026274",
+            "mapped_id": "00104"
+          },
+          {
+            "line": 106,
+            "sku_ref": "00105",
+            "batch_no": "B2026885",
+            "mapped_id": "00105"
+          },
+          {
+            "line": 107,
+            "sku_ref": "00106",
+            "batch_no": "B2026306",
+            "mapped_id": "00106"
+          },
+          {
+            "line": 108,
+            "sku_ref": "00107",
+            "batch_no": "B2026947",
+            "mapped_id": "00107"
+          },
+          {
+            "line": 109,
+            "sku_ref": "00108",
+            "batch_no": "B2026888",
+            "mapped_id": "00108"
+          },
+          {
+            "line": 110,
+            "sku_ref": "00109",
+            "batch_no": "B2026899",
+            "mapped_id": "00109"
+          },
+          {
+            "line": 111,
+            "sku_ref": "00110",
+            "batch_no": "B2026270",
+            "mapped_id": "00110"
+          },
+          {
+            "line": 112,
+            "sku_ref": "00111",
+            "batch_no": "B2026361",
+            "mapped_id": "00111"
+          },
+          {
+            "line": 113,
+            "sku_ref": "00112",
+            "batch_no": "B2026742",
+            "mapped_id": "00112"
+          },
+          {
+            "line": 114,
+            "sku_ref": "00113",
+            "batch_no": "B2026793",
+            "mapped_id": "00113"
+          },
+          {
+            "line": 115,
+            "sku_ref": "00114",
+            "batch_no": "B2026774",
+            "mapped_id": "00114"
+          },
+          {
+            "line": 116,
+            "sku_ref": "00115",
+            "batch_no": "B2026235",
+            "mapped_id": "00115"
+          },
+          {
+            "line": 117,
+            "sku_ref": "00116",
+            "batch_no": "B2026416",
+            "mapped_id": "00116"
+          },
+          {
+            "line": 118,
+            "sku_ref": "00117",
+            "batch_no": "B2026257",
+            "mapped_id": "00117"
+          },
+          {
+            "line": 119,
+            "sku_ref": "00118",
+            "batch_no": "B2026138",
+            "mapped_id": "00118"
+          },
+          {
+            "line": 120,
+            "sku_ref": "00119",
+            "batch_no": "B2026149",
+            "mapped_id": "00119"
+          },
+          {
+            "line": 121,
+            "sku_ref": "00120",
+            "batch_no": "B2026220",
+            "mapped_id": "00120"
+          }
+        ],
+        "duplicate_target_groups": [],
+        "has_many_to_one": false
+      },
+      {
+        "id": "B",
+        "name": "sku_ref 去除前后空格后加 \"SKU-\" 前缀",
+        "matched_count": 115,
+        "unmatched_count": 5,
+        "matched_sku_refs": [
+          "00001",
+          "00002",
+          "00003",
+          "00004",
+          "00005",
+          "00006",
+          "00007",
+          "00008",
+          "00009",
+          "00010",
+          "00011",
+          "00012",
+          "00013",
+          "00014",
+          "00015",
+          "00016",
+          "00017",
+          "00018",
+          "00019",
+          "00020",
+          "00021",
+          "00022",
+          "00023",
+          "00024",
+          "00025",
+          "00026",
+          "00027",
+          "00028",
+          "00029",
+          "00030",
+          "00032",
+          "00033",
+          "00034",
+          "00035",
+          "00036",
+          "00037",
+          "00038",
+          "00039",
+          "00040",
+          "00041",
+          "00042",
+          "00043",
+          "00044",
+          "00045",
+          "00046",
+          "00047",
+          "00048",
+          "00049",
+          "00050",
+          "00051",
+          "00052",
+          "00053",
+          "00054",
+          "00055",
+          "00056",
+          "00058",
+          "00059",
+          "00060",
+          "00061",
+          "00062",
+          "00063",
+          "00064",
+          "00065",
+          "00066",
+          "00067",
+          "00068",
+          "00069",
+          "00070",
+          "00071",
+          "00072",
+          "00073",
+          "00074",
+          "00075",
+          "00076",
+          "00077",
+          "00078",
+          "00079",
+          "00080",
+          "00081",
+          "00082",
+          "00083",
+          "00085",
+          "00086",
+          "00087",
+          "00088",
+          "00089",
+          "00090",
+          "00091",
+          "00092",
+          "00093",
+          "00094",
+          "00095",
+          "00096",
+          "00097",
+          "00098",
+          "00100",
+          "00101",
+          "00102",
+          "00103",
+          "00104",
+          "00105",
+          "00106",
+          "00107",
+          "00108",
+          "00109",
+          "00110",
+          "00111",
+          "00112",
+          "00114",
+          "00115",
+          "00116",
+          "00117",
+          "00118",
+          "00119",
+          "00120"
+        ],
+        "unmatched_sku_refs": [
+          "00031",
+          "00057",
+          "00084",
+          "00099",
+          "00113"
+        ],
+        "unmatched_records": [
+          {
+            "line": 32,
+            "sku_ref": "00031",
+            "batch_no": "B2026581",
+            "mapped_id": "SKU-00031"
+          },
+          {
+            "line": 58,
+            "sku_ref": "00057",
+            "batch_no": "B2026657",
+            "mapped_id": "SKU-00057"
+          },
+          {
+            "line": 85,
+            "sku_ref": "00084",
+            "batch_no": "B2026584",
+            "mapped_id": "SKU-00084"
+          },
+          {
+            "line": 100,
+            "sku_ref": "00099",
+            "batch_no": "B2026319",
+            "mapped_id": "SKU-00099"
+          },
+          {
+            "line": 114,
+            "sku_ref": "00113",
+            "batch_no": "B2026793",
+            "mapped_id": "SKU-00113"
+          }
+        ],
+        "duplicate_target_groups": [],
+        "has_many_to_one": false
+      },
+      {
+        "id": "C",
+        "name": "sku_ref 去除前后空格、数字补足 5 位后加 \"SKU-\" 前缀",
+        "matched_count": 115,
+        "unmatched_count": 5,
+        "matched_sku_refs": [
+          "00001",
+          "00002",
+          "00003",
+          "00004",
+          "00005",
+          "00006",
+          "00007",
+          "00008",
+          "00009",
+          "00010",
+          "00011",
+          "00012",
+          "00013",
+          "00014",
+          "00015",
+          "00016",
+          "00017",
+          "00018",
+          "00019",
+          "00020",
+          "00021",
+          "00022",
+          "00023",
+          "00024",
+          "00025",
+          "00026",
+          "00027",
+          "00028",
+          "00029",
+          "00030",
+          "00032",
+          "00033",
+          "00034",
+          "00035",
+          "00036",
+          "00037",
+          "00038",
+          "00039",
+          "00040",
+          "00041",
+          "00042",
+          "00043",
+          "00044",
+          "00045",
+          "00046",
+          "00047",
+          "00048",
+          "00049",
+          "00050",
+          "00051",
+          "00052",
+          "00053",
+          "00054",
+          "00055",
+          "00056",
+          "00058",
+          "00059",
+          "00060",
+          "00061",
+          "00062",
+          "00063",
+          "00064",
+          "00065",
+          "00066",
+          "00067",
+          "00068",
+          "00069",
+          "00070",
+          "00071",
+          "00072",
+          "00073",
+          "00074",
+          "00075",
+          "00076",
+          "00077",
+          "00078",
+          "00079",
+          "00080",
+          "00081",
+          "00082",
+          "00083",
+          "00085",
+          "00086",
+          "00087",
+          "00088",
+          "00089",
+          "00090",
+          "00091",
+          "00092",
+          "00093",
+          "00094",
+          "00095",
+          "00096",
+          "00097",
+          "00098",
+          "00100",
+          "00101",
+          "00102",
+          "00103",
+          "00104",
+          "00105",
+          "00106",
+          "00107",
+          "00108",
+          "00109",
+          "00110",
+          "00111",
+          "00112",
+          "00114",
+          "00115",
+          "00116",
+          "00117",
+          "00118",
+          "00119",
+          "00120"
+        ],
+        "unmatched_sku_refs": [
+          "00031",
+          "00057",
+          "00084",
+          "00099",
+          "00113"
+        ],
+        "unmatched_records": [
+          {
+            "line": 32,
+            "sku_ref": "00031",
+            "batch_no": "B2026581",
+            "mapped_id": "SKU-00031"
+          },
+          {
+            "line": 58,
+            "sku_ref": "00057",
+            "batch_no": "B2026657",
+            "mapped_id": "SKU-00057"
+          },
+          {
+            "line": 85,
+            "sku_ref": "00084",
+            "batch_no": "B2026584",
+            "mapped_id": "SKU-00084"
+          },
+          {
+            "line": 100,
+            "sku_ref": "00099",
+            "batch_no": "B2026319",
+            "mapped_id": "SKU-00099"
+          },
+          {
+            "line": 114,
+            "sku_ref": "00113",
+            "batch_no": "B2026793",
+            "mapped_id": "SKU-00113"
+          }
+        ],
+        "duplicate_target_groups": [],
+        "has_many_to_one": false
+      },
+      {
+        "id": "D",
+        "name": "sku_ref 去除前后空格并转大写后直接等于 sku_id",
+        "matched_count": 0,
+        "unmatched_count": 120,
+        "matched_sku_refs": [],
+        "unmatched_sku_refs": [
+          "00001",
+          "00002",
+          "00003",
+          "00004",
+          "00005",
+          "00006",
+          "00007",
+          "00008",
+          "00009",
+          "00010",
+          "00011",
+          "00012",
+          "00013",
+          "00014",
+          "00015",
+          "00016",
+          "00017",
+          "00018",
+          "00019",
+          "00020",
+          "00021",
+          "00022",
+          "00023",
+          "00024",
+          "00025",
+          "00026",
+          "00027",
+          "00028",
+          "00029",
+          "00030",
+          "00031",
+          "00032",
+          "00033",
+          "00034",
+          "00035",
+          "00036",
+          "00037",
+          "00038",
+          "00039",
+          "00040",
+          "00041",
+          "00042",
+          "00043",
+          "00044",
+          "00045",
+          "00046",
+          "00047",
+          "00048",
+          "00049",
+          "00050",
+          "00051",
+          "00052",
+          "00053",
+          "00054",
+          "00055",
+          "00056",
+          "00057",
+          "00058",
+          "00059",
+          "00060",
+          "00061",
+          "00062",
+          "00063",
+          "00064",
+          "00065",
+          "00066",
+          "00067",
+          "00068",
+          "00069",
+          "00070",
+          "00071",
+          "00072",
+          "00073",
+          "00074",
+          "00075",
+          "00076",
+          "00077",
+          "00078",
+          "00079",
+          "00080",
+          "00081",
+          "00082",
+          "00083",
+          "00084",
+          "00085",
+          "00086",
+          "00087",
+          "00088",
+          "00089",
+          "00090",
+          "00091",
+          "00092",
+          "00093",
+          "00094",
+          "00095",
+          "00096",
+          "00097",
+          "00098",
+          "00099",
+          "00100",
+          "00101",
+          "00102",
+          "00103",
+          "00104",
+          "00105",
+          "00106",
+          "00107",
+          "00108",
+          "00109",
+          "00110",
+          "00111",
+          "00112",
+          "00113",
+          "00114",
+          "00115",
+          "00116",
+          "00117",
+          "00118",
+          "00119",
+          "00120"
+        ],
+        "unmatched_records": [
+          {
+            "line": 2,
+            "sku_ref": "00001",
+            "batch_no": "B2026311",
+            "mapped_id": "00001"
+          },
+          {
+            "line": 3,
+            "sku_ref": "00002",
+            "batch_no": "B2026682",
+            "mapped_id": "00002"
+          },
+          {
+            "line": 4,
+            "sku_ref": "00003",
+            "batch_no": "B2026533",
+            "mapped_id": "00003"
+          },
+          {
+            "line": 5,
+            "sku_ref": "00004",
+            "batch_no": "B2026754",
+            "mapped_id": "00004"
+          },
+          {
+            "line": 6,
+            "sku_ref": "00005",
+            "batch_no": "B2026535",
+            "mapped_id": "00005"
+          },
+          {
+            "line": 7,
+            "sku_ref": "00006",
+            "batch_no": "B2026136",
+            "mapped_id": "00006"
+          },
+          {
+            "line": 8,
+            "sku_ref": "00007",
+            "batch_no": "B2026817",
+            "mapped_id": "00007"
+          },
+          {
+            "line": 9,
+            "sku_ref": "00008",
+            "batch_no": "B2026798",
+            "mapped_id": "00008"
+          },
+          {
+            "line": 10,
+            "sku_ref": "00009",
+            "batch_no": "B2026659",
+            "mapped_id": "00009"
+          },
+          {
+            "line": 11,
+            "sku_ref": "00010",
+            "batch_no": "B2026630",
+            "mapped_id": "00010"
+          },
+          {
+            "line": 12,
+            "sku_ref": "00011",
+            "batch_no": "B2026891",
+            "mapped_id": "00011"
+          },
+          {
+            "line": 13,
+            "sku_ref": "00012",
+            "batch_no": "B2026122",
+            "mapped_id": "00012"
+          },
+          {
+            "line": 14,
+            "sku_ref": "00013",
+            "batch_no": "B2026563",
+            "mapped_id": "00013"
+          },
+          {
+            "line": 15,
+            "sku_ref": "00014",
+            "batch_no": "B2026724",
+            "mapped_id": "00014"
+          },
+          {
+            "line": 16,
+            "sku_ref": "00015",
+            "batch_no": "B2026515",
+            "mapped_id": "00015"
+          },
+          {
+            "line": 17,
+            "sku_ref": "00016",
+            "batch_no": "B2026906",
+            "mapped_id": "00016"
+          },
+          {
+            "line": 18,
+            "sku_ref": "00017",
+            "batch_no": "B2026137",
+            "mapped_id": "00017"
+          },
+          {
+            "line": 19,
+            "sku_ref": "00018",
+            "batch_no": "B2026118",
+            "mapped_id": "00018"
+          },
+          {
+            "line": 20,
+            "sku_ref": "00019",
+            "batch_no": "B2026159",
+            "mapped_id": "00019"
+          },
+          {
+            "line": 21,
+            "sku_ref": "00020",
+            "batch_no": "B2026400",
+            "mapped_id": "00020"
+          },
+          {
+            "line": 22,
+            "sku_ref": "00021",
+            "batch_no": "B2026101",
+            "mapped_id": "00021"
+          },
+          {
+            "line": 23,
+            "sku_ref": "00022",
+            "batch_no": "B2026752",
+            "mapped_id": "00022"
+          },
+          {
+            "line": 24,
+            "sku_ref": "00023",
+            "batch_no": "B2026523",
+            "mapped_id": "00023"
+          },
+          {
+            "line": 25,
+            "sku_ref": "00024",
+            "batch_no": "B2026544",
+            "mapped_id": "00024"
+          },
+          {
+            "line": 26,
+            "sku_ref": "00025",
+            "batch_no": "B2026245",
+            "mapped_id": "00025"
+          },
+          {
+            "line": 27,
+            "sku_ref": "00026",
+            "batch_no": "B2026356",
+            "mapped_id": "00026"
+          },
+          {
+            "line": 28,
+            "sku_ref": "00027",
+            "batch_no": "B2026277",
+            "mapped_id": "00027"
+          },
+          {
+            "line": 29,
+            "sku_ref": "00028",
+            "batch_no": "B2026668",
+            "mapped_id": "00028"
+          },
+          {
+            "line": 30,
+            "sku_ref": "00029",
+            "batch_no": "B2026469",
+            "mapped_id": "00029"
+          },
+          {
+            "line": 31,
+            "sku_ref": "00030",
+            "batch_no": "B2026360",
+            "mapped_id": "00030"
+          },
+          {
+            "line": 32,
+            "sku_ref": "00031",
+            "batch_no": "B2026581",
+            "mapped_id": "00031"
+          },
+          {
+            "line": 33,
+            "sku_ref": "00032",
+            "batch_no": "B2026612",
+            "mapped_id": "00032"
+          },
+          {
+            "line": 34,
+            "sku_ref": "00033",
+            "batch_no": "B2026593",
+            "mapped_id": "00033"
+          },
+          {
+            "line": 35,
+            "sku_ref": "00034",
+            "batch_no": "B2026994",
+            "mapped_id": "00034"
+          },
+          {
+            "line": 36,
+            "sku_ref": "00035",
+            "batch_no": "B2026345",
+            "mapped_id": "00035"
+          },
+          {
+            "line": 37,
+            "sku_ref": "00036",
+            "batch_no": "B2026576",
+            "mapped_id": "00036"
+          },
+          {
+            "line": 38,
+            "sku_ref": "00037",
+            "batch_no": "B2026927",
+            "mapped_id": "00037"
+          },
+          {
+            "line": 39,
+            "sku_ref": "00038",
+            "batch_no": "B2026708",
+            "mapped_id": "00038"
+          },
+          {
+            "line": 40,
+            "sku_ref": "00039",
+            "batch_no": "B2026959",
+            "mapped_id": "00039"
+          },
+          {
+            "line": 41,
+            "sku_ref": "00040",
+            "batch_no": "B2026750",
+            "mapped_id": "00040"
+          },
+          {
+            "line": 42,
+            "sku_ref": "00041",
+            "batch_no": "B2026601",
+            "mapped_id": "00041"
+          },
+          {
+            "line": 43,
+            "sku_ref": "00042",
+            "batch_no": "B2026942",
+            "mapped_id": "00042"
+          },
+          {
+            "line": 44,
+            "sku_ref": "00043",
+            "batch_no": "B2026793",
+            "mapped_id": "00043"
+          },
+          {
+            "line": 45,
+            "sku_ref": "00044",
+            "batch_no": "B2026694",
+            "mapped_id": "00044"
+          },
+          {
+            "line": 46,
+            "sku_ref": "00045",
+            "batch_no": "B2026445",
+            "mapped_id": "00045"
+          },
+          {
+            "line": 47,
+            "sku_ref": "00046",
+            "batch_no": "B2026676",
+            "mapped_id": "00046"
+          },
+          {
+            "line": 48,
+            "sku_ref": "00047",
+            "batch_no": "B2026647",
+            "mapped_id": "00047"
+          },
+          {
+            "line": 49,
+            "sku_ref": "00048",
+            "batch_no": "B2026468",
+            "mapped_id": "00048"
+          },
+          {
+            "line": 50,
+            "sku_ref": "00049",
+            "batch_no": "B2026779",
+            "mapped_id": "00049"
+          },
+          {
+            "line": 51,
+            "sku_ref": "00050",
+            "batch_no": "B2026310",
+            "mapped_id": "00050"
+          },
+          {
+            "line": 52,
+            "sku_ref": "00051",
+            "batch_no": "B2026501",
+            "mapped_id": "00051"
+          },
+          {
+            "line": 53,
+            "sku_ref": "00052",
+            "batch_no": "B2026482",
+            "mapped_id": "00052"
+          },
+          {
+            "line": 54,
+            "sku_ref": "00053",
+            "batch_no": "B2026573",
+            "mapped_id": "00053"
+          },
+          {
+            "line": 55,
+            "sku_ref": "00054",
+            "batch_no": "B2026484",
+            "mapped_id": "00054"
+          },
+          {
+            "line": 56,
+            "sku_ref": "00055",
+            "batch_no": "B2026515",
+            "mapped_id": "00055"
+          },
+          {
+            "line": 57,
+            "sku_ref": "00056",
+            "batch_no": "B2026306",
+            "mapped_id": "00056"
+          },
+          {
+            "line": 58,
+            "sku_ref": "00057",
+            "batch_no": "B2026657",
+            "mapped_id": "00057"
+          },
+          {
+            "line": 59,
+            "sku_ref": "00058",
+            "batch_no": "B2026138",
+            "mapped_id": "00058"
+          },
+          {
+            "line": 60,
+            "sku_ref": "00059",
+            "batch_no": "B2026209",
+            "mapped_id": "00059"
+          },
+          {
+            "line": 61,
+            "sku_ref": "00060",
+            "batch_no": "B2026740",
+            "mapped_id": "00060"
+          },
+          {
+            "line": 62,
+            "sku_ref": "00061",
+            "batch_no": "B2026581",
+            "mapped_id": "00061"
+          },
+          {
+            "line": 63,
+            "sku_ref": "00062",
+            "batch_no": "B2026422",
+            "mapped_id": "00062"
+          },
+          {
+            "line": 64,
+            "sku_ref": "00063",
+            "batch_no": "B2026303",
+            "mapped_id": "00063"
+          },
+          {
+            "line": 65,
+            "sku_ref": "00064",
+            "batch_no": "B2026504",
+            "mapped_id": "00064"
+          },
+          {
+            "line": 66,
+            "sku_ref": "00065",
+            "batch_no": "B2026395",
+            "mapped_id": "00065"
+          },
+          {
+            "line": 67,
+            "sku_ref": "00066",
+            "batch_no": "B2026456",
+            "mapped_id": "00066"
+          },
+          {
+            "line": 68,
+            "sku_ref": "00067",
+            "batch_no": "B2026767",
+            "mapped_id": "00067"
+          },
+          {
+            "line": 69,
+            "sku_ref": "00068",
+            "batch_no": "B2026608",
+            "mapped_id": "00068"
+          },
+          {
+            "line": 70,
+            "sku_ref": "00069",
+            "batch_no": "B2026869",
+            "mapped_id": "00069"
+          },
+          {
+            "line": 71,
+            "sku_ref": "00070",
+            "batch_no": "B2026380",
+            "mapped_id": "00070"
+          },
+          {
+            "line": 72,
+            "sku_ref": "00071",
+            "batch_no": "B2026951",
+            "mapped_id": "00071"
+          },
+          {
+            "line": 73,
+            "sku_ref": "00072",
+            "batch_no": "B2026572",
+            "mapped_id": "00072"
+          },
+          {
+            "line": 74,
+            "sku_ref": "00073",
+            "batch_no": "B2026753",
+            "mapped_id": "00073"
+          },
+          {
+            "line": 75,
+            "sku_ref": "00074",
+            "batch_no": "B2026324",
+            "mapped_id": "00074"
+          },
+          {
+            "line": 76,
+            "sku_ref": "00075",
+            "batch_no": "B2026655",
+            "mapped_id": "00075"
+          },
+          {
+            "line": 77,
+            "sku_ref": "00076",
+            "batch_no": "B2026566",
+            "mapped_id": "00076"
+          },
+          {
+            "line": 78,
+            "sku_ref": "00077",
+            "batch_no": "B2026597",
+            "mapped_id": "00077"
+          },
+          {
+            "line": 79,
+            "sku_ref": "00078",
+            "batch_no": "B2026278",
+            "mapped_id": "00078"
+          },
+          {
+            "line": 80,
+            "sku_ref": "00079",
+            "batch_no": "B2026219",
+            "mapped_id": "00079"
+          },
+          {
+            "line": 81,
+            "sku_ref": "00080",
+            "batch_no": "B2026610",
+            "mapped_id": "00080"
+          },
+          {
+            "line": 82,
+            "sku_ref": "00081",
+            "batch_no": "B2026101",
+            "mapped_id": "00081"
+          },
+          {
+            "line": 83,
+            "sku_ref": "00082",
+            "batch_no": "B2026812",
+            "mapped_id": "00082"
+          },
+          {
+            "line": 84,
+            "sku_ref": "00083",
+            "batch_no": "B2026143",
+            "mapped_id": "00083"
+          },
+          {
+            "line": 85,
+            "sku_ref": "00084",
+            "batch_no": "B2026584",
+            "mapped_id": "00084"
+          },
+          {
+            "line": 86,
+            "sku_ref": "00085",
+            "batch_no": "B2026525",
+            "mapped_id": "00085"
+          },
+          {
+            "line": 87,
+            "sku_ref": "00086",
+            "batch_no": "B2026776",
+            "mapped_id": "00086"
+          },
+          {
+            "line": 88,
+            "sku_ref": "00087",
+            "batch_no": "B2026497",
+            "mapped_id": "00087"
+          },
+          {
+            "line": 89,
+            "sku_ref": "00088",
+            "batch_no": "B2026658",
+            "mapped_id": "00088"
+          },
+          {
+            "line": 90,
+            "sku_ref": "00089",
+            "batch_no": "B2026899",
+            "mapped_id": "00089"
+          },
+          {
+            "line": 91,
+            "sku_ref": "00090",
+            "batch_no": "B2026970",
+            "mapped_id": "00090"
+          },
+          {
+            "line": 92,
+            "sku_ref": "00091",
+            "batch_no": "B2026101",
+            "mapped_id": "00091"
+          },
+          {
+            "line": 93,
+            "sku_ref": "00092",
+            "batch_no": "B2026522",
+            "mapped_id": "00092"
+          },
+          {
+            "line": 94,
+            "sku_ref": "00093",
+            "batch_no": "B2026383",
+            "mapped_id": "00093"
+          },
+          {
+            "line": 95,
+            "sku_ref": "00094",
+            "batch_no": "B2026324",
+            "mapped_id": "00094"
+          },
+          {
+            "line": 96,
+            "sku_ref": "00095",
+            "batch_no": "B2026895",
+            "mapped_id": "00095"
+          },
+          {
+            "line": 97,
+            "sku_ref": "00096",
+            "batch_no": "B2026326",
+            "mapped_id": "00096"
+          },
+          {
+            "line": 98,
+            "sku_ref": "00097",
+            "batch_no": "B2026937",
+            "mapped_id": "00097"
+          },
+          {
+            "line": 99,
+            "sku_ref": "00098",
+            "batch_no": "B2026398",
+            "mapped_id": "00098"
+          },
+          {
+            "line": 100,
+            "sku_ref": "00099",
+            "batch_no": "B2026319",
+            "mapped_id": "00099"
+          },
+          {
+            "line": 101,
+            "sku_ref": "00100",
+            "batch_no": "B2026510",
+            "mapped_id": "00100"
+          },
+          {
+            "line": 102,
+            "sku_ref": "00101",
+            "batch_no": "B2026111",
+            "mapped_id": "00101"
+          },
+          {
+            "line": 103,
+            "sku_ref": "00102",
+            "batch_no": "B2026512",
+            "mapped_id": "00102"
+          },
+          {
+            "line": 104,
+            "sku_ref": "00103",
+            "batch_no": "B2026753",
+            "mapped_id": "00103"
+          },
+          {
+            "line": 105,
+            "sku_ref": "00104",
+            "batch_no": "B2026274",
+            "mapped_id": "00104"
+          },
+          {
+            "line": 106,
+            "sku_ref": "00105",
+            "batch_no": "B2026885",
+            "mapped_id": "00105"
+          },
+          {
+            "line": 107,
+            "sku_ref": "00106",
+            "batch_no": "B2026306",
+            "mapped_id": "00106"
+          },
+          {
+            "line": 108,
+            "sku_ref": "00107",
+            "batch_no": "B2026947",
+            "mapped_id": "00107"
+          },
+          {
+            "line": 109,
+            "sku_ref": "00108",
+            "batch_no": "B2026888",
+            "mapped_id": "00108"
+          },
+          {
+            "line": 110,
+            "sku_ref": "00109",
+            "batch_no": "B2026899",
+            "mapped_id": "00109"
+          },
+          {
+            "line": 111,
+            "sku_ref": "00110",
+            "batch_no": "B2026270",
+            "mapped_id": "00110"
+          },
+          {
+            "line": 112,
+            "sku_ref": "00111",
+            "batch_no": "B2026361",
+            "mapped_id": "00111"
+          },
+          {
+            "line": 113,
+            "sku_ref": "00112",
+            "batch_no": "B2026742",
+            "mapped_id": "00112"
+          },
+          {
+            "line": 114,
+            "sku_ref": "00113",
+            "batch_no": "B2026793",
+            "mapped_id": "00113"
+          },
+          {
+            "line": 115,
+            "sku_ref": "00114",
+            "batch_no": "B2026774",
+            "mapped_id": "00114"
+          },
+          {
+            "line": 116,
+            "sku_ref": "00115",
+            "batch_no": "B2026235",
+            "mapped_id": "00115"
+          },
+          {
+            "line": 117,
+            "sku_ref": "00116",
+            "batch_no": "B2026416",
+            "mapped_id": "00116"
+          },
+          {
+            "line": 118,
+            "sku_ref": "00117",
+            "batch_no": "B2026257",
+            "mapped_id": "00117"
+          },
+          {
+            "line": 119,
+            "sku_ref": "00118",
+            "batch_no": "B2026138",
+            "mapped_id": "00118"
+          },
+          {
+            "line": 120,
+            "sku_ref": "00119",
+            "batch_no": "B2026149",
+            "mapped_id": "00119"
+          },
+          {
+            "line": 121,
+            "sku_ref": "00120",
+            "batch_no": "B2026220",
+            "mapped_id": "00120"
+          }
+        ],
+        "duplicate_target_groups": [],
+        "has_many_to_one": false
+      }
+    ],
+    "chosen": {
+      "candidate_id": "B",
+      "method": "sku_ref 去除前后空格后加 \"SKU-\" 前缀",
+      "matched_count": 115,
+      "unmatched_count": 5,
+      "matched_sku_refs": [
+        "00001",
+        "00002",
+        "00003",
+        "00004",
+        "00005",
+        "00006",
+        "00007",
+        "00008",
+        "00009",
+        "00010",
+        "00011",
+        "00012",
+        "00013",
+        "00014",
+        "00015",
+        "00016",
+        "00017",
+        "00018",
+        "00019",
+        "00020",
+        "00021",
+        "00022",
+        "00023",
+        "00024",
+        "00025",
+        "00026",
+        "00027",
+        "00028",
+        "00029",
+        "00030",
+        "00032",
+        "00033",
+        "00034",
+        "00035",
+        "00036",
+        "00037",
+        "00038",
+        "00039",
+        "00040",
+        "00041",
+        "00042",
+        "00043",
+        "00044",
+        "00045",
+        "00046",
+        "00047",
+        "00048",
+        "00049",
+        "00050",
+        "00051",
+        "00052",
+        "00053",
+        "00054",
+        "00055",
+        "00056",
+        "00058",
+        "00059",
+        "00060",
+        "00061",
+        "00062",
+        "00063",
+        "00064",
+        "00065",
+        "00066",
+        "00067",
+        "00068",
+        "00069",
+        "00070",
+        "00071",
+        "00072",
+        "00073",
+        "00074",
+        "00075",
+        "00076",
+        "00077",
+        "00078",
+        "00079",
+        "00080",
+        "00081",
+        "00082",
+        "00083",
+        "00085",
+        "00086",
+        "00087",
+        "00088",
+        "00089",
+        "00090",
+        "00091",
+        "00092",
+        "00093",
+        "00094",
+        "00095",
+        "00096",
+        "00097",
+        "00098",
+        "00100",
+        "00101",
+        "00102",
+        "00103",
+        "00104",
+        "00105",
+        "00106",
+        "00107",
+        "00108",
+        "00109",
+        "00110",
+        "00111",
+        "00112",
+        "00114",
+        "00115",
+        "00116",
+        "00117",
+        "00118",
+        "00119",
+        "00120"
+      ],
+      "unmatched_records": [
+        {
+          "line": 32,
+          "sku_ref": "00031",
+          "batch_no": "B2026581",
+          "mapped_id": "SKU-00031"
+        },
+        {
+          "line": 58,
+          "sku_ref": "00057",
+          "batch_no": "B2026657",
+          "mapped_id": "SKU-00057"
+        },
+        {
+          "line": 85,
+          "sku_ref": "00084",
+          "batch_no": "B2026584",
+          "mapped_id": "SKU-00084"
+        },
+        {
+          "line": 100,
+          "sku_ref": "00099",
+          "batch_no": "B2026319",
+          "mapped_id": "SKU-00099"
+        },
+        {
+          "line": 114,
+          "sku_ref": "00113",
+          "batch_no": "B2026793",
+          "mapped_id": "SKU-00113"
+        }
+      ],
+      "duplicate_target_groups": []
+    },
+    "chosen_method_evidence": {
+      "db_id_format_distribution": {
+        "AAA-99999": 115
+      },
+      "csv_ref_format_distribution": {
+        "99999": 120
+      },
+      "direct_mapping_matches": 0,
+      "prefix_mapping_matches": 115,
+      "unmatched_after_prefix": [
+        {
+          "line": 32,
+          "sku_ref": "00031",
+          "batch_no": "B2026581",
+          "mapped_id": "SKU-00031"
+        },
+        {
+          "line": 58,
+          "sku_ref": "00057",
+          "batch_no": "B2026657",
+          "mapped_id": "SKU-00057"
+        },
+        {
+          "line": 85,
+          "sku_ref": "00084",
+          "batch_no": "B2026584",
+          "mapped_id": "SKU-00084"
+        },
+        {
+          "line": 100,
+          "sku_ref": "00099",
+          "batch_no": "B2026319",
+          "mapped_id": "SKU-00099"
+        },
+        {
+          "line": 114,
+          "sku_ref": "00113",
+          "batch_no": "B2026793",
+          "mapped_id": "SKU-00113"
+        }
+      ],
+      "all_db_ids_covered_by_list": true,
+      "db_ids_not_in_list": [],
+      "duplicate_target_groups": [],
+      "one_to_one": true,
+      "missing_numeric_ids": [
+        "00031",
+        "00057",
+        "00084",
+        "00099",
+        "00113"
+      ]
+    },
+    "missing_records": [
+      {
+        "line": 32,
+        "sku_ref": "00031",
+        "batch_no": "B2026581"
+      },
+      {
+        "line": 58,
+        "sku_ref": "00057",
+        "batch_no": "B2026657"
+      },
+      {
+        "line": 85,
+        "sku_ref": "00084",
+        "batch_no": "B2026584"
+      },
+      {
+        "line": 100,
+        "sku_ref": "00099",
+        "batch_no": "B2026319"
+      },
+      {
+        "line": 114,
+        "sku_ref": "00113",
+        "batch_no": "B2026793"
+      }
+    ],
+    "deleted_records": [
+      {
+        "line": 2,
+        "sku_ref": "00001",
+        "batch_no": "B2026311",
+        "sku_id": "SKU-00001",
+        "name": "初野家居套装经典款",
+        "category": "内衣",
+        "material": "棉",
+        "origin": "韩国",
+        "price": 178.97,
+        "currency": "KRW"
+      },
+      {
+        "line": 3,
+        "sku_ref": "00002",
+        "batch_no": "B2026682",
+        "sku_id": "SKU-00002",
+        "name": "木白衬衫经典款",
+        "category": "上衣",
+        "material": "羊绒",
+        "origin": "意大利",
+        "price": 99.15,
+        "currency": "EUR"
+      },
+      {
+        "line": 4,
+        "sku_ref": "00003",
+        "batch_no": "B2026533",
+        "sku_id": "SKU-00003",
+        "name": "鹿先休闲裤限量款",
+        "category": "裤装",
+        "material": "涤纶",
+        "origin": "土耳其",
+        "price": 209.64,
+        "currency": "EUR"
+      },
+      {
+        "line": 5,
+        "sku_ref": "00004",
+        "batch_no": "B2026754",
+        "sku_id": "SKU-00004",
+        "name": "鹿先连衣裙轻奢款",
+        "category": "裙装",
+        "material": "棉",
+        "origin": "土耳其",
+        "price": 249.33,
+        "currency": "EUR"
+      },
+      {
+        "line": 6,
+        "sku_ref": "00005",
+        "batch_no": "B2026535",
+        "sku_id": "SKU-00005",
+        "name": "青梧双肩包限量款",
+        "category": "箱包",
+        "material": "PU革",
+        "origin": "印度",
+        "price": 338.27,
+        "currency": "USD"
+      }
+    ],
+    "evaluated_sku_refs": [
+      "00006",
+      "00007",
+      "00008",
+      "00009",
+      "00010",
+      "00011",
+      "00012",
+      "00013",
+      "00014",
+      "00015",
+      "00016",
+      "00017",
+      "00018",
+      "00019",
+      "00020",
+      "00021",
+      "00022",
+      "00023",
+      "00024",
+      "00025",
+      "00026",
+      "00027",
+      "00028",
+      "00029",
+      "00030",
+      "00032",
+      "00033",
+      "00034",
+      "00035",
+      "00036",
+      "00037",
+      "00038",
+      "00039",
+      "00040",
+      "00041",
+      "00042",
+      "00043",
+      "00044",
+      "00045",
+      "00046",
+      "00047",
+      "00048",
+      "00049",
+      "00050",
+      "00051",
+      "00052",
+      "00053",
+      "00054",
+      "00055",
+      "00056",
+      "00058",
+      "00059",
+      "00060",
+      "00061",
+      "00062",
+      "00063",
+      "00064",
+      "00065",
+      "00066",
+      "00067",
+      "00068",
+      "00069",
+      "00070",
+      "00071",
+      "00072",
+      "00073",
+      "00074",
+      "00075",
+      "00076",
+      "00077",
+      "00078",
+      "00079",
+      "00080",
+      "00081",
+      "00082",
+      "00083",
+      "00085",
+      "00086",
+      "00087",
+      "00088",
+      "00089",
+      "00090",
+      "00091",
+      "00092",
+      "00093",
+      "00094",
+      "00095",
+      "00096",
+      "00097",
+      "00098",
+      "00100",
+      "00101",
+      "00102",
+      "00103",
+      "00104",
+      "00105",
+      "00106",
+      "00107",
+      "00108",
+      "00109",
+      "00110",
+      "00111",
+      "00112",
+      "00114",
+      "00115",
+      "00116",
+      "00117",
+      "00118",
+      "00119",
+      "00120"
+    ]
+  },
+  "status_counts": {
+    "N_input": 120,
+    "N_matched": 115,
+    "N_deleted": 5,
+    "N_missing": 5,
+    "N_evaluated": 110,
+    "db_total_rows": 115,
+    "matched_incl_deleted": 115,
+    "definitions": {
+      "N_input": "CSV 实际读取记录数（不含表头）",
+      "N_matched": "清单中能够关联到商品库的记录数，包含已下架商品",
+      "N_deleted": "清单中 is_deleted=1 的已下架商品数",
+      "N_missing": "清单中未能关联到商品库的商品数",
+      "N_evaluated": "清单中正常在售、可进入规则评估的商品数"
+    }
+  },
+  "equations": [
+    {
+      "name": "N_input = N_matched + N_missing",
+      "left": 120,
+      "right": 120,
+      "holds": true
+    },
+    {
+      "name": "N_matched = N_deleted + N_evaluated",
+      "left": 115,
+      "right": 115,
+      "holds": true
+    },
+    {
+      "name": "N_input = N_missing + N_deleted + N_evaluated",
+      "left": 120,
+      "right": 120,
+      "holds": true
+    }
+  ],
+  "rules": {
+    "rule_count": 10,
+    "rules": [
+      {
+        "rule_id": "CR-001",
+        "title": "真皮/牛皮/羊皮制品须提供濒危物种及皮革来源证明",
+        "applies_to_category": "鞋靴,箱包,配饰",
+        "category_tokens": [
+          "鞋靴",
+          "箱包",
+          "配饰"
+        ],
+        "material_keyword": "真皮|牛皮|羊皮",
+        "material_tokens": [
+          "真皮",
+          "牛皮",
+          "羊皮"
+        ],
+        "origin_keyword": "",
+        "severity": "待确认"
+      },
+      {
+        "rule_id": "CR-002",
+        "title": "PU革制品须在主图与详情页标注“人造革”",
+        "applies_to_category": "鞋靴,箱包,配饰",
+        "category_tokens": [
+          "鞋靴",
+          "箱包",
+          "配饰"
+        ],
+        "material_keyword": "PU革",
+        "material_tokens": [
+          "PU革"
+        ],
+        "origin_keyword": "",
+        "severity": "待确认"
+      },
+      {
+        "rule_id": "CR-003",
+        "title": "含羊毛/羊绒成分须附动物检疫证书",
+        "applies_to_category": "上衣,裤装,裙装,针织衫,配饰",
+        "category_tokens": [
+          "上衣",
+          "裤装",
+          "裙装",
+          "针织衫",
+          "配饰"
+        ],
+        "material_keyword": "羊毛|羊绒",
+        "material_tokens": [
+          "羊毛",
+          "羊绒"
+        ],
+        "origin_keyword": "",
+        "severity": "待确认"
+      },
+      {
+        "rule_id": "CR-004",
+        "title": "产地为限制国且材质为真皮的箱包禁止进口",
+        "applies_to_category": "箱包",
+        "category_tokens": [
+          "箱包"
+        ],
+        "material_keyword": "真皮",
+        "material_tokens": [
+          "真皮"
+        ],
+        "origin_keyword": "意大利",
+        "severity": "违规"
+      },
+      {
+        "rule_id": "CR-005",
+        "title": "合金/不锈钢仿真首饰须提供镍释放检测报告",
+        "applies_to_category": "配饰",
+        "category_tokens": [
+          "配饰"
+        ],
+        "material_keyword": "合金|不锈钢",
+        "material_tokens": [
+          "合金",
+          "不锈钢"
+        ],
+        "origin_keyword": "",
+        "severity": "待确认"
+      },
+      {
+        "rule_id": "CR-006",
+        "title": "纯棉贴身内衣须标注成分百分比与安全类别",
+        "applies_to_category": "内衣",
+        "category_tokens": [
+          "内衣"
+        ],
+        "material_keyword": "棉",
+        "material_tokens": [
+          "棉"
+        ],
+        "origin_keyword": "",
+        "severity": "待确认"
+      },
+      {
+        "rule_id": "CR-007",
+        "title": "再生涤纶内衣类商品禁售",
+        "applies_to_category": "内衣",
+        "category_tokens": [
+          "内衣"
+        ],
+        "material_keyword": "再生涤纶",
+        "material_tokens": [
+          "再生涤纶"
+        ],
+        "origin_keyword": "",
+        "severity": "违规"
+      },
+      {
+        "rule_id": "CR-008",
+        "title": "产地为越南的PU革鞋靴须附环保检测报告",
+        "applies_to_category": "鞋靴",
+        "category_tokens": [
+          "鞋靴"
+        ],
+        "material_keyword": "PU革",
+        "material_tokens": [
+          "PU革"
+        ],
+        "origin_keyword": "越南",
+        "severity": "待确认"
+      },
+      {
+        "rule_id": "CR-009",
+        "title": "合金箱包五金件须提供铅含量检测报告",
+        "applies_to_category": "箱包,配饰",
+        "category_tokens": [
+          "箱包",
+          "配饰"
+        ],
+        "material_keyword": "合金",
+        "material_tokens": [
+          "合金"
+        ],
+        "origin_keyword": "",
+        "severity": "待确认"
+      },
+      {
+        "rule_id": "CR-010",
+        "title": "牛皮鞋靴须标注头层/二层及鞣制方式",
+        "applies_to_category": "鞋靴",
+        "category_tokens": [
+          "鞋靴"
+        ],
+        "material_keyword": "牛皮",
+        "material_tokens": [
+          "牛皮"
+        ],
+        "origin_keyword": "",
+        "severity": "待确认"
+      }
+    ],
+    "severity_distribution": {
+      "待确认": 8,
+      "违规": 2
+    },
+    "severity_values": [
+      "待确认",
+      "违规"
+    ],
+    "unknown_severity_values": [],
+    "rule_id_duplicate_groups": [],
+    "null_or_blank_fields": {
+      "rule_id": [],
+      "title": [],
+      "applies_to_category": [],
+      "material_keyword": [],
+      "origin_keyword": [
+        "CR-001",
+        "CR-002",
+        "CR-003",
+        "CR-005",
+        "CR-006",
+        "CR-007",
+        "CR-009",
+        "CR-010"
+      ],
+      "severity": []
+    },
+    "separator_issues": [],
+    "category_union": [
+      "上衣",
+      "内衣",
+      "箱包",
+      "裙装",
+      "裤装",
+      "配饰",
+      "针织衫",
+      "鞋靴"
+    ],
+    "material_union": [
+      "PU革",
+      "不锈钢",
+      "再生涤纶",
+      "合金",
+      "棉",
+      "牛皮",
+      "真皮",
+      "羊毛",
+      "羊皮",
+      "羊绒"
+    ],
+    "origin_union": [
+      "意大利",
+      "越南"
+    ],
+    "category_dangling": [],
+    "material_dangling": [],
+    "origin_dangling": [],
+    "keyword_material_matches": {
+      "PU革": [
+        "PU革"
+      ],
+      "不锈钢": [
+        "不锈钢"
+      ],
+      "再生涤纶": [
+        "再生涤纶"
+      ],
+      "合金": [
+        "合金"
+      ],
+      "棉": [
+        "棉"
+      ],
+      "牛皮": [
+        "牛皮"
+      ],
+      "真皮": [
+        "真皮"
+      ],
+      "羊毛": [
+        "羊毛"
+      ],
+      "羊皮": [
+        "羊皮"
+      ],
+      "羊绒": [
+        "羊绒"
+      ]
+    },
+    "title_duplicate_groups": [],
+    "matching_spec": {
+      "category": "applies_to_category 按英文逗号分列后，sku.category 与其中任一项完全相等",
+      "material": "material_keyword 为空表示不限；否则按竖线分词，sku.material 包含任一关键词（子串包含）",
+      "origin": "origin_keyword 为空表示不限；否则 sku.origin 与规则值完全相等",
+      "combination": "类目、材质、产地三个条件同时满足，规则才生效",
+      "precedence": "多条命中取最严：违规 > 待确认；无命中为合规",
+      "normalization": "比较前建议对规则与商品字段做 strip；本数据无前后空格，规范化不改变结果"
+    }
+  },
+  "rates": {
+    "row_count": 5,
+    "rates": [
+      {
+        "currency": "CNY",
+        "rate_to_cny": 1.0
+      },
+      {
+        "currency": "EUR",
+        "rate_to_cny": 7.78
+      },
+      {
+        "currency": "JPY",
+        "rate_to_cny": 0.0476
+      },
+      {
+        "currency": "KRW",
+        "rate_to_cny": 0.0052
+      },
+      {
+        "currency": "USD",
+        "rate_to_cny": 7.12
+      }
+    ],
+    "duplicate_currencies": [],
+    "null_or_blank": [],
+    "non_positive_rates": [],
+    "non_finite_rates": [],
+    "currency_format_issues": [],
+    "cny_rate": 1.0,
+    "has_rmb_row": false,
+    "product_currencies": [
+      "CNY",
+      "EUR",
+      "JPY",
+      "KRW",
+      "USD"
+    ],
+    "missing_rates_for_product_currencies": [],
+    "unused_rates": [],
+    "per_currency": [
+      {
+        "currency": "CNY",
+        "product_count": 16,
+        "price_min": 25.78,
+        "price_max": 415.97,
+        "rate_to_cny": 1.0,
+        "converted_price_range_cny": {
+          "min": "25.78",
+          "max": "415.97"
+        }
+      },
+      {
+        "currency": "EUR",
+        "product_count": 39,
+        "price_min": 14.21,
+        "price_max": 413.92,
+        "rate_to_cny": 7.78,
+        "converted_price_range_cny": {
+          "min": "110.55",
+          "max": "3220.30"
+        }
+      },
+      {
+        "currency": "JPY",
+        "product_count": 12,
+        "price_min": 59.16,
+        "price_max": 378.51,
+        "rate_to_cny": 0.0476,
+        "converted_price_range_cny": {
+          "min": "2.82",
+          "max": "18.02"
+        }
+      },
+      {
+        "currency": "KRW",
+        "product_count": 10,
+        "price_min": 86.36,
+        "price_max": 409.85,
+        "rate_to_cny": 0.0052,
+        "converted_price_range_cny": {
+          "min": "0.45",
+          "max": "2.13"
+        }
+      },
+      {
+        "currency": "USD",
+        "product_count": 38,
+        "price_min": 36.03,
+        "price_max": 401.07,
+        "rate_to_cny": 7.12,
+        "converted_price_range_cny": {
+          "min": "256.53",
+          "max": "2855.62"
+        }
+      }
+    ],
+    "formula": "人民币价格 = 商品原价 × 对应币种的 rate_to_cny，结果保留两位小数"
+  },
+  "dictionary_differences": [
+    {
+      "表名": "sku_info",
+      "字段或定义": "is_deleted",
+      "数据字典描述": "未列出该字段",
+      "数据库实际情况": "存在 is_deleted INTEGER NOT NULL DEFAULT 0；110 条=0，5 条=1",
+      "差异类型": "遗漏",
+      "开发影响": "无法从字典识别已下架商品，可能把 5 条已下架商品当作正常商品评估",
+      "建议处理方式": "以 PRAGMA table_info 为准，使用 is_deleted=1 判定已下架"
+    },
+    {
+      "表名": "sku_info",
+      "字段或定义": "主键 / NOT NULL / 默认值 / 行数",
+      "数据字典描述": "仅列字段与类型，未说明约束和行数",
+      "数据库实际情况": "sku_id 为主键；7 个原字段均 NOT NULL；共 115 行",
+      "差异类型": "遗漏",
+      "开发影响": "低；但会影响空值处理与数据量预期",
+      "建议处理方式": "以 database_schema.json 为准，代码中显式校验行数与空值"
+    },
+    {
+      "表名": "compliance_rules",
+      "字段或定义": "risk_level / severity",
+      "数据字典描述": "risk_level TEXT，风险等级（违规 / 待确认）",
+      "数据库实际情况": "实际列名为 severity TEXT NOT NULL；10 条规则中 8 条待确认、2 条违规",
+      "差异类型": "错误",
+      "开发影响": "按字典写 SELECT risk_level 会直接报错，规则引擎无法运行",
+      "建议处理方式": "统一使用 severity，并在代码中校验取值属于 {待确认, 违规}"
+    },
+    {
+      "表名": "compliance_rules",
+      "字段或定义": "主键 / NOT NULL / 空值表示",
+      "数据字典描述": "未说明主键与 NOT NULL；空为不限",
+      "数据库实际情况": "rule_id 为主键；title/applies_to_category/severity NOT NULL；material_keyword、origin_keyword 可空；实际 origin_keyword 有 8 条为空字符串（非 NULL）",
+      "差异类型": "遗漏",
+      "开发影响": "若只判断 IS NULL 会漏掉空字符串，导致“不限”条件判断错误",
+      "建议处理方式": "用 strip 后为空判断“不限”，同时兼容 NULL 与空字符串"
+    },
+    {
+      "表名": "exchange_rates",
+      "字段或定义": "currency（人民币代码）",
+      "数据字典描述": "人民币统一使用 RMB",
+      "数据库实际情况": "实际为 CNY，rate_to_cny=1.0；无 RMB 行",
+      "差异类型": "错误",
+      "开发影响": "按字典查 RMB 会缺失人民币汇率，导致 CNY 商品无法换算或报错",
+      "建议处理方式": "使用数据库实际值 CNY；汇率读取后校验商品币种全覆盖"
+    },
+    {
+      "表名": "exchange_rates",
+      "字段或定义": "主键 / NOT NULL / 行数",
+      "数据字典描述": "仅列字段与类型",
+      "数据库实际情况": "currency 为主键、rate_to_cny NOT NULL；共 5 行（CNY/EUR/JPY/KRW/USD）",
+      "差异类型": "遗漏",
+      "开发影响": "低；但缺少汇率完整性校验依据",
+      "建议处理方式": "以 schema JSON 为准，运行时检查商品币种是否全部有汇率"
+    },
+    {
+      "表名": "sku_list.csv ↔ sku_info",
+      "字段或定义": "sku_ref 与 sku_id 的关联方式",
+      "数据字典描述": "sku_ref 即 sku_info.sku_id，按此关联即可",
+      "数据库实际情况": "直接相等匹配 0/120；strip + SKU- 前缀匹配 115/120，5 条缺失",
+      "差异类型": "错误",
+      "开发影响": "按字典实现会导致全部清单记录匹配失败，输出 120 条“未找到”",
+      "建议处理方式": "实现前缀映射并保留原始 sku_ref；对 5 条缺失单独标注"
+    },
+    {
+      "表名": "compliance_rules",
+      "字段或定义": "风险等级取值分布",
+      "数据字典描述": "风险等级（违规 / 待确认），未给出数量",
+      "数据库实际情况": "8 条待确认、2 条违规；无其他取值",
+      "差异类型": "一致（已核实）",
+      "开发影响": "无；可作为风险优先级的合法输入集合",
+      "建议处理方式": "代码中对未知 severity 直接报错，避免静默降级"
+    },
+    {
+      "表名": "sku_info",
+      "字段或定义": "category / currency 枚举",
+      "数据字典描述": "8 个类目；CNY/USD/EUR/JPY/KRW",
+      "数据库实际情况": "8 个类目均出现；5 种币种均出现，共 115 行",
+      "差异类型": "一致（已核实）",
+      "开发影响": "无",
+      "建议处理方式": "无需特殊处理；保留枚举校验"
+    },
+    {
+      "表名": "全库",
+      "字段或定义": "表数量与表名",
+      "数据字典描述": "3 张表：sku_info、compliance_rules、exchange_rates",
+      "数据库实际情况": "3 张表，名称一致；无视图",
+      "差异类型": "一致（已核实）",
+      "开发影响": "无",
+      "建议处理方式": "无需处理"
+    }
+  ],
+  "anomalies": {
+    "total": 29,
+    "by_type": {
+      "批次号重复（非 SKU 重复）": 9,
+      "库中缺失": 5,
+      "数据字典差异": 5,
+      "状态记录-已下架": 5,
+      "种子代码缺陷": 3,
+      "价格量级待确认": 1,
+      "编号格式差异（系统性）": 1
+    },
+    "by_severity": {
+      "P0": 7,
+      "P1": 6,
+      "P2": 2,
+      "信息": 5,
+      "提示": 9
+    },
+    "items": [
+      {
+        "异常类型": "编号格式差异（系统性）",
+        "严重级别": "P0",
+        "来源文件或数据表": "sku_list.csv ↔ sku_info",
+        "行号/主键": "全表",
+        "原始标识": "全部 120 条清单记录",
+        "字段名": "sku_ref / sku_id",
+        "原始值": "清单示例：00001；数据库示例：SKU-00001",
+        "问题描述": "清单 sku_ref 为 5 位数字，数据库 sku_id 为 SKU- + 5 位数字；直接相等仅匹配 0/120，加前缀后匹配 115/120。",
+        "处理建议": "第二阶段统一采用 strip + \"SKU-\" 前缀映射，并校验格式；保留原始 sku_ref。",
+        "序号": 1
+      },
+      {
+        "异常类型": "库中缺失",
+        "严重级别": "P1",
+        "来源文件或数据表": "sku_list.csv",
+        "行号/主键": 32,
+        "原始标识": "00031",
+        "字段名": "sku_ref",
+        "原始值": "00031",
+        "问题描述": "CSV 第 32 行；按 SKU- 前缀映射后在 sku_info 中不存在，应标注“库中缺失”，不得静默丢弃。",
+        "处理建议": "报告中保留该行，处置结果=库中缺失，商品字段填“—”，不参与规则评估与价格换算，并计入完整性自检。",
+        "序号": 2
+      },
+      {
+        "异常类型": "库中缺失",
+        "严重级别": "P1",
+        "来源文件或数据表": "sku_list.csv",
+        "行号/主键": 58,
+        "原始标识": "00057",
+        "字段名": "sku_ref",
+        "原始值": "00057",
+        "问题描述": "CSV 第 58 行；按 SKU- 前缀映射后在 sku_info 中不存在，应标注“库中缺失”，不得静默丢弃。",
+        "处理建议": "报告中保留该行，处置结果=库中缺失，商品字段填“—”，不参与规则评估与价格换算，并计入完整性自检。",
+        "序号": 3
+      },
+      {
+        "异常类型": "库中缺失",
+        "严重级别": "P1",
+        "来源文件或数据表": "sku_list.csv",
+        "行号/主键": 85,
+        "原始标识": "00084",
+        "字段名": "sku_ref",
+        "原始值": "00084",
+        "问题描述": "CSV 第 85 行；按 SKU- 前缀映射后在 sku_info 中不存在，应标注“库中缺失”，不得静默丢弃。",
+        "处理建议": "报告中保留该行，处置结果=库中缺失，商品字段填“—”，不参与规则评估与价格换算，并计入完整性自检。",
+        "序号": 4
+      },
+      {
+        "异常类型": "库中缺失",
+        "严重级别": "P1",
+        "来源文件或数据表": "sku_list.csv",
+        "行号/主键": 100,
+        "原始标识": "00099",
+        "字段名": "sku_ref",
+        "原始值": "00099",
+        "问题描述": "CSV 第 100 行；按 SKU- 前缀映射后在 sku_info 中不存在，应标注“库中缺失”，不得静默丢弃。",
+        "处理建议": "报告中保留该行，处置结果=库中缺失，商品字段填“—”，不参与规则评估与价格换算，并计入完整性自检。",
+        "序号": 5
+      },
+      {
+        "异常类型": "库中缺失",
+        "严重级别": "P1",
+        "来源文件或数据表": "sku_list.csv",
+        "行号/主键": 114,
+        "原始标识": "00113",
+        "字段名": "sku_ref",
+        "原始值": "00113",
+        "问题描述": "CSV 第 114 行；按 SKU- 前缀映射后在 sku_info 中不存在，应标注“库中缺失”，不得静默丢弃。",
+        "处理建议": "报告中保留该行，处置结果=库中缺失，商品字段填“—”，不参与规则评估与价格换算，并计入完整性自检。",
+        "序号": 6
+      },
+      {
+        "异常类型": "状态记录-已下架",
+        "严重级别": "信息",
+        "来源文件或数据表": "sku_info",
+        "行号/主键": 2,
+        "原始标识": "SKU-00001",
+        "字段名": "is_deleted",
+        "原始值": "1",
+        "问题描述": "CSV 第 2 行；商品 初野家居套装经典款 的 is_deleted=1，应跳过规则评估并标注“已下架”。",
+        "处理建议": "报告中处置结果=已下架；不参与风险统计与实际评估数；保留商品基本信息及原价币种。",
+        "序号": 7
+      },
+      {
+        "异常类型": "状态记录-已下架",
+        "严重级别": "信息",
+        "来源文件或数据表": "sku_info",
+        "行号/主键": 3,
+        "原始标识": "SKU-00002",
+        "字段名": "is_deleted",
+        "原始值": "1",
+        "问题描述": "CSV 第 3 行；商品 木白衬衫经典款 的 is_deleted=1，应跳过规则评估并标注“已下架”。",
+        "处理建议": "报告中处置结果=已下架；不参与风险统计与实际评估数；保留商品基本信息及原价币种。",
+        "序号": 8
+      },
+      {
+        "异常类型": "状态记录-已下架",
+        "严重级别": "信息",
+        "来源文件或数据表": "sku_info",
+        "行号/主键": 4,
+        "原始标识": "SKU-00003",
+        "字段名": "is_deleted",
+        "原始值": "1",
+        "问题描述": "CSV 第 4 行；商品 鹿先休闲裤限量款 的 is_deleted=1，应跳过规则评估并标注“已下架”。",
+        "处理建议": "报告中处置结果=已下架；不参与风险统计与实际评估数；保留商品基本信息及原价币种。",
+        "序号": 9
+      },
+      {
+        "异常类型": "状态记录-已下架",
+        "严重级别": "信息",
+        "来源文件或数据表": "sku_info",
+        "行号/主键": 5,
+        "原始标识": "SKU-00004",
+        "字段名": "is_deleted",
+        "原始值": "1",
+        "问题描述": "CSV 第 5 行；商品 鹿先连衣裙轻奢款 的 is_deleted=1，应跳过规则评估并标注“已下架”。",
+        "处理建议": "报告中处置结果=已下架；不参与风险统计与实际评估数；保留商品基本信息及原价币种。",
+        "序号": 10
+      },
+      {
+        "异常类型": "状态记录-已下架",
+        "严重级别": "信息",
+        "来源文件或数据表": "sku_info",
+        "行号/主键": 6,
+        "原始标识": "SKU-00005",
+        "字段名": "is_deleted",
+        "原始值": "1",
+        "问题描述": "CSV 第 6 行；商品 青梧双肩包限量款 的 is_deleted=1，应跳过规则评估并标注“已下架”。",
+        "处理建议": "报告中处置结果=已下架；不参与风险统计与实际评估数；保留商品基本信息及原价币种。",
+        "序号": 11
+      },
+      {
+        "异常类型": "批次号重复（非 SKU 重复）",
+        "严重级别": "提示",
+        "来源文件或数据表": "sku_list.csv",
+        "行号/主键": "16, 56",
+        "原始标识": "B2026515",
+        "字段名": "batch_no",
+        "原始值": "B2026515",
+        "问题描述": "批次号重复 2 次，出现在第 16, 56 行，对应不同 sku_ref：00015, 00055。",
+        "处理建议": "batch_no 仅记录用；不得按 batch_no 去重，也不得据此判定 SKU 重复；按 sku_ref 逐行处理。",
+        "序号": 12
+      },
+      {
+        "异常类型": "批次号重复（非 SKU 重复）",
+        "严重级别": "提示",
+        "来源文件或数据表": "sku_list.csv",
+        "行号/主键": "22, 82, 92",
+        "原始标识": "B2026101",
+        "字段名": "batch_no",
+        "原始值": "B2026101",
+        "问题描述": "批次号重复 3 次，出现在第 22, 82, 92 行，对应不同 sku_ref：00021, 00081, 00091。",
+        "处理建议": "batch_no 仅记录用；不得按 batch_no 去重，也不得据此判定 SKU 重复；按 sku_ref 逐行处理。",
+        "序号": 13
+      },
+      {
+        "异常类型": "批次号重复（非 SKU 重复）",
+        "严重级别": "提示",
+        "来源文件或数据表": "sku_list.csv",
+        "行号/主键": "32, 62",
+        "原始标识": "B2026581",
+        "字段名": "batch_no",
+        "原始值": "B2026581",
+        "问题描述": "批次号重复 2 次，出现在第 32, 62 行，对应不同 sku_ref：00031, 00061。",
+        "处理建议": "batch_no 仅记录用；不得按 batch_no 去重，也不得据此判定 SKU 重复；按 sku_ref 逐行处理。",
+        "序号": 14
+      },
+      {
+        "异常类型": "批次号重复（非 SKU 重复）",
+        "严重级别": "提示",
+        "来源文件或数据表": "sku_list.csv",
+        "行号/主键": "44, 114",
+        "原始标识": "B2026793",
+        "字段名": "batch_no",
+        "原始值": "B2026793",
+        "问题描述": "批次号重复 2 次，出现在第 44, 114 行，对应不同 sku_ref：00043, 00113。",
+        "处理建议": "batch_no 仅记录用；不得按 batch_no 去重，也不得据此判定 SKU 重复；按 sku_ref 逐行处理。",
+        "序号": 15
+      },
+      {
+        "异常类型": "批次号重复（非 SKU 重复）",
+        "严重级别": "提示",
+        "来源文件或数据表": "sku_list.csv",
+        "行号/主键": "57, 107",
+        "原始标识": "B2026306",
+        "字段名": "batch_no",
+        "原始值": "B2026306",
+        "问题描述": "批次号重复 2 次，出现在第 57, 107 行，对应不同 sku_ref：00056, 00106。",
+        "处理建议": "batch_no 仅记录用；不得按 batch_no 去重，也不得据此判定 SKU 重复；按 sku_ref 逐行处理。",
+        "序号": 16
+      },
+      {
+        "异常类型": "批次号重复（非 SKU 重复）",
+        "严重级别": "提示",
+        "来源文件或数据表": "sku_list.csv",
+        "行号/主键": "59, 119",
+        "原始标识": "B2026138",
+        "字段名": "batch_no",
+        "原始值": "B2026138",
+        "问题描述": "批次号重复 2 次，出现在第 59, 119 行，对应不同 sku_ref：00058, 00118。",
+        "处理建议": "batch_no 仅记录用；不得按 batch_no 去重，也不得据此判定 SKU 重复；按 sku_ref 逐行处理。",
+        "序号": 17
+      },
+      {
+        "异常类型": "批次号重复（非 SKU 重复）",
+        "严重级别": "提示",
+        "来源文件或数据表": "sku_list.csv",
+        "行号/主键": "74, 104",
+        "原始标识": "B2026753",
+        "字段名": "batch_no",
+        "原始值": "B2026753",
+        "问题描述": "批次号重复 2 次，出现在第 74, 104 行，对应不同 sku_ref：00073, 00103。",
+        "处理建议": "batch_no 仅记录用；不得按 batch_no 去重，也不得据此判定 SKU 重复；按 sku_ref 逐行处理。",
+        "序号": 18
+      },
+      {
+        "异常类型": "批次号重复（非 SKU 重复）",
+        "严重级别": "提示",
+        "来源文件或数据表": "sku_list.csv",
+        "行号/主键": "75, 95",
+        "原始标识": "B2026324",
+        "字段名": "batch_no",
+        "原始值": "B2026324",
+        "问题描述": "批次号重复 2 次，出现在第 75, 95 行，对应不同 sku_ref：00074, 00094。",
+        "处理建议": "batch_no 仅记录用；不得按 batch_no 去重，也不得据此判定 SKU 重复；按 sku_ref 逐行处理。",
+        "序号": 19
+      },
+      {
+        "异常类型": "批次号重复（非 SKU 重复）",
+        "严重级别": "提示",
+        "来源文件或数据表": "sku_list.csv",
+        "行号/主键": "90, 110",
+        "原始标识": "B2026899",
+        "字段名": "batch_no",
+        "原始值": "B2026899",
+        "问题描述": "批次号重复 2 次，出现在第 90, 110 行，对应不同 sku_ref：00089, 00109。",
+        "处理建议": "batch_no 仅记录用；不得按 batch_no 去重，也不得据此判定 SKU 重复；按 sku_ref 逐行处理。",
+        "序号": 20
+      },
+      {
+        "异常类型": "数据字典差异",
+        "严重级别": "P0",
+        "来源文件或数据表": "data-dictionary.md ↔ compliance_rules",
+        "行号/主键": "规则表全表",
+        "原始标识": "compliance_rules.risk_level",
+        "字段名": "risk_level / severity",
+        "原始值": "字典：risk_level；实际：severity",
+        "问题描述": "规则表实际风险字段名为 severity，字典写成 risk_level；按字典写 SQL 会因列不存在而失败。",
+        "处理建议": "第二阶段一律使用 severity；同时在 README 中记录该差异。",
+        "序号": 21
+      },
+      {
+        "异常类型": "数据字典差异",
+        "严重级别": "P0",
+        "来源文件或数据表": "data-dictionary.md ↔ sku_info",
+        "行号/主键": "商品表全表",
+        "原始标识": "sku_info.is_deleted",
+        "字段名": "is_deleted",
+        "原始值": "字典未列出该字段",
+        "问题描述": "实际 sku_info 存在 is_deleted INTEGER NOT NULL DEFAULT 0，110 条为 0、5 条为 1；字典完全遗漏。",
+        "处理建议": "第二阶段使用 is_deleted=1 判定已下架，并在 README/踩坑说明中说明该字段来源与取值。",
+        "序号": 22
+      },
+      {
+        "异常类型": "数据字典差异",
+        "严重级别": "P1",
+        "来源文件或数据表": "data-dictionary.md ↔ exchange_rates",
+        "行号/主键": "汇率表全表",
+        "原始标识": "exchange_rates.currency",
+        "字段名": "currency",
+        "原始值": "字典：人民币使用 RMB；实际：CNY",
+        "问题描述": "汇率表实际人民币代码为 CNY（rate_to_cny=1.0），无 RMB 行；按字典查 RMB 会查不到。",
+        "处理建议": "第二阶段使用数据库实际币种代码 CNY；不要硬编码 RMB。",
+        "序号": 23
+      },
+      {
+        "异常类型": "数据字典差异",
+        "严重级别": "P0",
+        "来源文件或数据表": "data-dictionary.md ↔ sku_list.csv",
+        "行号/主键": "120 条清单",
+        "原始标识": "sku_ref = sku_id 直接关联",
+        "字段名": "sku_ref / sku_id",
+        "原始值": "字典：按此关联即可；实际直接匹配 0/120",
+        "问题描述": "字典第 4 节声称 sku_ref 即 sku_id 可直接关联，与实际格式不一致；直接相等匹配 0 条，加 SKU- 前缀匹配 115 条。",
+        "处理建议": "第二阶段实现并测试前缀映射；将字典该条标记为错误。",
+        "序号": 24
+      },
+      {
+        "异常类型": "数据字典差异",
+        "严重级别": "P2",
+        "来源文件或数据表": "data-dictionary.md",
+        "行号/主键": "全库",
+        "原始标识": "约束与记录数",
+        "字段名": "PK / NOT NULL / 默认值 / 行数",
+        "原始值": "字典未说明",
+        "问题描述": "字典未记录主键、NOT NULL、默认值及行数；实际 sku_info 115 行、rules 10 行、rates 5 行。",
+        "处理建议": "以 database_schema.json 为准确认约束；文档中补充真实行数与约束。",
+        "序号": 25
+      },
+      {
+        "异常类型": "价格量级待确认",
+        "严重级别": "P2",
+        "来源文件或数据表": "sku_info + exchange_rates",
+        "行号/主键": "按币种汇总",
+        "原始标识": "低价币种商品",
+        "字段名": "price / currency",
+        "原始值": "JPY：原价 59.16–378.51，换算后 2.82–18.02 CNY；KRW：原价 86.36–409.85，换算后 0.45–2.13 CNY",
+        "问题描述": "这些币种商品换算后金额极低，疑似合成数据或价格单位与币种不匹配；不影响按题目公式换算的正确性，但影响报告金额的业务合理性。",
+        "处理建议": "按题目公式照常换算；向出题方确认价格单位，不得自行改价或改汇率。",
+        "序号": 26
+      },
+      {
+        "异常类型": "种子代码缺陷",
+        "严重级别": "P0",
+        "来源文件或数据表": "seed.py",
+        "行号/主键": "23",
+        "原始标识": "第 23 行",
+        "字段名": "sku_ref 查询条件",
+        "原始值": "WHERE sku_id = row[\"sku_ref\"]",
+        "问题描述": "直接拿 5 位数字 sku_ref 查 SKU- 前缀主键，120 条全部查不到；后续会被当作“(未找到)”而非规范处置。",
+        "处理建议": "改为前缀映射，并对映射失败单独标记“库中缺失”。",
+        "序号": 27
+      },
+      {
+        "异常类型": "种子代码缺陷",
+        "严重级别": "P0",
+        "来源文件或数据表": "seed.py",
+        "行号/主键": "26-28",
+        "原始标识": "第 26–28 行",
+        "字段名": "TODO",
+        "原始值": "规则匹配 / 汇率换算 / 缺失处理均未实现",
+        "问题描述": "核心合规逻辑全部缺失，风险固定输出“待补充”，不属于题目允许的三档风险。",
+        "处理建议": "第二阶段按模块实现规则引擎、价格模块、报告模块，并加入测试。",
+        "序号": 28
+      },
+      {
+        "异常类型": "种子代码缺陷",
+        "严重级别": "P0",
+        "来源文件或数据表": "seed.py",
+        "行号/主键": "37-38",
+        "原始标识": "第 37–38 行",
+        "字段名": "异常处理",
+        "原始值": "except Exception: pass",
+        "问题描述": "任何单条异常都被静默吞掉，记录不会进入 report，违反“不允许静默丢失”；数据库/表缺失时也会输出 0 条而不报错。",
+        "处理建议": "移除裸 except；逐条捕获并记录到异常清单，最终校验读取数=输入数。",
+        "序号": 29
+      }
+    ]
+  },
+  "findings": [
+    {
+      "id": "P0-01",
+      "severity": "P0",
+      "title": "sku_ref 与 sku_id 格式不一致，直接相等匹配 0/120",
+      "evidence": "CSV 全部为 5 位数字；数据库全部为 SKU- + 5 位数字；直接匹配 0，加前缀匹配 115。",
+      "impact": "按字典/种子代码直接关联会导致所有商品匹配失败，报告全部变成“未找到”。"
+    },
+    {
+      "id": "P0-02",
+      "severity": "P0",
+      "title": "数据字典遗漏 is_deleted，已下架状态无法从字典得知",
+      "evidence": "sku_info 实际有 is_deleted INTEGER NOT NULL DEFAULT 0；110 条=0、5 条=1；字典 7 列中无此列。",
+      "impact": "不处理该字段会把 5 条已下架商品当作正常在售并错误评估风险/价格。"
+    },
+    {
+      "id": "P0-03",
+      "severity": "P0",
+      "title": "规则风险字段实际为 severity，字典写成 risk_level",
+      "evidence": "PRAGMA table_info(compliance_rules) 显示 severity TEXT NOT NULL；字典写 risk_level。",
+      "impact": "按字典编码会在查询时报 no such column，规则引擎无法运行。"
+    },
+    {
+      "id": "P0-04",
+      "severity": "P0",
+      "title": "seed.py 核心逻辑未实现，且输出不符合三档风险要求",
+      "evidence": "第 26–28 行三个 TODO；风险固定为“待补充”；无报告文件、无汇总、无完整性自检。",
+      "impact": "原样运行无法满足任何一条验收标准，不能作为交付基础。"
+    },
+    {
+      "id": "P0-05",
+      "severity": "P0",
+      "title": "seed.py 裸 except 静默吞掉单条失败",
+      "evidence": "第 37–38 行 except Exception: pass；异常记录不会进入 report，最终只打印数量。",
+      "impact": "输入记录可能静默丢失，违反“不允许静默丢失”的硬性验收条件。"
+    },
+    {
+      "id": "P1-01",
+      "severity": "P1",
+      "title": "人民币币种代码字典写 RMB、实际为 CNY",
+      "evidence": "exchange_rates 实际行：CNY 1.0、EUR 7.78、JPY 0.0476、KRW 0.0052、USD 7.12；无 RMB。",
+      "impact": "按字典查 RMB 会缺少人民币汇率；CNY 商品可能无法换算。"
+    },
+    {
+      "id": "P1-02",
+      "severity": "P1",
+      "title": "“在库数”口径存在歧义：115（可关联，含下架）还是 110（在售）",
+      "evidence": "清单 120 条；可关联商品库 115 条（含已下架 5 条）；实际评估 110 条。",
+      "impact": "完整性自检五个数字若口径不一致，会被判定为对不上账；必须在报告中写清定义并同时展示等式。"
+    },
+    {
+      "id": "P1-03",
+      "severity": "P1",
+      "title": "缺失/已下架商品在明细区的价格、风险、规则字段取值未定义",
+      "evidence": "题目只规定缺失商品名称等填“—”，未规定原价/人民币价/风险标记/依据规则如何填；已下架商品是否展示价格也未说明。",
+      "impact": "不同实现会给出不同表格，影响验收一致性；需在 README 中明确口径。"
+    },
+    {
+      "id": "P1-04",
+      "severity": "P1",
+      "title": "金额舍入方式未明确",
+      "evidence": "题目仅要求保留 2 位小数，未说明四舍五入或银行家舍入；浮点直接 round 还可能引入二进制误差。",
+      "impact": "边界金额可能出现 0.01 差异；建议 Decimal + ROUND_HALF_UP 并写入 README。"
+    },
+    {
+      "id": "P1-05",
+      "severity": "P1",
+      "title": "批次号重复容易被误判为 SKU 重复",
+      "evidence": "120 条记录中 sku_ref 无重复，但 9 个批次号重复、涉及 19 条记录。",
+      "impact": "若按 batch_no 去重会丢失记录，破坏 120 条完整性；batch_no 仅记录用。"
+    },
+    {
+      "id": "P2-01",
+      "severity": "P2",
+      "title": "数据字典未记录约束、默认值与真实行数",
+      "evidence": "字典只列字段名和类型；实际有 PK、NOT NULL、DEFAULT 0，sku_info 115 行。",
+      "impact": "文档可维护性差，空值与数据量假设容易出错。"
+    },
+    {
+      "id": "P2-02",
+      "severity": "P2",
+      "title": "JPY/KRW 商品价格量级明显偏低，疑似合成数据或单位不匹配",
+      "evidence": "KRW 原价 86.36–409.85，换算后约 0.45–2.13 CNY；JPY 原价 59.16–378.51，换算后约 2.82–18.02 CNY。",
+      "impact": "不影响按公式换算，但报告金额的业务合理性存疑；需业务确认，不得自行改价。"
+    },
+    {
+      "id": "P2-03",
+      "severity": "P2",
+      "title": "Top 风险类目的统计口径与展示数量未定义",
+      "evidence": "题目只要求汇总区包含“Top 风险类目”，未说明按违规数、待确认数还是加权，也未说明 Top N。",
+      "impact": "不同实现结果不可比；建议在 README 中固定口径（如按违规数降序、同分按待确认数、取前 5）。"
+    }
+  ],
+  "open_questions": [
+    {
+      "id": "Q1",
+      "question": "is_deleted=1 是否就是题目所说的“已下架”？",
+      "why": "数据库无 CHECK 约束，数据字典未记录该字段；只能依据字段名、取值分布和题目语境推断。",
+      "current_assumption": "高置信度按 1=已下架处理：110 条 0、5 条 1，且 5 条均在清单中。",
+      "impact": "若语义不同，N_deleted/N_evaluated 会改变。"
+    },
+    {
+      "id": "Q2",
+      "question": "完整性自检中的“在库数”指可关联商品库的记录数（含已下架，115），还是在售可评估数（110）？",
+      "why": "题目只给五个数字名称，未给公式；两种常见口径都能自洽，但数值不同。",
+      "current_assumption": "采用审计定义：在库数=可关联记录数（含已下架）=115；另展示 N_evaluated=110 与两条等式。",
+      "impact": "口径写错会被认为五个数字对不上账。"
+    },
+    {
+      "id": "Q3",
+      "question": "人民币价格保留两位小数时采用哪种舍入方式？",
+      "why": "题目未说明；Python 内置 round 为银行家舍入，且浮点乘法可能有二进制误差。",
+      "current_assumption": "建议 Decimal(str(price)) × Decimal(str(rate)) 后 ROUND_HALF_UP。",
+      "impact": "仅影响边界分值，可能产生 0.01 差异。"
+    },
+    {
+      "id": "Q4",
+      "question": "缺失/已下架商品的原价、人民币价格、风险标记、依据规则应填什么？",
+      "why": "题目只规定缺失商品的名称/类目/材质/产地填“—”，未规定其余列；已下架商品是否展示原价也未说明。",
+      "current_assumption": "建议缺失商品全部商品字段与金额/风险/规则填“—”；已下架商品保留商品信息与原价币种，人民币价格/风险/规则填“—（不适用）”。",
+      "impact": "影响明细表可读性与验收一致性。"
+    },
+    {
+      "id": "Q5",
+      "question": "Top 风险类目按什么指标排序、取前几名？",
+      "why": "题目未定义排序指标与数量。",
+      "current_assumption": "建议按违规数降序、违规数相同按待确认数降序、再按类目名排序，取前 5，并在报告注明口径。",
+      "impact": "影响汇总区展示，不影响逐 SKU 判定。"
+    },
+    {
+      "id": "Q6",
+      "question": "JPY/KRW 商品价格量级是否为单位问题或合成数据？",
+      "why": "换算后金额远低于同类商品，但题目只要求按数据库汇率换算，未给价格合理性标准。",
+      "current_assumption": "按数据库原价与汇率照常换算，不修改数据；在踩坑说明中记录观察。",
+      "impact": "不影响公式正确性，但影响报告金额的业务可信度。"
+    }
+  ],
+  "conclusion": {
+    "summary": "清单 120 条；按 SKU- 前缀映射可关联 115 条，其中已下架 5 条、正常评估 110 条，库中缺失 5 条；三条完整性等式全部成立。",
+    "blocking_issues": [
+      "P0-01",
+      "P0-02",
+      "P0-03",
+      "P0-04",
+      "P0-05"
+    ],
+    "next_stage_ready": true
+  }
+}
