@@ -1,0 +1,111 @@
+{
+  "run_id": "20261022_233708",
+  "generated_at": "2026-10-22T23:37:11+08:00",
+  "description": "第四阶段验收证据包；manifest 自身和 SHA256SUMS 不纳入自身内容哈希。",
+  "files": [
+    {
+      "path": "01_compile.log",
+      "size": 184,
+      "sha256": "318f6d63140420109257de3ebedef3e0bece5bf3ed66c87e033469332ae24856"
+    },
+    {
+      "path": "02_unit_tests.log",
+      "size": 13837,
+      "sha256": "0adc27465cf36bcdb3e4dce9d76cfefd468941b55b57ffce26d62efbfba5af74"
+    },
+    {
+      "path": "03_independent_reconciliation.log",
+      "size": 946,
+      "sha256": "ac68b44071c4e2fc29df7afa352e07739586c5c24977c58c428575301eb62b5a"
+    },
+    {
+      "path": "04_main_run.log",
+      "size": 472,
+      "sha256": "2fc26784dc5237375c07cd6407619c75a61fc154c8b9400775e428832face649"
+    },
+    {
+      "path": "05_integrity_checks.log",
+      "size": 3316,
+      "sha256": "4e5cda73d18421c316553697787009a464ef8d3eccfb34fdff0319f43ac44332"
+    },
+    {
+      "path": "acceptance_summary.json",
+      "size": 3506,
+      "sha256": "0ddcf7d481111d7ed63bdce7c004879efa6555803440aa507a1d07e31fc16528"
+    },
+    {
+      "path": "acceptance_summary.md",
+      "size": 1759,
+      "sha256": "bcedf79afa2840e46d1ca68fd7d21a4a03f4bdbcc2201d76cda4ae612c77b4d9"
+    },
+    {
+      "path": "command_log.json",
+      "size": 3365,
+      "sha256": "91ae73d6fa8f2b6a9e427f5e894d2ff8024aefeac53424b1a53d4b5faf22dc5a"
+    },
+    {
+      "path": "compliance_report.md",
+      "size": 17940,
+      "sha256": "d3d5682193a6babdfc6a8ddc925b6003046154b8795d2103092169ecf72be8be"
+    },
+    {
+      "path": "environment.json",
+      "size": 7124,
+      "sha256": "73fdcc002beb1ba9914bc549c2f9efc021936992251259c374fe73fd08d488c8"
+    },
+    {
+      "path": "logs/01_compile.stderr.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/01_compile.stdout.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/02_unit_tests.stderr.log",
+      "size": 13529,
+      "sha256": "7574499fe757d9843e0b4bbd96ee60a52ef91e871d891a0fb8fa031b9d76d3d2"
+    },
+    {
+      "path": "logs/02_unit_tests.stdout.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/03_independent_reconciliation.stderr.log",
+      "size": 735,
+      "sha256": "18065d336ebdee5cb69303a477d0c482d12ab27323369d245370bffc2373b2b7"
+    },
+    {
+      "path": "logs/03_independent_reconciliation.stdout.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/04_main_run.stderr.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/04_main_run.stdout.log",
+      "size": 307,
+      "sha256": "6723bf92fe43f16e83da02ef33d504952a5395a0541c68b1f5eb93b691656bfe"
+    },
+    {
+      "path": "sku_reconciliation.csv",
+      "size": 19289,
+      "sha256": "982c23e2ac7ce1bf3ee931eaa64e4e3780158533a7d40cf8f9c97eab4dbf98f5"
+    },
+    {
+      "path": "source_hashes.json",
+      "size": 11477,
+      "sha256": "b7a8af4b7f0464bc1c6da771c40bfcb38c2a05710346ece15103d0dcf67f8db4"
+    }
+  ],
+  "excluded_from_manifest": [
+    "evidence_manifest.json",
+    "SHA256SUMS"
+  ]
+}

@@ -1,0 +1,306 @@
+{
+  "generated_at": "2026-10-22T23:38:51+08:00",
+  "project_root": "E:\\Desktop\\AI全栈工程师校招笔试-材料包",
+  "baseline_source": "audit/07_数据审计汇总.json",
+  "original_files": [
+    {
+      "path": "instructions.md",
+      "size": 4262,
+      "baseline_sha256": "a6870dfb697615b2ced53dc23af2c8e04b863d559aa3a107c7ac0142836db7a1",
+      "before_sha256": "a6870dfb697615b2ced53dc23af2c8e04b863d559aa3a107c7ac0142836db7a1",
+      "after_sha256": "a6870dfb697615b2ced53dc23af2c8e04b863d559aa3a107c7ac0142836db7a1",
+      "matches_baseline": true,
+      "unchanged_during_run": true
+    },
+    {
+      "path": "data-dictionary.md",
+      "size": 1431,
+      "baseline_sha256": "3897cc8881d9e08b27d1a2059f50ca2a06f4960693ba4953dc027d96bd078c14",
+      "before_sha256": "3897cc8881d9e08b27d1a2059f50ca2a06f4960693ba4953dc027d96bd078c14",
+      "after_sha256": "3897cc8881d9e08b27d1a2059f50ca2a06f4960693ba4953dc027d96bd078c14",
+      "matches_baseline": true,
+      "unchanged_during_run": true
+    },
+    {
+      "path": "seed.py",
+      "size": 1249,
+      "baseline_sha256": "834f7f748e7b4db9b626642c4be59ffb278e5a2df4e43d884bfdf4c3b7b77399",
+      "before_sha256": "834f7f748e7b4db9b626642c4be59ffb278e5a2df4e43d884bfdf4c3b7b77399",
+      "after_sha256": "834f7f748e7b4db9b626642c4be59ffb278e5a2df4e43d884bfdf4c3b7b77399",
+      "matches_baseline": true,
+      "unchanged_during_run": true
+    },
+    {
+      "path": "sku_list.csv",
+      "size": 1941,
+      "baseline_sha256": "bc146ce7c529d34b3b2f741209c45ffc5366ae775c64579e2363986d6b653da9",
+      "before_sha256": "bc146ce7c529d34b3b2f741209c45ffc5366ae775c64579e2363986d6b653da9",
+      "after_sha256": "bc146ce7c529d34b3b2f741209c45ffc5366ae775c64579e2363986d6b653da9",
+      "matches_baseline": true,
+      "unchanged_during_run": true
+    },
+    {
+      "path": "compliance.db",
+      "size": 40960,
+      "baseline_sha256": "e87eb1b9be1a53f547d45af27b49017e01f63d63a8903eb9c717193af9f9ad67",
+      "before_sha256": "e87eb1b9be1a53f547d45af27b49017e01f63d63a8903eb9c717193af9f9ad67",
+      "after_sha256": "e87eb1b9be1a53f547d45af27b49017e01f63d63a8903eb9c717193af9f9ad67",
+      "matches_baseline": true,
+      "unchanged_during_run": true
+    }
+  ],
+  "audit_before": [
+    {
+      "path": "audit/00_审计总览.md",
+      "size": 18750,
+      "sha256": "e582c3dda851d647b43a287f8a72629b4948fda344a7be0acadd448b0c3cac17"
+    },
+    {
+      "path": "audit/01_需求与验收清单.md",
+      "size": 11147,
+      "sha256": "fdb9afe0a5f27c3c79cd73e040e15f65da2468263e9d5c34f5bfa3219b4da093"
+    },
+    {
+      "path": "audit/02_数据库Schema.md",
+      "size": 11052,
+      "sha256": "43e39e141e62c23d49af3c11c5f9f8b4b80a9b3b30fe679adbafafdc1a7b2cdd"
+    },
+    {
+      "path": "audit/03_SKU映射审计.md",
+      "size": 10841,
+      "sha256": "8967a98e2d20af6e51c8750c3c8a6a747711d3d8587d16c39684eee595c9b7a1"
+    },
+    {
+      "path": "audit/04_规则库审计与业务口径.md",
+      "size": 12372,
+      "sha256": "4c55ad8d749ba262401c330c1ca0e264ac2d4641d594cfb2556189ac9f6a3d28"
+    },
+    {
+      "path": "audit/05_汇率与价格数据审计.md",
+      "size": 7101,
+      "sha256": "b24cc145b5e4c41dfae9ad4c9d1348fd6c96d780274cca4872d0ad85a891d147"
+    },
+    {
+      "path": "audit/06_材料差异与种子代码审查.md",
+      "size": 13765,
+      "sha256": "a0689d6b8da22ce9df9548e0ff8904dd16b50f4ec375ec59cbefbe6a0bc1b4a3"
+    },
+    {
+      "path": "audit/07_数据审计汇总.json",
+      "size": 113870,
+      "sha256": "f6b04cef0712f94da06f00d4a7deb5c1734c09ab3db528262e3e08822adbff3a"
+    },
+    {
+      "path": "audit/database_schema.json",
+      "size": 6848,
+      "sha256": "5494ee3cc9b010b9d0e04ef4e2bfec778f8e7d2a4576e5a36df14c0db8c4f6e3"
+    },
+    {
+      "path": "audit/run_audit.py",
+      "size": 64242,
+      "sha256": "524625201d53e6b93974b7cc949da5ba46f3683b40d8c93a13a64683d0cf779f"
+    },
+    {
+      "path": "audit/seed_probe.log",
+      "size": 951,
+      "sha256": "910f1623b18608c5ec17fa285bc5ef6fe44be9afe48a9a756aafa8f7d6ea9ed7"
+    },
+    {
+      "path": "audit/sku_mapping.csv",
+      "size": 12462,
+      "sha256": "ada2488ea3ae92cb55d14ef66aec65b5c8e8cfcb5eaf670090bcc262bf8f2a86"
+    },
+    {
+      "path": "audit/异常数据清单.csv",
+      "size": 9665,
+      "sha256": "b3e313c58e34930edfad850ba0976cfb7c5fd87d6a0c7afb13e1e5f852263b51"
+    }
+  ],
+  "audit_after": [
+    {
+      "path": "audit/00_审计总览.md",
+      "size": 18750,
+      "sha256": "e582c3dda851d647b43a287f8a72629b4948fda344a7be0acadd448b0c3cac17"
+    },
+    {
+      "path": "audit/01_需求与验收清单.md",
+      "size": 11147,
+      "sha256": "fdb9afe0a5f27c3c79cd73e040e15f65da2468263e9d5c34f5bfa3219b4da093"
+    },
+    {
+      "path": "audit/02_数据库Schema.md",
+      "size": 11052,
+      "sha256": "43e39e141e62c23d49af3c11c5f9f8b4b80a9b3b30fe679adbafafdc1a7b2cdd"
+    },
+    {
+      "path": "audit/03_SKU映射审计.md",
+      "size": 10841,
+      "sha256": "8967a98e2d20af6e51c8750c3c8a6a747711d3d8587d16c39684eee595c9b7a1"
+    },
+    {
+      "path": "audit/04_规则库审计与业务口径.md",
+      "size": 12372,
+      "sha256": "4c55ad8d749ba262401c330c1ca0e264ac2d4641d594cfb2556189ac9f6a3d28"
+    },
+    {
+      "path": "audit/05_汇率与价格数据审计.md",
+      "size": 7101,
+      "sha256": "b24cc145b5e4c41dfae9ad4c9d1348fd6c96d780274cca4872d0ad85a891d147"
+    },
+    {
+      "path": "audit/06_材料差异与种子代码审查.md",
+      "size": 13765,
+      "sha256": "a0689d6b8da22ce9df9548e0ff8904dd16b50f4ec375ec59cbefbe6a0bc1b4a3"
+    },
+    {
+      "path": "audit/07_数据审计汇总.json",
+      "size": 113870,
+      "sha256": "f6b04cef0712f94da06f00d4a7deb5c1734c09ab3db528262e3e08822adbff3a"
+    },
+    {
+      "path": "audit/database_schema.json",
+      "size": 6848,
+      "sha256": "5494ee3cc9b010b9d0e04ef4e2bfec778f8e7d2a4576e5a36df14c0db8c4f6e3"
+    },
+    {
+      "path": "audit/run_audit.py",
+      "size": 64242,
+      "sha256": "524625201d53e6b93974b7cc949da5ba46f3683b40d8c93a13a64683d0cf779f"
+    },
+    {
+      "path": "audit/seed_probe.log",
+      "size": 951,
+      "sha256": "910f1623b18608c5ec17fa285bc5ef6fe44be9afe48a9a756aafa8f7d6ea9ed7"
+    },
+    {
+      "path": "audit/sku_mapping.csv",
+      "size": 12462,
+      "sha256": "ada2488ea3ae92cb55d14ef66aec65b5c8e8cfcb5eaf670090bcc262bf8f2a86"
+    },
+    {
+      "path": "audit/异常数据清单.csv",
+      "size": 9665,
+      "sha256": "b3e313c58e34930edfad850ba0976cfb7c5fd87d6a0c7afb13e1e5f852263b51"
+    }
+  ],
+  "audit_unchanged": true,
+  "production_code": [
+    {
+      "path": "src/__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src/compliance_assistant/__init__.py",
+      "size": 401,
+      "sha256": "1bd401fd5cc14bd7d0e90c909a626d877cef14be619f4cc96d2581e740666cea"
+    },
+    {
+      "path": "src/compliance_assistant/errors.py",
+      "size": 1298,
+      "sha256": "ee2e5b9b8ab96dc7db6ad91d8d0b74756225563cad21530d20844fd62850bff8"
+    },
+    {
+      "path": "src/compliance_assistant/loader.py",
+      "size": 13311,
+      "sha256": "8d8a15638d42ee6c6d5bad2edc195d3afb0861a8259b2a52f37346711d6487c3"
+    },
+    {
+      "path": "src/compliance_assistant/models.py",
+      "size": 3829,
+      "sha256": "815cf3cd143478c937ef0de3b1e725369d4f9886cb10531162859f9f12dcdc08"
+    },
+    {
+      "path": "src/compliance_assistant/pricing.py",
+      "size": 2785,
+      "sha256": "f46328de2c4352a9063d5bb907cb3b194aad6a3269a8aa79e4e816ec17164043"
+    },
+    {
+      "path": "src/compliance_assistant/processor.py",
+      "size": 3648,
+      "sha256": "27f3bda56a5311aeac75e2c3aa152a0024f270bdb2aa364d16c670ea88f56493"
+    },
+    {
+      "path": "src/compliance_assistant/report.py",
+      "size": 11942,
+      "sha256": "7a00d7a6ffca25a2985f703def2a2a5bc5ea7484a995537e117eb673898c9722"
+    },
+    {
+      "path": "src/compliance_assistant/rules_engine.py",
+      "size": 7219,
+      "sha256": "297b67b7093390223510744030948e90be3d4d402d7d1bbde3b62759a8cc9c21"
+    },
+    {
+      "path": "src/compliance_assistant/validation.py",
+      "size": 11371,
+      "sha256": "134da9446958d5fd870be1324a85a2fbb732595a2a46c859c7ade944ac424132"
+    }
+  ],
+  "main": {
+    "path": "main.py",
+    "size": 4382,
+    "sha256": "350dbfbd38f391ded8e15a718c903f7a20b3c46a325203882fcacf65d15ba1ff"
+  },
+  "tests": [
+    {
+      "path": "tests/__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/support.py",
+      "size": 5976,
+      "sha256": "527558d1be75f5ded04d5161d2817c2e4952aaaeaf2b4975dafe4665f0fed6a4"
+    },
+    {
+      "path": "tests/test_independent_reconciliation.py",
+      "size": 13519,
+      "sha256": "4474cd37dd3ff971d55c9da242031f9cf39747e30812f0e55abe50df6626cfe1"
+    },
+    {
+      "path": "tests/test_integration.py",
+      "size": 8331,
+      "sha256": "e85aafc6b6ad3aa1b0205243f7b1d1a09ac34f9c994864e94e5bc2821a96f7c4"
+    },
+    {
+      "path": "tests/test_loader.py",
+      "size": 9095,
+      "sha256": "e63e593fe1a8d430ab2cadeea84f77c6272a370348d12dabe92fd08785c2c05f"
+    },
+    {
+      "path": "tests/test_pricing.py",
+      "size": 3582,
+      "sha256": "005d3dedfdfd33bcec037749ae01b50ac882e0814a62306be1e8cc015dabc9c7"
+    },
+    {
+      "path": "tests/test_processor.py",
+      "size": 6871,
+      "sha256": "c48b475385de5e3190b5c8e5c2a45cd88c13e5310a6941665686e5eacfcc684f"
+    },
+    {
+      "path": "tests/test_report.py",
+      "size": 8991,
+      "sha256": "a9facecd8ccc87e6f7e60d55b3a0efe6947cdc89f1c488b0fbed70d03bd14b1b"
+    },
+    {
+      "path": "tests/test_rules_engine.py",
+      "size": 7578,
+      "sha256": "6682f1388319fc4e551955bf7a1ee441ec52d6f952c39d9246f0d76608dfd135"
+    },
+    {
+      "path": "tests/test_validation.py",
+      "size": 8072,
+      "sha256": "3eaba9f171050b77591b64d50131f9dc14feb58374343381a827ec0f7ac3a87f"
+    }
+  ],
+  "scripts": {
+    "path": "scripts/run_stage4_acceptance.py",
+    "size": 54277,
+    "sha256": "9e83152f4e13cf83d9b18baa1e5d729227767b929ef3caf6cee24b60897a3df5"
+  },
+  "formal_report": {
+    "path": "reports/compliance_report.md",
+    "size": 17940,
+    "sha256": "d3d5682193a6babdfc6a8ddc925b6003046154b8795d2103092169ecf72be8be"
+  }
+}

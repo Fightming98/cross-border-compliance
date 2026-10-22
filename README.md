@@ -2,7 +2,7 @@
 
 读取 120 条待检 SKU 清单，关联 SQLite 商品库，按规则库判定合规风险、按数据库汇率换算人民币价格，并生成一份可追溯的 Markdown《跨境商品合规检查报告》。
 
-本实现基于第一阶段审计结论，**没有沿用 `seed.py` 的未完成逻辑**；原始输入文件与 `audit/` 审计产物均未被修改。
+本实现基于第一阶段审计结论，**没有沿用 `seed.py` 的未完成逻辑**；原始输入文件与 `audit/` 审计产物均未被修改。第四阶段另提供 `scripts/run_stage4_acceptance.py`，从真实子进程执行编译、测试、独立对账和正式运行，并把证据写入带唯一时间戳的 `evidence/stage4/` 目录。
 
 ## 1. 功能概览
 
@@ -67,6 +67,8 @@ python main.py --expected-count 120
 ├── README.md
 ├── requirements.txt
 ├── main.py                         # 命令行入口与流程编排
+├── scripts/
+│   └── run_stage4_acceptance.py    # 第四阶段一键验收与证据生成
 ├── src/
 │   └── compliance_assistant/
 │       ├── __init__.py
@@ -89,7 +91,11 @@ python main.py --expected-count 120
 ├── docs/
 │   ├── AI_USAGE.md                 # AI 协作记录索引（非伪造对话）
 │   ├── 踩坑与验收说明.md
-│   └── 第三阶段代码审查与修复报告.md
+│   ├── 第三阶段代码审查与修复报告.md
+│   └── 第四阶段运行验收与证据报告.md
+├── evidence/
+│   └── stage4/
+│       └── <本次实际时间戳>/       # 第四阶段证据包，目录唯一且不覆盖
 └── audit/                          # 第一阶段审计产物，未修改
 ```
 
@@ -227,7 +233,7 @@ python -m unittest discover -s tests -v
 - 独立参考实现逐 SKU 对账、独立 Top 聚合、正式报告逐行对照；
 - 原始数据端到端运行、原始文件哈希不变、无数据库 sidecar。
 
-实际执行结果（本机 Python 3.12.4）：
+第三阶段最终回归（历史记录，本机 Python 3.12.4）：
 
 ```text
 Ran 121 tests in 1.058s
@@ -235,7 +241,7 @@ Ran 121 tests in 1.058s
 OK
 ```
 
-完整输出见 `reports/test_results.txt`。第三阶段的审查过程、缺陷复现与修复证据见 `docs/第三阶段代码审查与修复报告.md`。
+第四阶段验收使用 `scripts/run_stage4_acceptance.py` 重新执行了真实子进程命令：实际发现并执行 **121 个测试**，失败 0、错误 0，退出码 0，本次 unittest 内部耗时 0.678s；独立对账测试 4 个也全部通过。本次完整 stdout/stderr 和退出码见 `evidence/stage4/20261022_233849/02_unit_tests.log`、`03_independent_reconciliation.log` 与 `command_log.json`。`reports/test_results.txt` 同步保存第四阶段全量测试输出。第三阶段的审查过程、缺陷复现与修复证据见 `docs/第三阶段代码审查与修复报告.md`。
 
 ## 9. 正式运行结果
 
@@ -254,7 +260,7 @@ OK
 
 报告中的三档数量之和为 `47 + 56 + 7 = 110`；Top 风险类目为：内衣、箱包、配饰、鞋靴、上衣。完整输出见 `reports/run_log.txt`。
 
-第三阶段使用 `tests/test_independent_reconciliation.py` 直接读取原始 CSV 与 SQLite 独立复算，不调用生产规则引擎或价格函数；120 条逐 SKU 结果、Top 类目与正式报告明细均一致。
+第三阶段使用 `tests/test_independent_reconciliation.py` 直接读取原始 CSV 与 SQLite 独立复算，不调用生产规则引擎或价格函数；120 条逐 SKU 结果、Top 类目与正式报告明细均一致。第四阶段再次从原始 CSV 与只读 SQLite 独立复算，检查覆盖 120 条处置、110 条价格/规则/风险、120 行报告和 Top 类目；结果、差异数、证据哈希见 `evidence/stage4/20261022_233849/acceptance_summary.json` 与 `sku_reconciliation.csv`。
 
 ## 10. 已知限制与数据观察
 
@@ -262,4 +268,5 @@ OK
 2. JPY/KRW 商品按数据库汇率换算后金额很低（如 KRW 商品约 0.45–2.13 CNY），疑似合成数据或单位问题；未修改任何原价或汇率；
 3. 原数据字典有 4 个实质性差异（`risk_level`/`severity`、遗漏 `is_deleted`、`RMB`/`CNY`、`sku_ref` 直接关联），本实现以真实数据库为准；
 4. 当前输出为 Markdown；如后续需要网页展示，可在稳定的报告模型之上增加一层只读 UI，而不改动业务模块；
-5. 第三阶段已完成独立审查、缺陷修复和逐 SKU 对账；共修复 5 个 P1、2 个 P2 问题，最终 121 个测试全部通过，详见 `docs/第三阶段代码审查与修复报告.md`。
+5. 第三阶段已完成独立审查、缺陷修复和逐 SKU 对账；共修复 4 个 P1、3 个 P2 问题，最终 121 个测试全部通过，详见 `docs/第三阶段代码审查与修复报告.md`；
+6. 第四阶段正式验收实际执行编译、全量测试、独立对账和 `python main.py`，并生成带唯一时间戳的证据包；验收结论和剩余风险见 `docs/第四阶段运行验收与证据报告.md`。首次证据运行发现 `SHA256SUMS` 在 Windows 下使用 CRLF 换行，导致 Git Bash 的 `sha256sum -c` 无法读取文件名；修正为 LF 后重新执行，最终证据目录以报告记录为准，旧目录未覆盖。

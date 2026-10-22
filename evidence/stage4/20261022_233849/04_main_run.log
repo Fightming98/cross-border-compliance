@@ -1,0 +1,16 @@
+COMMAND: D:\python\Anaconda\python.exe main.py
+STARTED: 2026-10-22T23:38:50+08:00
+FINISHED: 2026-10-22T23:38:50+08:00
+EXIT CODE: 0
+STDOUT:
+跨境商品合规检查完成
+  清单读取数: 120
+  在库数（含已下架）: 115
+  已下架数: 5
+  库中缺失数: 5
+  实际评估数: 110
+  风险统计: 合规 47 / 待确认 56 / 违规 7
+  报告路径: E:\Desktop\AI全栈工程师校招笔试-材料包\reports\compliance_report.md
+
+STDERR:
+

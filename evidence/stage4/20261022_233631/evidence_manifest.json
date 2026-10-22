@@ -1,0 +1,111 @@
+{
+  "run_id": "20261022_233631",
+  "generated_at": "2026-10-22T23:36:35+08:00",
+  "description": "第四阶段验收证据包；manifest 自身和 SHA256SUMS 不纳入自身内容哈希。",
+  "files": [
+    {
+      "path": "05_integrity_checks.log",
+      "size": 3316,
+      "sha256": "d0ac165571c26d85ae1456d541b8c5f17219a06b0dc8216711fabb2d456302d0"
+    },
+    {
+      "path": "acceptance_summary.json",
+      "size": 3506,
+      "sha256": "07172e2f1e68eadd489eb93d5e3c5c43d3e53f6e0d9ae6bcc20c8e69f0ae8700"
+    },
+    {
+      "path": "acceptance_summary.md",
+      "size": 1779,
+      "sha256": "4f1decfaa4deb687ad7a9a62cbbaef0ee94f49d0659751baa0dc90f69fcbe1f8"
+    },
+    {
+      "path": "command_log.json",
+      "size": 3386,
+      "sha256": "4d791b6efdc26725410f03fce545e6183c24164f24d63031c344c04eb1379e00"
+    },
+    {
+      "path": "compliance_report.md",
+      "size": 17940,
+      "sha256": "d3d5682193a6babdfc6a8ddc925b6003046154b8795d2103092169ecf72be8be"
+    },
+    {
+      "path": "environment.json",
+      "size": 7124,
+      "sha256": "f5b004c2b6e9dba9ae0f213eb0af32342dc9dc4443db3645c5ac76e36e7711c6"
+    },
+    {
+      "path": "logs/01_compile.log",
+      "size": 184,
+      "sha256": "e9a6c1b014d0f8f5bcb78fffd8e6ef98152865f8c04841b36411f17e7d89b4e0"
+    },
+    {
+      "path": "logs/01_compile.stderr.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/01_compile.stdout.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/02_unit_tests.log",
+      "size": 13837,
+      "sha256": "8c16e84ef3ab6bb96fade440aa71b8e42fe8cadf2badaf9ed1c72f66254849b2"
+    },
+    {
+      "path": "logs/02_unit_tests.stderr.log",
+      "size": 13529,
+      "sha256": "c949d6144009616872122325a97934d9041688716adcbfb623ec8348be588002"
+    },
+    {
+      "path": "logs/02_unit_tests.stdout.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/03_independent_reconciliation.log",
+      "size": 946,
+      "sha256": "00d2ad3c8dfc34bdcda870048d69ebe0c985602fa77bbd18170d575178f379c9"
+    },
+    {
+      "path": "logs/03_independent_reconciliation.stderr.log",
+      "size": 735,
+      "sha256": "af8dc7d9eaf55b887597411c7d61822376cfc35118b255eb77adca8369aa1706"
+    },
+    {
+      "path": "logs/03_independent_reconciliation.stdout.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/04_main_run.log",
+      "size": 472,
+      "sha256": "7fbf924c11077d432bc26bc7d2c96e09eb428e1cf6d1c562fa9c8e25afeec7f5"
+    },
+    {
+      "path": "logs/04_main_run.stderr.log",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/04_main_run.stdout.log",
+      "size": 307,
+      "sha256": "6723bf92fe43f16e83da02ef33d504952a5395a0541c68b1f5eb93b691656bfe"
+    },
+    {
+      "path": "sku_reconciliation.csv",
+      "size": 19289,
+      "sha256": "982c23e2ac7ce1bf3ee931eaa64e4e3780158533a7d40cf8f9c97eab4dbf98f5"
+    },
+    {
+      "path": "source_hashes.json",
+      "size": 11477,
+      "sha256": "b93afb3b7f33ed7164fdc6dc9198b54de029198bdd5d576de4a52ebd06593140"
+    }
+  ],
+  "excluded_from_manifest": [
+    "evidence_manifest.json",
+    "SHA256SUMS"
+  ]
+}

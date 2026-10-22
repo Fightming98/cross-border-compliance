@@ -121,6 +121,6 @@ test_rule_ids_must_be_sorted_and_unique (test_validation.ValidationTests.test_ru
 test_valid_results_pass_and_stats_are_dynamic (test_validation.ValidationTests.test_valid_results_pass_and_stats_are_dynamic) ... ok
 
 ----------------------------------------------------------------------
-Ran 121 tests in 1.058s
+Ran 121 tests in 0.678s
 
 OK

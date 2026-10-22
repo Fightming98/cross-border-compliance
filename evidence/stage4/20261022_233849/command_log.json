@@ -1,0 +1,97 @@
+{
+  "run_id": "20261022_233849",
+  "started_at": "2026-10-22T23:38:49+08:00",
+  "finished_at": "2026-10-22T23:38:51+08:00",
+  "commands": [
+    {
+      "index": 1,
+      "name": "compile",
+      "argv": [
+        "D:\\python\\Anaconda\\python.exe",
+        "-m",
+        "compileall",
+        "-q",
+        "main.py",
+        "src",
+        "tests"
+      ],
+      "command": "D:\\python\\Anaconda\\python.exe -m compileall -q main.py src tests",
+      "started_at": "2026-10-22T23:38:49+08:00",
+      "finished_at": "2026-10-22T23:38:49+08:00",
+      "duration_seconds": 0.145,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "passed": true,
+      "error": null,
+      "stdout_path": "evidence/stage4/20261022_233849/logs/01_compile.stdout.log",
+      "stderr_path": "evidence/stage4/20261022_233849/logs/01_compile.stderr.log",
+      "log_path": "evidence/stage4/20261022_233849/01_compile.log"
+    },
+    {
+      "index": 2,
+      "name": "unit_tests",
+      "argv": [
+        "D:\\python\\Anaconda\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "command": "D:\\python\\Anaconda\\python.exe -m unittest discover -s tests -v",
+      "started_at": "2026-10-22T23:38:49+08:00",
+      "finished_at": "2026-10-22T23:38:50+08:00",
+      "duration_seconds": 0.994,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "passed": true,
+      "error": null,
+      "stdout_path": "evidence/stage4/20261022_233849/logs/02_unit_tests.stdout.log",
+      "stderr_path": "evidence/stage4/20261022_233849/logs/02_unit_tests.stderr.log",
+      "log_path": "evidence/stage4/20261022_233849/02_unit_tests.log"
+    },
+    {
+      "index": 3,
+      "name": "independent_reconciliation",
+      "argv": [
+        "D:\\python\\Anaconda\\python.exe",
+        "-m",
+        "unittest",
+        "-v",
+        "tests.test_independent_reconciliation"
+      ],
+      "command": "D:\\python\\Anaconda\\python.exe -m unittest -v tests.test_independent_reconciliation",
+      "started_at": "2026-10-22T23:38:50+08:00",
+      "finished_at": "2026-10-22T23:38:50+08:00",
+      "duration_seconds": 0.304,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "passed": true,
+      "error": null,
+      "stdout_path": "evidence/stage4/20261022_233849/logs/03_independent_reconciliation.stdout.log",
+      "stderr_path": "evidence/stage4/20261022_233849/logs/03_independent_reconciliation.stderr.log",
+      "log_path": "evidence/stage4/20261022_233849/03_independent_reconciliation.log"
+    },
+    {
+      "index": 4,
+      "name": "main_run",
+      "argv": [
+        "D:\\python\\Anaconda\\python.exe",
+        "main.py"
+      ],
+      "command": "D:\\python\\Anaconda\\python.exe main.py",
+      "started_at": "2026-10-22T23:38:50+08:00",
+      "finished_at": "2026-10-22T23:38:50+08:00",
+      "duration_seconds": 0.231,
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "passed": true,
+      "error": null,
+      "stdout_path": "evidence/stage4/20261022_233849/logs/04_main_run.stdout.log",
+      "stderr_path": "evidence/stage4/20261022_233849/logs/04_main_run.stderr.log",
+      "log_path": "evidence/stage4/20261022_233849/04_main_run.log"
+    }
+  ],
+  "all_exit_codes_expected": true
+}

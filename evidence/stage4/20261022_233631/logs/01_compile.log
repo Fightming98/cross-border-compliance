@@ -1,0 +1,8 @@
+COMMAND: D:\python\Anaconda\python.exe -m compileall -q main.py src tests
+STARTED: 2026-10-22T23:36:31+08:00
+FINISHED: 2026-10-22T23:36:32+08:00
+EXIT CODE: 0
+STDOUT:
+
+STDERR:
+

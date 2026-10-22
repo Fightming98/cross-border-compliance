@@ -1,0 +1,113 @@
+{
+  "run_id": "20261022_233631",
+  "generated_at": "2026-10-22T23:36:34+08:00",
+  "input_count": 120,
+  "in_stock_count": 115,
+  "deleted_count": 5,
+  "missing_count": 5,
+  "evaluated_count": 110,
+  "risk_counts": {
+    "合规": 47,
+    "待确认": 56,
+    "违规": 7
+  },
+  "top_categories": [
+    {
+      "rank": 1,
+      "category": "内衣",
+      "violations": 4,
+      "pending": 6,
+      "total": 10
+    },
+    {
+      "rank": 2,
+      "category": "箱包",
+      "violations": 3,
+      "pending": 18,
+      "total": 21
+    },
+    {
+      "rank": 3,
+      "category": "配饰",
+      "violations": 0,
+      "pending": 13,
+      "total": 13
+    },
+    {
+      "rank": 4,
+      "category": "鞋靴",
+      "violations": 0,
+      "pending": 11,
+      "total": 11
+    },
+    {
+      "rank": 5,
+      "category": "上衣",
+      "violations": 0,
+      "pending": 5,
+      "total": 5
+    }
+  ],
+  "deleted_skus": [
+    "00001",
+    "00002",
+    "00003",
+    "00004",
+    "00005"
+  ],
+  "missing_skus": [
+    "00031",
+    "00057",
+    "00084",
+    "00099",
+    "00113"
+  ],
+  "report_detail_rows": 120,
+  "test_total": 121,
+  "test_duration_seconds": 0.871,
+  "test_failures": 0,
+  "test_errors": 0,
+  "independent_test_total": 4,
+  "independent_test_failures": 0,
+  "independent_test_errors": 0,
+  "integrity_equations_passed": true,
+  "sku_reconciliation_passed": true,
+  "price_reconciliation_passed": true,
+  "top_categories_passed": true,
+  "markdown_structure_passed": true,
+  "source_hashes_unchanged": true,
+  "audit_hashes_unchanged": true,
+  "overall_passed": true,
+  "report_sha256": "d3d5682193a6babdfc6a8ddc925b6003046154b8795d2103092169ecf72be8be",
+  "report_path": "E:\\Desktop\\AI全栈工程师校招笔试-材料包\\reports\\compliance_report.md",
+  "evidence_dir": "E:\\Desktop\\AI全栈工程师校招笔试-材料包\\evidence\\stage4\\20261022_233631",
+  "checks": {
+    "验收所需文件/目录齐全": true,
+    "编译检查退出码为 0": true,
+    "全量测试退出码为 0 且无失败/错误": true,
+    "独立对账测试退出码为 0 且无失败/错误": true,
+    "正式程序退出码为 0": true,
+    "正式报告存在且可读": true,
+    "独立参考实现处置数量符合验收基线": true,
+    "处置完整性等式成立": true,
+    "独立参考实现风险数量符合验收基线": true,
+    "已下架/缺失 SKU 集合符合验收基线": true,
+    "独立参考实现 Top 类目符合验收基线": true,
+    "生产结果与独立参考逐 SKU 一致": true,
+    "人民币价格逐 SKU 独立复算一致": true,
+    "生产 Top 类目与独立聚合一致": true,
+    "正式报告逐行与独立参考/生产结果一致": true,
+    "报告风险汇总表与独立复算一致": true,
+    "报告风险数量等式可见且正确": true,
+    "Top 风险类目独立聚合、生产结果与报告一致": true,
+    "报告完整性五数与独立复算一致": true,
+    "报告完整性三条等式与结论可见": true,
+    "Markdown 报告结构完整（标题/三节/12 列/120 行/无裸 CR）": true,
+    "原始文件与第一阶段 SHA-256 基线一致": true,
+    "audit/ 既有审计文件验收前后哈希一致": true,
+    "无 SQLite sidecar 文件": true,
+    "无遗留 .tmp 文件": true,
+    "验收期间生产/测试代码哈希未变化": true,
+    "报告快照与正式报告字节一致": true
+  }
+}

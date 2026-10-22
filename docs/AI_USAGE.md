@@ -9,6 +9,7 @@
 - 第一轮审计提示：`Prompt/01数据审计与需求确认.md`
 - 第二轮编码提示：`Prompt/02核心业务编码实现.md`
 - 第三轮审查提示：`Prompt/03独立代码审查与缺陷修复.md`
+- 第四轮验收提示：`Prompt/04正式运行验收与证据留存.md`
 - 原始题目：`instructions.md`
 
 ## 二、正式编码前的输入材料
@@ -49,6 +50,11 @@
 12. 人工审查校验层类型边界，复现普通字符串冒充枚举、非法结果对象触发 `AttributeError`，修复并补测试。
 13. 重新执行编译检查、121 个测试和正式运行，核对报告 120/110/5/5、47/56/7、Top 类目及四条等式。
 14. 校验原始文件 SHA-256、数据库 sidecar 与临时文件，更新 README、验收说明、审查报告和真实运行记录。
+15. 第四阶段编写 `scripts/run_stage4_acceptance.py`：创建唯一时间戳证据目录，用 `subprocess` 执行编译、全量测试、独立对账和正式运行，记录真实时间、stdout、stderr 与退出码。
+16. 脚本直接读取原始 CSV 与只读 SQLite 的测试侧参考实现，逐 SKU 对账 120 条处置、110 条价格/规则/风险；用转义感知的 Markdown 解析器核对 120 行报告明细、汇总表、Top 类目和三条完整性等式。
+17. 对 `audit/07_数据审计汇总.json` 的 5 个原始文件基线重新计算 SHA-256，记录验收前后哈希；生成 `sku_reconciliation.csv`、`source_hashes.json`、`acceptance_summary.json`、`acceptance_summary.md`、`evidence_manifest.json` 和 `SHA256SUMS`。
+18. 首轮证据发现 `SHA256SUMS` 被 Windows 文本模式写成 CRLF，导致 Git Bash `sha256sum -c` 无法读取文件名；改为显式 LF 后重新执行验收，保存旧目录并生成最终证据包。
+19. 根据最终证据编写 `docs/第四阶段运行验收与证据报告.md`，记录环境、命令、测试、报告、独立对账、文档一致性、原始文件完整性、证据目录、剩余风险和最终结论。
 
 ## 四、实际执行的命令与结果
 
@@ -58,8 +64,9 @@
 | 修复前定向测试 | `Ran 60 tests in 0.966s`，`FAILED (failures=4, errors=2)`；见 `reports/stage3_pre_fix_tests.txt` |
 | 基线类型边界复现 | CR-006 普通字符串未报错；CR-007 抛 `AttributeError`；见 `reports/stage3_pre_fix_type_checks.txt` |
 | `python -m compileall -q main.py src tests`（最终） | 退出码 0，全部模块可编译 |
-| `python -m unittest discover -s tests -v`（最终） | `Ran 121 tests in 1.058s`，`OK`；见 `reports/test_results.txt` |
-| `python main.py`（最终） | 退出码 0；120 条输入；115 在库；5 已下架；5 缺失；110 评估；合规 47 / 待确认 56 / 违规 7；报告写入 `reports/compliance_report.md`；见 `reports/run_log.txt` |
+| `python -m unittest discover -s tests -v`（第三阶段最终回归） | `Ran 121 tests in 1.058s`，`OK`；第三阶段历史记录 |
+| `python main.py`（第三阶段最终回归） | 退出码 0；120 条输入；115 在库；5 已下架；5 缺失；110 评估；合规 47 / 待确认 56 / 违规 7；报告写入 `reports/compliance_report.md` |
+| `python scripts/run_stage4_acceptance.py`（第四阶段） | 退出码 0；重新执行编译、121 个全量测试、4 个独立对账测试和 `python main.py`；unittest 内部耗时 0.678s；120 条处置/110 条价格与规则逐 SKU 差异 0；报告 120 行差异 0；原始文件与审计哈希一致；见 `evidence/stage4/20261022_233849/acceptance_summary.json` 与 `command_log.json` |
 
 原始文件在运行前后 SHA-256 一致，数据库未产生 `-wal` / `-shm` / `-journal` 文件；详见 `audit/07_数据审计汇总.json` 的 `source_integrity` 与 `docs/踩坑与验收说明.md`。
 
@@ -77,7 +84,10 @@
 | 报告复核 | `report.verify_report_file` |
 | 命令行运行 | `main.run`、`main.main` |
 | 独立逐 SKU 对账 | `tests/test_independent_reconciliation.py` |
+| 第四阶段一键验收 | `scripts/run_stage4_acceptance.py` |
+| 验收证据包 | `evidence/stage4/20261022_233849/`（命令日志、摘要、对账 CSV、报告快照、哈希清单） |
 | 审查缺陷与修复证据 | `docs/第三阶段代码审查与修复报告.md` |
+| 第四阶段验收报告 | `docs/第四阶段运行验收与证据报告.md` |
 
 ## 六、说明
 

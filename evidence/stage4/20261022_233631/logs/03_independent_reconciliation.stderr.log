@@ -1,0 +1,9 @@
+test_formal_report_matches_independent_expectation (tests.test_independent_reconciliation.IndependentReconciliationTests.test_formal_report_matches_independent_expectation) ... ok
+test_independent_per_sku_reconciliation (tests.test_independent_reconciliation.IndependentReconciliationTests.test_independent_per_sku_reconciliation) ... ok
+test_independent_top_categories (tests.test_independent_reconciliation.IndependentReconciliationTests.test_independent_top_categories) ... ok
+test_original_files_match_audit_hashes (tests.test_independent_reconciliation.OriginalIntegrityTests.test_original_files_match_audit_hashes) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.134s
+
+OK

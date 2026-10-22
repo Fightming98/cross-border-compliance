@@ -1,0 +1,10 @@
+# 原始材料的 SHA-256 是审计基线，检出的换行必须与生成时一致
+instructions.md text eol=lf
+data-dictionary.md text eol=lf
+seed.py text eol=lf
+sku_list.csv text eol=crlf
+compliance.db binary
+
+# 验收证据包按生成时的字节原样保存（CRLF/LF 混合），
+# 否则跨平台检出会改变文件哈希，使 SHA256SUMS 无法复核
+evidence/** -text
