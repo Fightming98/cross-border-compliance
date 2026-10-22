@@ -16,6 +16,7 @@ from .models import (
     Disposition,
     IntegrityStats,
     ProcessingResult,
+    Product,
     RiskLevel,
     SkuInput,
 )
@@ -99,6 +100,12 @@ def _validate_result_fields(
             f"{expected_mapped!r} 不一致"
         )
 
+    if not isinstance(result.disposition, Disposition):
+        errors.append(
+            f"{label} 处置结果类型非法: {type(result.disposition).__name__}"
+        )
+        return
+
     if result.disposition not in (
         Disposition.MISSING,
         Disposition.DELETED,
@@ -121,6 +128,11 @@ def _validate_result_fields(
     product = result.product
     if product is None:
         errors.append(f"{label} 处置为 {result.disposition.value} 却缺少商品信息")
+        return
+    if not isinstance(product, Product):
+        errors.append(
+            f"{label} 商品信息类型非法: {type(product).__name__}"
+        )
         return
     if product.sku_id != result.mapped_sku_id:
         errors.append(
@@ -227,9 +239,15 @@ def validate_processing_results(
         )
 
     previous_line = 0
+    has_type_error = False
     for index, result in enumerate(results, start=1):
         if not isinstance(result, ProcessingResult):
             errors.append(f"第 {index} 个结果类型错误")
+            has_type_error = True
+            continue
+        if not isinstance(result.sku_input, SkuInput):
+            errors.append(f"第 {index} 条结果的 sku_input 类型错误")
+            has_type_error = True
             continue
         if result.sku_input.line_no <= previous_line:
             errors.append(
@@ -237,6 +255,11 @@ def validate_processing_results(
             )
         previous_line = result.sku_input.line_no
         _validate_result_fields(result, index, exchange_rates, rules, errors)
+
+    if has_type_error:
+        # 统计函数假定每条都是 ProcessingResult；类型错误已记录，直接失败，
+        # 避免在计算统计量时抛出 AttributeError 而掩盖真正的校验信息。
+        raise ValidationError("；".join(errors))
 
     stats = compute_stats(results)
     if not stats.equations_hold:

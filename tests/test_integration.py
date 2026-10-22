@@ -154,6 +154,65 @@ class IntegrationTests(TempDirTestCase):
         self.assertIn("跨境商品合规检查完成", stdout.getvalue())
         self.assertIn("清单读取数: 120", stdout.getvalue())
 
+    def test_cli_returns_nonzero_when_input_missing(self):
+        output = self.temp_path("missing_input.md")
+        stdout = io.StringIO()
+        stderr = io.StringIO()
+        with contextlib.redirect_stdout(stdout), contextlib.redirect_stderr(stderr):
+            code = cli_main(
+                [
+                    "--csv",
+                    str(self.temp_path("does_not_exist.csv")),
+                    "--output",
+                    str(output),
+                ]
+            )
+        self.assertEqual(1, code)
+        self.assertFalse(output.exists())
+        self.assertIn("处理失败", stderr.getvalue())
+
+    def test_cli_returns_nonzero_when_expected_count_mismatches(self):
+        output = self.temp_path("count_mismatch.md")
+        stdout = io.StringIO()
+        stderr = io.StringIO()
+        with contextlib.redirect_stdout(stdout), contextlib.redirect_stderr(stderr):
+            code = cli_main(
+                ["--expected-count", "119", "--output", str(output)]
+            )
+        self.assertEqual(1, code)
+        self.assertFalse(output.exists())
+        self.assertIn("处理失败", stderr.getvalue())
+
+    def test_cli_rejects_non_positive_expected_count(self):
+        output = self.temp_path("bad_count.md")
+        stderr = io.StringIO()
+        with contextlib.redirect_stderr(stderr):
+            with self.assertRaises(SystemExit) as raised:
+                cli_main(["--expected-count", "0", "--output", str(output)])
+        self.assertEqual(2, raised.exception.code)
+        self.assertFalse(output.exists())
+        self.assertIn("--expected-count", stderr.getvalue())
+
+    def test_cli_failure_keeps_existing_report(self):
+        output = self.temp_path("existing.md")
+        output.write_text("OLD REPORT\n", encoding="utf-8")
+        with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(
+            io.StringIO()
+        ):
+            code = cli_main(["--expected-count", "119", "--output", str(output)])
+        self.assertEqual(1, code)
+        self.assertEqual("OLD REPORT\n", output.read_text(encoding="utf-8"))
+
+    def test_cli_supports_output_path_with_spaces(self):
+        output = self.temp_path("带 空格") / "report.md"
+        stdout = io.StringIO()
+        stderr = io.StringIO()
+        with contextlib.redirect_stdout(stdout), contextlib.redirect_stderr(stderr):
+            code = cli_main(["--output", str(output)])
+        self.assertEqual(0, code, msg=stderr.getvalue())
+        self.assertTrue(output.is_file())
+        verify_report_file(output, expected_detail_rows=120)
+
     def test_report_is_deterministic(self):
         first = self.temp_path("first.md")
         second = self.temp_path("second.md")

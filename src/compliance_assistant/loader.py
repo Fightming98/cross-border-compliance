@@ -54,6 +54,16 @@ def _path(value: str | Path, label: str) -> Path:
     return path
 
 
+def _reject_blank_rows(path: Path) -> None:
+    """拒绝物理空行，避免 ``DictReader`` 静默跳过。"""
+
+    with path.open("r", encoding="utf-8-sig", newline="") as handle:
+        reader = csv.reader(handle)
+        for row in reader:
+            if not row:
+                raise CsvLoadError(f"CSV 第 {reader.line_num} 行为空行")
+
+
 def connect_readonly(db_path: str | Path) -> sqlite3.Connection:
     """以只读方式打开 SQLite 数据库。
 
@@ -146,7 +156,11 @@ def _decimal(
 
 
 def load_sku_inputs(csv_path: str | Path) -> list[SkuInput]:
-    """读取并校验 `sku_list.csv`，保留全部行和原始值。"""
+    """读取并校验 `sku_list.csv`，保留全部行和原始值。
+
+    重复 `sku_ref` 不去重、不合并，按输入行独立保留；正式清单当前无
+    重复编号，但该策略由测试固定，避免未来数据变化时静默丢行。
+    """
 
     path = Path(csv_path)
     if not path.is_file():
@@ -154,10 +168,24 @@ def load_sku_inputs(csv_path: str | Path) -> list[SkuInput]:
 
     records: list[SkuInput] = []
     try:
+        _reject_blank_rows(path)
         with path.open("r", encoding="utf-8-sig", newline="") as handle:
             reader = csv.DictReader(handle, restkey="__extra__", restval=None)
             if reader.fieldnames is None:
                 raise CsvLoadError(f"CSV 没有表头: {path}")
+
+            duplicate_headers = sorted(
+                {
+                    name
+                    for name in reader.fieldnames
+                    if reader.fieldnames.count(name) > 1
+                }
+            )
+            if duplicate_headers:
+                raise CsvLoadError(
+                    f"CSV 表头存在重复列 {duplicate_headers}: "
+                    f"{reader.fieldnames}"
+                )
 
             missing = [
                 column

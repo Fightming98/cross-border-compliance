@@ -1,7 +1,17 @@
+test_formal_report_matches_independent_expectation (test_independent_reconciliation.IndependentReconciliationTests.test_formal_report_matches_independent_expectation) ... ok
+test_independent_per_sku_reconciliation (test_independent_reconciliation.IndependentReconciliationTests.test_independent_per_sku_reconciliation) ... ok
+test_independent_top_categories (test_independent_reconciliation.IndependentReconciliationTests.test_independent_top_categories) ... ok
+test_original_files_match_audit_hashes (test_independent_reconciliation.OriginalIntegrityTests.test_original_files_match_audit_hashes) ... ok
 test_cli_entrypoint_creates_complete_report (test_integration.IntegrationTests.test_cli_entrypoint_creates_complete_report) ... ok
+test_cli_failure_keeps_existing_report (test_integration.IntegrationTests.test_cli_failure_keeps_existing_report) ... ok
+test_cli_rejects_non_positive_expected_count (test_integration.IntegrationTests.test_cli_rejects_non_positive_expected_count) ... ok
+test_cli_returns_nonzero_when_expected_count_mismatches (test_integration.IntegrationTests.test_cli_returns_nonzero_when_expected_count_mismatches) ... ok
+test_cli_returns_nonzero_when_input_missing (test_integration.IntegrationTests.test_cli_returns_nonzero_when_input_missing) ... ok
+test_cli_supports_output_path_with_spaces (test_integration.IntegrationTests.test_cli_supports_output_path_with_spaces) ... ok
 test_full_pipeline_on_original_inputs (test_integration.IntegrationTests.test_full_pipeline_on_original_inputs) ... ok
 test_report_is_deterministic (test_integration.IntegrationTests.test_report_is_deterministic) ... ok
 test_connection_is_read_only (test_loader.DatabaseLoaderTests.test_connection_is_read_only) ... ok
+test_corrupt_database_file (test_loader.DatabaseLoaderTests.test_corrupt_database_file) ... ok
 test_empty_rates_table (test_loader.DatabaseLoaderTests.test_empty_rates_table) ... ok
 test_invalid_is_deleted (test_loader.DatabaseLoaderTests.test_invalid_is_deleted) ... ok
 test_load_products (test_loader.DatabaseLoaderTests.test_load_products) ... ok
@@ -12,7 +22,10 @@ test_missing_database_file (test_loader.DatabaseLoaderTests.test_missing_databas
 test_missing_table (test_loader.DatabaseLoaderTests.test_missing_table) ... ok
 test_original_inputs_unchanged (test_loader.DatabaseLoaderTests.test_original_inputs_unchanged) ... ok
 test_zero_price (test_loader.DatabaseLoaderTests.test_zero_price) ... ok
+test_blank_line_is_rejected (test_loader.SkuInputLoaderTests.test_blank_line_is_rejected) ... ok
 test_duplicate_batch_is_not_deduplicated (test_loader.SkuInputLoaderTests.test_duplicate_batch_is_not_deduplicated) ... ok
+test_duplicate_header_is_rejected (test_loader.SkuInputLoaderTests.test_duplicate_header_is_rejected) ... ok
+test_duplicate_sku_ref_is_preserved_by_row (test_loader.SkuInputLoaderTests.test_duplicate_sku_ref_is_preserved_by_row) ... ok
 test_empty_field (test_loader.SkuInputLoaderTests.test_empty_field) ... ok
 test_empty_row (test_loader.SkuInputLoaderTests.test_empty_row) ... ok
 test_extra_value_is_malformed (test_loader.SkuInputLoaderTests.test_extra_value_is_malformed) ... ok
@@ -25,6 +38,7 @@ test_all_five_currencies_use_database_rates (test_pricing.PricingTests.test_all_
 test_cny_uses_database_row_not_hardcoded (test_pricing.PricingTests.test_cny_uses_database_row_not_hardcoded) ... ok
 test_database_rate_is_authoritative (test_pricing.PricingTests.test_database_rate_is_authoritative) ... ok
 test_empty_currency (test_pricing.PricingTests.test_empty_currency) ... ok
+test_extreme_amount_and_rate_raise_pricing_error (test_pricing.PricingTests.test_extreme_amount_and_rate_raise_pricing_error) ... ok
 test_half_up_rounding (test_pricing.PricingTests.test_half_up_rounding) ... ok
 test_input_price_is_not_mutated (test_pricing.PricingTests.test_input_price_is_not_mutated) ... ok
 test_invalid_price_values (test_pricing.PricingTests.test_invalid_price_values) ... ok
@@ -42,13 +56,19 @@ test_missing_records_are_kept_and_do_not_call_evaluators (test_processor.Process
 test_normal_product_calls_rules_and_pricing (test_processor.ProcessorTests.test_normal_product_calls_rules_and_pricing) ... ok
 test_preserves_input_order (test_processor.ProcessorTests.test_preserves_input_order) ... ok
 test_pricing_error_contains_sku_context (test_processor.ProcessorTests.test_pricing_error_contains_sku_context) ... ok
+test_currency_and_rule_ids_are_escaped (test_report.ReportGenerationTests.test_currency_and_rule_ids_are_escaped) ... ok
 test_invalid_results_do_not_create_file (test_report.ReportGenerationTests.test_invalid_results_do_not_create_file) ... ok
+test_markdown_cell_escapes_pipes_and_newlines (test_report.ReportGenerationTests.test_markdown_cell_escapes_pipes_and_newlines) ... ok
 test_missing_and_deleted_placeholders (test_report.ReportGenerationTests.test_missing_and_deleted_placeholders) ... ok
 test_missing_goods_are_not_dropped (test_report.ReportGenerationTests.test_missing_goods_are_not_dropped) ... ok
 test_multiple_rule_ids_use_semicolon (test_report.ReportGenerationTests.test_multiple_rule_ids_use_semicolon) ... ok
 test_no_risk_categories_message (test_report.ReportGenerationTests.test_no_risk_categories_message) ... ok
+test_old_report_is_unchanged_when_new_validation_fails (test_report.ReportGenerationTests.test_old_report_is_unchanged_when_new_validation_fails) ... ok
 test_parent_directory_is_created (test_report.ReportGenerationTests.test_parent_directory_is_created) ... ok
+test_post_write_verification_failure_removes_report (test_report.ReportGenerationTests.test_post_write_verification_failure_removes_report) ... ok
 test_report_contains_required_sections_and_rows (test_report.ReportGenerationTests.test_report_contains_required_sections_and_rows) ... ok
+test_temp_file_is_removed_when_replace_fails (test_report.ReportGenerationTests.test_temp_file_is_removed_when_replace_fails) ... ok
+test_temp_file_is_removed_when_write_fails (test_report.ReportGenerationTests.test_temp_file_is_removed_when_write_fails) ... ok
 test_verify_detects_wrong_row_count (test_report.ReportGenerationTests.test_verify_detects_wrong_row_count) ... ok
 test_verify_detects_wrong_sku_order (test_report.ReportGenerationTests.test_verify_detects_wrong_sku_order) ... ok
 test_no_risk_categories (test_report.TopRiskCategoryTests.test_no_risk_categories) ... ok
@@ -83,11 +103,15 @@ test_compute_stats (test_validation.StatsAndSnapshotTests.test_compute_stats) ..
 test_empty_database_snapshot (test_validation.StatsAndSnapshotTests.test_empty_database_snapshot) ... ok
 test_compliant_cannot_have_rule_ids (test_validation.ValidationTests.test_compliant_cannot_have_rule_ids) ... ok
 test_deleted_result_cannot_have_risk (test_validation.ValidationTests.test_deleted_result_cannot_have_risk) ... ok
+test_disposition_must_be_enum (test_validation.ValidationTests.test_disposition_must_be_enum) ... ok
 test_empty_results (test_validation.ValidationTests.test_empty_results) ... ok
 test_expected_120_against_small_results_fails (test_validation.ValidationTests.test_expected_120_against_small_results_fails) ... ok
 test_expected_count_mismatch (test_validation.ValidationTests.test_expected_count_mismatch) ... ok
 test_missing_result_cannot_have_product (test_validation.ValidationTests.test_missing_result_cannot_have_product) ... ok
 test_non_compliant_requires_rule_ids (test_validation.ValidationTests.test_non_compliant_requires_rule_ids) ... ok
+test_non_processing_result_is_rejected (test_validation.ValidationTests.test_non_processing_result_is_rejected) ... ok
+test_non_product_is_rejected (test_validation.ValidationTests.test_non_product_is_rejected) ... ok
+test_non_sku_input_is_rejected (test_validation.ValidationTests.test_non_sku_input_is_rejected) ... ok
 test_normal_requires_rule_evaluation (test_validation.ValidationTests.test_normal_requires_rule_evaluation) ... ok
 test_normal_requires_two_decimal_price (test_validation.ValidationTests.test_normal_requires_two_decimal_price) ... ok
 test_price_is_recomputed_from_rates (test_validation.ValidationTests.test_price_is_recomputed_from_rates) ... ok
@@ -97,6 +121,6 @@ test_rule_ids_must_be_sorted_and_unique (test_validation.ValidationTests.test_ru
 test_valid_results_pass_and_stats_are_dynamic (test_validation.ValidationTests.test_valid_results_pass_and_stats_are_dynamic) ... ok
 
 ----------------------------------------------------------------------
-Ran 97 tests in 0.537s
+Ran 121 tests in 1.058s
 
 OK

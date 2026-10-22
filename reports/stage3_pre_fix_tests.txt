@@ -1,0 +1,121 @@
+test_connection_is_read_only (tests.test_loader.DatabaseLoaderTests.test_connection_is_read_only) ... ok
+test_empty_rates_table (tests.test_loader.DatabaseLoaderTests.test_empty_rates_table) ... ok
+test_invalid_is_deleted (tests.test_loader.DatabaseLoaderTests.test_invalid_is_deleted) ... ok
+test_load_products (tests.test_loader.DatabaseLoaderTests.test_load_products) ... ok
+test_load_rates (tests.test_loader.DatabaseLoaderTests.test_load_rates) ... ok
+test_load_rules_allows_null_and_empty (tests.test_loader.DatabaseLoaderTests.test_load_rules_allows_null_and_empty) ... ok
+test_missing_column (tests.test_loader.DatabaseLoaderTests.test_missing_column) ... ok
+test_missing_database_file (tests.test_loader.DatabaseLoaderTests.test_missing_database_file) ... ok
+test_missing_table (tests.test_loader.DatabaseLoaderTests.test_missing_table) ... ok
+test_original_inputs_unchanged (tests.test_loader.DatabaseLoaderTests.test_original_inputs_unchanged) ... ok
+test_zero_price (tests.test_loader.DatabaseLoaderTests.test_zero_price) ... ok
+test_blank_line_is_rejected (tests.test_loader.SkuInputLoaderTests.test_blank_line_is_rejected) ... FAIL
+test_duplicate_batch_is_not_deduplicated (tests.test_loader.SkuInputLoaderTests.test_duplicate_batch_is_not_deduplicated) ... ok
+test_duplicate_header_is_rejected (tests.test_loader.SkuInputLoaderTests.test_duplicate_header_is_rejected) ... FAIL
+test_duplicate_sku_ref_is_preserved_by_row (tests.test_loader.SkuInputLoaderTests.test_duplicate_sku_ref_is_preserved_by_row) ... ok
+test_empty_field (tests.test_loader.SkuInputLoaderTests.test_empty_field) ... ok
+test_empty_row (tests.test_loader.SkuInputLoaderTests.test_empty_row) ... ok
+test_extra_value_is_malformed (tests.test_loader.SkuInputLoaderTests.test_extra_value_is_malformed) ... ok
+test_header_only_is_error (tests.test_loader.SkuInputLoaderTests.test_header_only_is_error) ... ok
+test_invalid_sku_ref (tests.test_loader.SkuInputLoaderTests.test_invalid_sku_ref) ... ok
+test_missing_file (tests.test_loader.SkuInputLoaderTests.test_missing_file) ... ok
+test_missing_required_column (tests.test_loader.SkuInputLoaderTests.test_missing_required_column) ... ok
+test_reads_bom_csv_and_preserves_values (tests.test_loader.SkuInputLoaderTests.test_reads_bom_csv_and_preserves_values) ... ok
+test_all_five_currencies_use_database_rates (tests.test_pricing.PricingTests.test_all_five_currencies_use_database_rates) ... ok
+test_cny_uses_database_row_not_hardcoded (tests.test_pricing.PricingTests.test_cny_uses_database_row_not_hardcoded) ... ok
+test_database_rate_is_authoritative (tests.test_pricing.PricingTests.test_database_rate_is_authoritative) ... ok
+test_empty_currency (tests.test_pricing.PricingTests.test_empty_currency) ... ok
+test_extreme_amount_and_rate_raise_pricing_error (tests.test_pricing.PricingTests.test_extreme_amount_and_rate_raise_pricing_error) ... 
+  test_extreme_amount_and_rate_raise_pricing_error (tests.test_pricing.PricingTests.test_extreme_amount_and_rate_raise_pricing_error) (price=Decimal('1E+1000000'), rates={'CNY': Decimal('1.0')}) ... ERROR
+  test_extreme_amount_and_rate_raise_pricing_error (tests.test_pricing.PricingTests.test_extreme_amount_and_rate_raise_pricing_error) (price=Decimal('1'), rates={'CNY': Decimal('1E+1000000')}) ... ERROR
+test_half_up_rounding (tests.test_pricing.PricingTests.test_half_up_rounding) ... ok
+test_input_price_is_not_mutated (tests.test_pricing.PricingTests.test_input_price_is_not_mutated) ... ok
+test_invalid_price_values (tests.test_pricing.PricingTests.test_invalid_price_values) ... ok
+test_invalid_rate_values (tests.test_pricing.PricingTests.test_invalid_rate_values) ... ok
+test_missing_currency (tests.test_pricing.PricingTests.test_missing_currency) ... ok
+test_string_decimal_input (tests.test_pricing.PricingTests.test_string_decimal_input) ... ok
+test_invalid_results_do_not_create_file (tests.test_report.ReportGenerationTests.test_invalid_results_do_not_create_file) ... ok
+test_markdown_cell_escapes_pipes_and_newlines (tests.test_report.ReportGenerationTests.test_markdown_cell_escapes_pipes_and_newlines) ... FAIL
+test_missing_and_deleted_placeholders (tests.test_report.ReportGenerationTests.test_missing_and_deleted_placeholders) ... ok
+test_missing_goods_are_not_dropped (tests.test_report.ReportGenerationTests.test_missing_goods_are_not_dropped) ... ok
+test_multiple_rule_ids_use_semicolon (tests.test_report.ReportGenerationTests.test_multiple_rule_ids_use_semicolon) ... ok
+test_no_risk_categories_message (tests.test_report.ReportGenerationTests.test_no_risk_categories_message) ... ok
+test_old_report_is_unchanged_when_new_validation_fails (tests.test_report.ReportGenerationTests.test_old_report_is_unchanged_when_new_validation_fails) ... ok
+test_parent_directory_is_created (tests.test_report.ReportGenerationTests.test_parent_directory_is_created) ... ok
+test_post_write_verification_failure_removes_report (tests.test_report.ReportGenerationTests.test_post_write_verification_failure_removes_report) ... ok
+test_report_contains_required_sections_and_rows (tests.test_report.ReportGenerationTests.test_report_contains_required_sections_and_rows) ... ok
+test_temp_file_is_removed_when_replace_fails (tests.test_report.ReportGenerationTests.test_temp_file_is_removed_when_replace_fails) ... ok
+test_temp_file_is_removed_when_write_fails (tests.test_report.ReportGenerationTests.test_temp_file_is_removed_when_write_fails) ... ok
+test_verify_detects_wrong_row_count (tests.test_report.ReportGenerationTests.test_verify_detects_wrong_row_count) ... ok
+test_verify_detects_wrong_sku_order (tests.test_report.ReportGenerationTests.test_verify_detects_wrong_sku_order) ... ok
+test_no_risk_categories (tests.test_report.TopRiskCategoryTests.test_no_risk_categories) ... ok
+test_sorting_and_limit (tests.test_report.TopRiskCategoryTests.test_sorting_and_limit) ... ok
+test_cli_entrypoint_creates_complete_report (tests.test_integration.IntegrationTests.test_cli_entrypoint_creates_complete_report) ... ok
+test_cli_returns_nonzero_when_expected_count_mismatches (tests.test_integration.IntegrationTests.test_cli_returns_nonzero_when_expected_count_mismatches) ... ok
+test_cli_returns_nonzero_when_input_missing (tests.test_integration.IntegrationTests.test_cli_returns_nonzero_when_input_missing) ... ok
+test_cli_supports_output_path_with_spaces (tests.test_integration.IntegrationTests.test_cli_supports_output_path_with_spaces) ... ok
+test_full_pipeline_on_original_inputs (tests.test_integration.IntegrationTests.test_full_pipeline_on_original_inputs) ... ok
+test_report_is_deterministic (tests.test_integration.IntegrationTests.test_report_is_deterministic) ... ok
+test_formal_report_matches_independent_expectation (tests.test_independent_reconciliation.IndependentReconciliationTests.test_formal_report_matches_independent_expectation) ... FAIL
+test_independent_per_sku_reconciliation (tests.test_independent_reconciliation.IndependentReconciliationTests.test_independent_per_sku_reconciliation) ... ok
+test_independent_top_categories (tests.test_independent_reconciliation.IndependentReconciliationTests.test_independent_top_categories) ... ok
+test_original_files_match_audit_hashes (tests.test_independent_reconciliation.OriginalIntegrityTests.test_original_files_match_audit_hashes) ... ok
+
+======================================================================
+ERROR: test_extreme_amount_and_rate_raise_pricing_error (tests.test_pricing.PricingTests.test_extreme_amount_and_rate_raise_pricing_error) (price=Decimal('1E+1000000'), rates={'CNY': Decimal('1.0')})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\Desktop\AI全栈工程师校招笔试-材料包\tests\test_pricing.py", line 97, in test_extreme_amount_and_rate_raise_pricing_error
+    convert_to_cny(price, "CNY", exchange_rates)
+  File "E:\Desktop\AI全栈工程师校招笔试-材料包\src\compliance_assistant\pricing.py", line 71, in convert_to_cny
+    return (amount * rate).quantize(CENT, rounding=ROUND_HALF_UP)
+            ~~~~~~~^~~~~~
+decimal.Overflow: [<class 'decimal.Overflow'>]
+
+======================================================================
+ERROR: test_extreme_amount_and_rate_raise_pricing_error (tests.test_pricing.PricingTests.test_extreme_amount_and_rate_raise_pricing_error) (price=Decimal('1'), rates={'CNY': Decimal('1E+1000000')})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\Desktop\AI全栈工程师校招笔试-材料包\tests\test_pricing.py", line 97, in test_extreme_amount_and_rate_raise_pricing_error
+    convert_to_cny(price, "CNY", exchange_rates)
+  File "E:\Desktop\AI全栈工程师校招笔试-材料包\src\compliance_assistant\pricing.py", line 71, in convert_to_cny
+    return (amount * rate).quantize(CENT, rounding=ROUND_HALF_UP)
+            ~~~~~~~^~~~~~
+decimal.Overflow: [<class 'decimal.Overflow'>]
+
+======================================================================
+FAIL: test_blank_line_is_rejected (tests.test_loader.SkuInputLoaderTests.test_blank_line_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\Desktop\AI全栈工程师校招笔试-材料包\tests\test_loader.py", line 86, in test_blank_line_is_rejected
+    with self.assertRaises(CsvLoadError):
+AssertionError: CsvLoadError not raised
+
+======================================================================
+FAIL: test_duplicate_header_is_rejected (tests.test_loader.SkuInputLoaderTests.test_duplicate_header_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\Desktop\AI全栈工程师校招笔试-材料包\tests\test_loader.py", line 95, in test_duplicate_header_is_rejected
+    with self.assertRaises(CsvLoadError):
+AssertionError: CsvLoadError not raised
+
+======================================================================
+FAIL: test_markdown_cell_escapes_pipes_and_newlines (tests.test_report.ReportGenerationTests.test_markdown_cell_escapes_pipes_and_newlines)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\Desktop\AI全栈工程师校招笔试-材料包\tests\test_report.py", line 87, in test_markdown_cell_escapes_pipes_and_newlines
+    self.assertIn("测试\\|商品 第二行 第三行", row)
+AssertionError: '测试\\|商品 第二行 第三行' not found in '| 1 | 00001 | B2026001 | 正常评估 | 测试\\|商品 第二行'
+
+======================================================================
+FAIL: test_formal_report_matches_independent_expectation (tests.test_independent_reconciliation.IndependentReconciliationTests.test_formal_report_matches_independent_expectation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "E:\Desktop\AI全栈工程师校招笔试-材料包\tests\test_independent_reconciliation.py", line 371, in test_formal_report_matches_independent_expectation
+    self.assertIn("47 + 56 + 7 = 110", text)
+AssertionError: '47 + 56 + 7 = 110' not found in '# 跨境商品合规检查报告\n\n> 数据来源：`sku_list.csv`、`compliance.db`。\n> 处置口径：正常评估 / 已下架 / 库中缺失；风险口径：合规 / 待确认 / 违规。\n\n## 一、明细区\n\n共 120 条输入记录，逐条处置如下。\n\n| 序号 | sku_ref | batch_no | 处置结果 | 商品名 | 类目 | 材质 | 产地 | 原价 | 人民币价格 | 风险标记 | 依据规则 |\n|---:|---|---|---|---|---|---|---|---:|---:|---|---|\n| 1 | 00001 | B2026311 | 已下架 | 初野家居套装经典款 | 内衣 | 棉 | 韩国 | 178.97 KRW | —（不适用） | —（不适用） | —（不适用） |\n| 2 | 00002 | B2026682 | 已下架 | 木白衬衫经典款 | 上衣 | 羊绒 | 意大利 | 99.15 EUR | —（不适用） | —（不适用） | —（不适用） |\n| 3 | 00003 | B2026533 | 已下架 | 鹿先休闲裤限量款 | 裤装 | 涤纶 | 土耳其 | 209.64 EUR | —（不适用） | —（不适用） | —（不适用） |\n| 4 | 00004 | B2026754 | 已下架 | 鹿先连衣裙轻奢款 | 裙装 | 棉 | 土耳其 | 249.33 EUR | —（不适用） | —（不适用） | —（不适用） |\n| 5 | 00005 | B2026535 | 已下架 | 青梧双肩包限量款 | 箱包 | PU革 | 印度 | 338.27 USD | —（不适用） | —（不适用） | —（不适用） |\n| 6 | 00006 | B2026136 | 正常评估 | 初野家居套装限量款 | 内衣 | 涤纶 | 印度 | 108.56 USD | 772.95 | 合规 | — |\n| 7 | 00007 | B2026817 | 正常评估 | 南屿单鞋轻奢款 | 鞋靴 | 真皮 | 土耳其 | 50.22 EUR | 390.71 | 待确认 | CR-001 |\n| 8 | 00008 | B2026798 | 正常评估 | 木白衬衫限量款 | 上衣 | 羊绒 | 中国 | 414.55 CNY | 414.55 | 待确认 | CR-003 |\n| 9 | 00009 | B2026659 | 正常评估 | 南屿家居套装经典款 | 内衣 | 棉 | 越南 | 401.07 USD | 2855.62 | 待确认 | CR-006 |\n| 10 | 00010 | B2026630 | 正常评估 | 鹿先毛衣经典款 | 针织衫 | 棉 | 意大利 | 296.62 EUR | 2307.70 | 合规 | — |\n| 11 | 00011 | B2026891 | 正常评估 | 诺亚家居套装轻奢款 | 内衣 | 棉 | 日本 | 129.36 JPY | 6.16 | 待确认 | CR-006 |\n| 12 | 00012 | B2026122 | 正常评估 | 青梧家居套装限量款 | 内衣 | 再生涤纶 | 土耳其 | 337.16 EUR | 2623.10 | 违规 | CR-007 |\n| 13 | 00013 | B2026563 | 正常评估 | 初野连衣裙轻奢款 | 裙装 | 棉 | 越南 | 250.26 USD | 1781.85 | 合规 | — |\n| 14 | 00014 | B2026724 | 正常评估 | 木白家居套装限量款 | 内衣 | 棉 | 印度 | 398.82 USD | 2839.60 | 待确认 | CR-006 |\n| 15 | 00015 | B2026515 | 正常评估 | 初野双肩包限量款 | 箱包 | PU革 | 韩国 | 165.78 KRW | 0.86 | 待确认 | CR-002 |\n| 16 | 00016 | B2026906 | 正常评估 | 鹿先衬衫轻奢款 | 上衣 | 羊绒 | 日本 | 156.98 JPY | 7.47 | 待确认 | CR-003 |\n| 17 | 00017 | B2026137 | 正常评估 | 青梧单鞋基础款 | 鞋靴 | 羊皮 | 土耳其 | 88.70 EUR | 690.09 | 待确认 | CR-001 |\n| 18 | 00018 | B2026118 | 正常评估 | 鹿先双肩包经典款 | 箱包 | 真皮 | 意大利 | 59.17 EUR | 460.34 | 违规 | CR-001;CR-004 |\n| 19 | 00019 | B2026159 | 正常评估 | 南屿休闲裤基础款 | 裤装 | 锦纶 | 中国 | 232.80 CNY | 232.80 | 合规 | — |\n| 20 | 00020 | B2026400 | 正常评估 | 青梧连衣裙轻奢款 | 裙装 | 涤纶 | 韩国 | 282.39 KRW | 1.47 | 合规 | — |\n| 21 | 00021 | B2026101 | 正常评估 | 青梧双肩包轻奢款 | 箱包 | PU革 | 越南 | 41.45 USD | 295.12 | 待确认 | CR-002 |\n| 22 | 00022 | B2026752 | 正常评估 | 木白双肩包限量款 | 箱包 | 牛皮 | 越南 | 36.03 USD | 256.53 | 待确认 | CR-001 |\n| 23 | 00023 | B2026523 | 正常评估 | 诺亚毛衣限量款 | 针织衫 | 棉 | 土耳其 | 287.85 EUR | 2239.47 | 合规 | — |\n| 24 | 00024 | B2026544 | 正常评估 | 初野双肩包基础款 | 箱包 | 牛皮 | 越南 | 228.45 USD | 1626.56 | 待确认 | CR-001 |\n| 25 | 00025 | B2026245 | 正常评估 | 南屿毛衣经典款 | 针织衫 | 羊绒 | 土耳其 | 328.70 EUR | 2557.29 | 待确认 | CR-003 |\n| 26 | 00026 | B2026356 | 正常评估 | 青梧休闲裤基础款 | 裤装 | 亚麻 | 印度 | 77.36 USD | 550.80 | 合规 | — |\n| 27 | 00027 | B2026277 | 正常评估 | 初野毛衣基础款 | 针织衫 | 羊绒 | 孟加拉 | 20.15 EUR | 156.77 | 待确认 | CR-003 |\n| 28 | 00028 | B2026668 | 正常评估 | 青梧单鞋经典款 | 鞋靴 | 真皮 | 印度 | 108.16 USD | 770.10 | 待确认 | CR-001 |\n| 29 | 00029 | B2026469 | 正常评估 | 山雾休闲裤限量款 | 裤装 | 亚麻 | 日本 | 362.89 JPY | 17.27 | 合规 | — |\n| 30 | 00030 | B2026360 | 正常评估 | 木白单鞋经典款 | 鞋靴 | 真皮 | 孟加拉 | 413.03 EUR | 3213.37 | 待确认 | CR-001 |\n| 31 | 00031 | B2026581 | 库中缺失 | — | — | — | — | — | — | — | — |\n| 32 | 00032 | B2026612 | 正常评估 | 诺亚休闲裤限量款 | 裤装 | 棉 | 越南 | 242.29 USD | 1725.10 | 合规 | — |\n| 33 | 00033 | B2026593 | 正常评估 | 青梧休闲裤基础款 | 裤装 | 锦纶 | 中国 | 327.13 CNY | 327.13 | 合规 | — |\n| 34 | 00034 | B2026994 | 正常评估 | 青梧连衣裙限量款 | 裙装 | 锦纶 | 中国 | 415.97 CNY | 415.97 | 合规 | — |\n| 35 | 00035 | B2026345 | 正常评估 | 初野休闲裤基础款 | 裤装 | 亚麻 | 土耳其 | 222.77 EUR | 1733.15 | 合规 | — |\n| 36 | 00036 | B2026576 | 正常评估 | 山雾家居套装轻奢款 | 内衣 | 棉 | 日本 | 329.60 JPY | 15.69 | 待确认 | CR-006 |\n| 37 | 00037 | B2026927 | 正常评估 | 青梧单鞋经典款 | 鞋靴 | 羊皮 | 中国 | 25.78 CNY | 25.78 | 待确认 | CR-001 |\n| 38 | 00038 | B2026708 | 正常评估 | 青梧单鞋轻奢款 | 鞋靴 | PU革 | 中国 | 337.58 CNY | 337.58 | 待确认 | CR-002 |\n| 39 | 00039 | B2026959 | 正常评估 | 青梧项链基础款 | 配饰 | 不锈钢 | 越南 | 385.75 USD | 2746.54 | 待确认 | CR-005 |\n| 40 | 00040 | B2026750 | 正常评估 | 南屿毛衣限量款 | 针织衫 | 锦纶 | 土耳其 | 281.01 EUR | 2186.26 | 合规 | — |\n| 41 | 00041 | B2026601 | 正常评估 | 南屿连衣裙经典款 | 裙装 | 锦纶 | 日本 | 221.06 JPY | 10.52 | 合规 | — |\n| 42 | 00042 | B2026942 | 正常评估 | 初野项链经典款 | 配饰 | 合金 | 中国 | 312.66 CNY | 312.66 | 待确认 | CR-005;CR-009 |\n| 43 | 00043 | B2026793 | 正常评估 | 诺亚衬衫限量款 | 上衣 | 亚麻 | 越南 | 57.43 USD | 408.90 | 合规 | — |\n| 44 | 00044 | B2026694 | 正常评估 | 青梧单鞋经典款 | 鞋靴 | PU革 | 孟加拉 | 367.19 EUR | 2856.74 | 待确认 | CR-002 |\n| 45 | 00045 | B2026445 | 正常评估 | 山雾项链限量款 | 配饰 | 真皮 | 韩国 | 371.04 KRW | 1.93 | 待确认 | CR-001 |\n| 46 | 00046 | B2026676 | 正常评估 | 山雾毛衣基础款 | 针织衫 | 锦纶 | 越南 | 219.01 USD | 1559.35 | 合规 | — |\n| 47 | 00047 | B2026647 | 正常评估 | 鹿先双肩包基础款 | 箱包 | 真皮 | 日本 | 378.51 JPY | 18.02 | 待确认 | CR-001 |\n| 48 | 00048 | B2026468 | 正常评估 | 青梧家居套装轻奢款 | 内衣 | 涤纶 | 越南 | 36.88 USD | 262.59 | 合规 | — |\n| 49 | 00049 | B2026779 | 正常评估 | 山雾休闲裤限量款 | 裤装 | 亚麻 | 印度 | 125.11 USD | 890.78 | 合规 | — |\n| 50 | 00050 | B2026310 | 正常评估 | 鹿先衬衫轻奢款 | 上衣 | 棉 | 意大利 | 248.82 EUR | 1935.82 | 合规 | — |\n| 51 | 00051 | B2026501 | 正常评估 | 木白单鞋轻奢款 | 鞋靴 | 羊皮 | 孟加拉 | 387.45 EUR | 3014.36 | 待确认 | CR-001 |\n| 52 | 00052 | B2026482 | 正常评估 | 南屿项链基础款 | 配饰 | 不锈钢 | 韩国 | 189.56 KRW | 0.99 | 待确认 | CR-005 |\n| 53 | 00053 | B2026573 | 正常评估 | 鹿先休闲裤限量款 | 裤装 | 锦纶 | 印度 | 261.80 USD | 1864.02 | 合规 | — |\n| 54 | 00054 | B2026484 | 正常评估 | 南屿双肩包限量款 | 箱包 | PU革 | 中国 | 333.59 CNY | 333.59 | 待确认 | CR-002 |\n| 55 | 00055 | B2026515 | 正常评估 | 山雾单鞋轻奢款 | 鞋靴 | 真皮 | 越南 | 378.66 USD | 2696.06 | 待确认 | CR-001 |\n| 56 | 00056 | B2026306 | 正常评估 | 初野家居套装经典款 | 内衣 | 涤纶 | 土耳其 | 65.11 EUR | 506.56 | 合规 | — |\n| 57 | 00057 | B2026657 | 库中缺失 | — | — | — | — | — | — | — | — |\n| 58 | 00058 | B2026138 | 正常评估 | 南屿项链轻奢款 | 配饰 | 合金 | 越南 | 180.37 USD | 1284.23 | 待确认 | CR-005;CR-009 |\n| 59 | 00059 | B2026209 | 正常评估 | 拾光衬衫轻奢款 | 上衣 | 锦纶 | 土耳其 | 14.21 EUR | 110.55 | 合规 | — |\n| 60 | 00060 | B2026740 | 正常评估 | 初野双肩包轻奢款 | 箱包 | 牛皮 | 日本 | 59.16 JPY | 2.82 | 待确认 | CR-001 |\n| 61 | 00061 | B2026581 | 正常评估 | 南屿家居套装基础款 | 内衣 | 再生涤纶 | 土耳其 | 160.53 EUR | 1248.92 | 违规 | CR-007 |\n| 62 | 00062 | B2026422 | 正常评估 | 初野家居套装轻奢款 | 内衣 | 棉 | 孟加拉 | 93.30 EUR | 725.87 | 待确认 | CR-006 |\n| 63 | 00063 | B2026303 | 正常评估 | 青梧家居套装经典款 | 内衣 | 涤纶 | 印度 | 53.60 USD | 381.63 | 合规 | — |\n| 64 | 00064 | B2026504 | 正常评估 | 初野休闲裤基础款 | 裤装 | 锦纶 | 中国 | 328.44 CNY | 328.44 | 合规 | — |\n| 65 | 00065 | B2026395 | 正常评估 | 青梧双肩包轻奢款 | 箱包 | 真皮 | 意大利 | 104.52 EUR | 813.17 | 违规 | CR-001;CR-004 |\n| 66 | 00066 | B2026456 | 正常评估 | 初野连衣裙限量款 | 裙装 | 锦纶 | 越南 | 144.62 USD | 1029.69 | 合规 | — |\n| 67 | 00067 | B2026767 | 正常评估 | 木白项链限量款 | 配饰 | 真皮 | 孟加拉 | 228.95 EUR | 1781.23 | 待确认 | CR-001 |\n| 68 | 00068 | B2026608 | 正常评估 | 山雾衬衫经典款 | 上衣 | 羊毛 | 土耳其 | 193.79 EUR | 1507.69 | 待确认 | CR-003 |\n| 69 | 00069 | B2026869 | 正常评估 | 南屿连衣裙轻奢款 | 裙装 | 桑蚕丝 | 日本 | 210.71 JPY | 10.03 | 合规 | — |\n| 70 | 00070 | B2026380 | 正常评估 | 初野双肩包限量款 | 箱包 | 真皮 | 越南 | 393.25 USD | 2799.94 | 待确认 | CR-001 |\n| 71 | 00071 | B2026951 | 正常评估 | 初野双肩包轻奢款 | 箱包 | 真皮 | 意大利 | 200.98 EUR | 1563.62 | 违规 | CR-001;CR-004 |\n| 72 | 00072 | B2026572 | 正常评估 | 初野休闲裤基础款 | 裤装 | 棉 | 印度 | 305.38 USD | 2174.31 | 合规 | — |\n| 73 | 00073 | B2026753 | 正常评估 | 青梧休闲裤限量款 | 裤装 | 棉 | 土耳其 | 16.36 EUR | 127.28 | 合规 | — |\n| 74 | 00074 | B2026324 | 正常评估 | 青梧项链基础款 | 配饰 | 不锈钢 | 韩国 | 409.85 KRW | 2.13 | 待确认 | CR-005 |\n| 75 | 00075 | B2026655 | 正常评估 | 南屿双肩包轻奢款 | 箱包 | PU革 | 越南 | 285.37 USD | 2031.83 | 待确认 | CR-002 |\n| 76 | 00076 | B2026566 | 正常评估 | 诺亚家居套装经典款 | 内衣 | 再生涤纶 | 中国 | 128.95 CNY | 128.95 | 违规 | CR-007 |\n| 77 | 00077 | B2026597 | 正常评估 | 山雾家居套装限量款 | 内衣 | 涤纶 | 印度 | 113.03 USD | 804.77 | 合规 | — |\n| 78 | 00078 | B2026278 | 正常评估 | 青梧连衣裙经典款 | 裙装 | 棉 | 中国 | 54.84 CNY | 54.84 | 合规 | — |\n| 79 | 00079 | B2026219 | 正常评估 | 山雾项链轻奢款 | 配饰 | 合金 | 中国 | 286.89 CNY | 286.89 | 待确认 | CR-005;CR-009 |\n| 80 | 00080 | B2026610 | 正常评估 | 拾光双肩包基础款 | 箱包 | 牛皮 | 韩国 | 333.96 KRW | 1.74 | 待确认 | CR-001 |\n| 81 | 00081 | B2026101 | 正常评估 | 山雾单鞋经典款 | 鞋靴 | 羊皮 | 中国 | 330.61 CNY | 330.61 | 待确认 | CR-001 |\n| 82 | 00082 | B2026812 | 正常评估 | 鹿先家居套装限量款 | 内衣 | 涤纶 | 印度 | 68.04 USD | 484.44 | 合规 | — |\n| 83 | 00083 | B2026143 | 正常评估 | 南屿连衣裙基础款 | 裙装 | 桑蚕丝 | 中国 | 103.35 CNY | 103.35 | 合规 | — |\n| 84 | 00084 | B2026584 | 库中缺失 | — | — | — | — | — | — | — | — |\n| 85 | 00085 | B2026525 | 正常评估 | 山雾项链轻奢款 | 配饰 | 合金 | 土耳其 | 413.92 EUR | 3220.30 | 待确认 | CR-005;CR-009 |\n| 86 | 00086 | B2026776 | 正常评估 | 山雾双肩包轻奢款 | 箱包 | PU革 | 意大利 | 72.90 EUR | 567.16 | 待确认 | CR-002 |\n| 87 | 00087 | B2026497 | 正常评估 | 青梧项链基础款 | 配饰 | 合金 | 越南 | 188.65 USD | 1343.19 | 待确认 | CR-005;CR-009 |\n| 88 | 00088 | B2026658 | 正常评估 | 初野连衣裙经典款 | 裙装 | 棉 | 土耳其 | 127.91 EUR | 995.14 | 合规 | — |\n| 89 | 00089 | B2026899 | 正常评估 | 木白双肩包轻奢款 | 箱包 | PU革 | 越南 | 272.06 USD | 1937.07 | 待确认 | CR-002 |\n| 90 | 00090 | B2026970 | 正常评估 | 山雾衬衫轻奢款 | 上衣 | 锦纶 | 印度 | 206.74 USD | 1471.99 | 合规 | — |\n| 91 | 00091 | B2026101 | 正常评估 | 诺亚休闲裤经典款 | 裤装 | 涤纶 | 韩国 | 289.57 KRW | 1.51 | 合规 | — |\n| 92 | 00092 | B2026522 | 正常评估 | 南屿休闲裤限量款 | 裤装 | 涤纶 | 越南 | 62.92 USD | 447.99 | 合规 | — |\n| 93 | 00093 | B2026383 | 正常评估 | 初野双肩包经典款 | 箱包 | 牛皮 | 韩国 | 86.36 KRW | 0.45 | 待确认 | CR-001 |\n| 94 | 00094 | B2026324 | 正常评估 | 初野家居套装经典款 | 内衣 | 棉 | 越南 | 67.76 USD | 482.45 | 待确认 | CR-006 |\n| 95 | 00095 | B2026895 | 正常评估 | 初野休闲裤限量款 | 裤装 | 亚麻 | 中国 | 143.92 CNY | 143.92 | 合规 | — |\n| 96 | 00096 | B2026326 | 正常评估 | 拾光衬衫经典款 | 上衣 | 羊毛 | 孟加拉 | 128.03 EUR | 996.07 | 待确认 | CR-003 |\n| 97 | 00097 | B2026937 | 正常评估 | 青梧家居套装轻奢款 | 内衣 | 涤纶 | 日本 | 208.90 JPY | 9.94 | 合规 | — |\n| 98 | 00098 | B2026398 | 正常评估 | 南屿休闲裤轻奢款 | 裤装 | 锦纶 | 孟加拉 | 132.53 EUR | 1031.08 | 合规 | — |\n| 99 | 00099 | B2026319 | 库中缺失 | — | — | — | — | — | — | — | — |\n| 100 | 00100 | B2026510 | 正常评估 | 拾光衬衫限量款 | 上衣 | 羊绒 | 印度 | 280.17 USD | 1994.81 | 待确认 | CR-003 |\n| 101 | 00101 | B2026111 | 正常评估 | 南屿双肩包经典款 | 箱包 | 真皮 | 日本 | 179.21 JPY | 8.53 | 待确认 | CR-001 |\n| 102 | 00102 | B2026512 | 正常评估 | 青梧连衣裙轻奢款 | 裙装 | 锦纶 | 土耳其 | 342.29 EUR | 2663.02 | 合规 | — |\n| 103 | 00103 | B2026753 | 正常评估 | 木白毛衣基础款 | 针织衫 | 羊毛 | 意大利 | 380.54 EUR | 2960.60 | 待确认 | CR-003 |\n| 104 | 00104 | B2026274 | 正常评估 | 青梧家居套装限量款 | 内衣 | 涤纶 | 越南 | 355.12 USD | 2528.45 | 合规 | — |\n| 105 | 00105 | B2026885 | 正常评估 | 木白项链经典款 | 配饰 | 合金 | 越南 | 123.38 USD | 878.47 | 待确认 | CR-005;CR-009 |\n| 106 | 00106 | B2026306 | 正常评估 | 初野衬衫轻奢款 | 上衣 | 棉 | 土耳其 | 128.38 EUR | 998.80 | 合规 | — |\n| 107 | 00107 | B2026947 | 正常评估 | 山雾双肩包基础款 | 箱包 | 牛皮 | 越南 | 145.98 USD | 1039.38 | 待确认 | CR-001 |\n| 108 | 00108 | B2026888 | 正常评估 | 诺亚双肩包轻奢款 | 箱包 | 牛皮 | 日本 | 132.46 JPY | 6.31 | 待确认 | CR-001 |\n| 109 | 00109 | B2026899 | 正常评估 | 鹿先连衣裙基础款 | 裙装 | 棉 | 孟加拉 | 320.10 EUR | 2490.38 | 合规 | — |\n| 110 | 00110 | B2026270 | 正常评估 | 诺亚家居套装基础款 | 内衣 | 再生涤纶 | 印度 | 124.89 USD | 889.22 | 违规 | CR-007 |\n| 111 | 00111 | B2026361 | 正常评估 | 拾光项链经典款 | 配饰 | 不锈钢 | 土耳其 | 191.24 EUR | 1487.85 | 待确认 | CR-005 |\n| 112 | 00112 | B2026742 | 正常评估 | 拾光单鞋经典款 | 鞋靴 | PU革 | 韩国 | 353.14 KRW | 1.84 | 待确认 | CR-002 |\n| 113 | 00113 | B2026793 | 库中缺失 | — | — | — | — | — | — | — | — |\n| 114 | 00114 | B2026774 | 正常评估 | 青梧连衣裙轻奢款 | 裙装 | 锦纶 | 印度 | 90.27 USD | 642.72 | 合规 | — |\n| 115 | 00115 | B2026235 | 正常评估 | 山雾双肩包限量款 | 箱包 | PU革 | 土耳其 | 251.11 EUR | 1953.64 | 待确认 | CR-002 |\n| 116 | 00116 | B2026416 | 正常评估 | 山雾项链限量款 | 配饰 | 真皮 | 中国 | 77.75 CNY | 77.75 | 待确认 | CR-001 |\n| 117 | 00117 | B2026257 | 正常评估 | 青梧衬衫经典款 | 上衣 | 棉 | 印度 | 229.57 USD | 1634.54 | 合规 | — |\n| 118 | 00118 | B2026138 | 正常评估 | 山雾休闲裤经典款 | 裤装 | 涤纶 | 日本 | 350.17 JPY | 16.67 | 合规 | — |\n| 119 | 00119 | B2026149 | 正常评估 | 青梧双肩包基础款 | 箱包 | PU革 | 土耳其 | 37.21 EUR | 289.49 | 待确认 | CR-002 |\n| 120 | 00120 | B2026220 | 正常评估 | 诺亚衬衫基础款 | 上衣 | 亚麻 | 土耳其 | 156.16 EUR | 1214.92 | 合规 | — |\n\n## 二、汇总区\n\n### 2.1 风险数量（仅统计正常评估商品）\n\n| 风险标记 | 数量 |\n|---|---:|\n| 合规 | 47 |\n| 待确认 | 56 |\n| 违规 | 7 |\n| **合计** | **110** |\n\n三档风险数量之和：110；实际评估数：110。\n\n### 2.2 Top 风险类目\n\n统计口径：仅统计至少有一件违规或待确认商品的类目；每个正常评估 SKU 按最终风险只计一次；先按违规数降序，再按待确认数降序，最后按类目名升序，最多展示前 5 个。\n\n| 排名 | 类目 | 违规数 | 待确认数 | 风险商品总数 |\n|---:|---|---:|---:|---:|\n| 1 | 内衣 | 4 | 6 | 10 |\n| 2 | 箱包 | 3 | 18 | 21 |\n| 3 | 配饰 | 0 | 13 | 13 |\n| 4 | 鞋靴 | 0 | 11 | 11 |\n| 5 | 上衣 | 0 | 5 | 5 |\n\n## 三、完整性自检区\n\n| 指标 | 数量 |\n|---|---:|\n| 清单读取数 | 120 |\n| 在库数（含已下架） | 115 |\n| 已下架数 | 5 |\n| 缺失数 | 5 |\n| 实际评估数 | 110 |\n\n完整性等式校验：\n\n- 清单读取数 = 在库数 + 缺失数：120 = 115 + 5，成立\n- 在库数 = 已下架数 + 实际评估数：115 = 5 + 110，成立\n- 清单读取数 = 缺失数 + 已下架数 + 实际评估数：120 = 5 + 5 + 110，成立\n\n校验结论：全部成立。\n'
+
+----------------------------------------------------------------------
+Ran 60 tests in 0.966s
+
+FAILED (failures=4, errors=2)

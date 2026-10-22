@@ -2,6 +2,7 @@ import re
 import unittest
 from dataclasses import replace
 from decimal import Decimal
+from unittest.mock import patch
 
 from src.compliance_assistant.errors import ReportError
 from src.compliance_assistant.models import (
@@ -69,6 +70,80 @@ class ReportGenerationTests(TempDirTestCase):
         generate_report(results, path)
         text = path.read_text(encoding="utf-8")
         self.assertIn("CR-001;CR-004", text)
+
+    def test_markdown_cell_escapes_pipes_and_newlines(self):
+        results = list(self.results)
+        normal = next(r for r in results if r.disposition == Disposition.NORMAL)
+        self.assertIsNotNone(normal.product)
+        damaged_product = replace(
+            normal.product,
+            name="测试|商品\n第二行\r第三行",
+        )
+        results[results.index(normal)] = replace(
+            normal, product=damaged_product
+        )
+        detail = build_detail_section(results)
+        row = next(line for line in detail.splitlines() if "00001" in line)
+        self.assertIn("测试\\|商品 第二行 第三行", row)
+        self.assertNotIn("\r", row)
+
+    def test_currency_and_rule_ids_are_escaped(self):
+        results = list(self.results)
+        normal = next(r for r in results if r.disposition == Disposition.NORMAL)
+        self.assertIsNotNone(normal.product)
+        results[results.index(normal)] = replace(
+            normal,
+            product=replace(normal.product, currency="USD|X"),
+            matched_rule_ids=("CR|001",),
+        )
+        detail = build_detail_section(results)
+        row = next(line for line in detail.splitlines() if "00001" in line)
+        self.assertIn("USD\\|X", row)
+        self.assertIn("CR\\|001", row)
+
+    def test_old_report_is_unchanged_when_new_validation_fails(self):
+        path = self.temp_path("report.md")
+        generate_report(self.results, path)
+        old_text = path.read_text(encoding="utf-8")
+
+        invalid = list(self.results)
+        normal = next(r for r in invalid if r.disposition == Disposition.NORMAL)
+        invalid[invalid.index(normal)] = replace(normal, risk=None)
+        with self.assertRaises(ReportError):
+            generate_report(invalid, path)
+
+        self.assertEqual(old_text, path.read_text(encoding="utf-8"))
+
+    def test_temp_file_is_removed_when_replace_fails(self):
+        path = self.temp_path("report.md")
+        tmp_path = path.with_name(path.name + ".tmp")
+        with patch(
+            "src.compliance_assistant.report.os.replace",
+            side_effect=OSError("replace failed"),
+        ):
+            with self.assertRaises(ReportError):
+                generate_report(self.results, path)
+        self.assertFalse(path.exists())
+        self.assertFalse(tmp_path.exists())
+
+    def test_temp_file_is_removed_when_write_fails(self):
+        path = self.temp_path("report.md")
+        tmp_path = path.with_name(path.name + ".tmp")
+        with patch("pathlib.Path.write_text", side_effect=OSError("write failed")):
+            with self.assertRaises(ReportError):
+                generate_report(self.results, path)
+        self.assertFalse(path.exists())
+        self.assertFalse(tmp_path.exists())
+
+    def test_post_write_verification_failure_removes_report(self):
+        path = self.temp_path("report.md")
+        with patch(
+            "src.compliance_assistant.report.verify_report_file",
+            side_effect=ReportError("post-write verify failed"),
+        ):
+            with self.assertRaises(ReportError):
+                generate_report(self.results, path)
+        self.assertFalse(path.exists())
 
     def test_missing_goods_are_not_dropped(self):
         detail = build_detail_section(self.results)

@@ -1,0 +1,2 @@
+CR-006: 未报错，普通字符串通过校验
+CR-007: AttributeError : 'object' object has no attribute 'disposition'

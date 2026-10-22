@@ -44,11 +44,16 @@ def _cell(value: object) -> str:
     text = str(value)
     if not text.strip():
         return "—"
-    return text.replace("|", "\\|").replace("\n", " ")
+    return (
+        text.replace("|", "\\|")
+        .replace("\r\n", " ")
+        .replace("\n", " ")
+        .replace("\r", " ")
+    )
 
 
 def _money(price: Decimal, currency: str) -> str:
-    return f"{price:.2f} {currency}"
+    return f"{price:.2f} {_cell(currency)}"
 
 
 def _cny(price: Decimal) -> str:
@@ -130,7 +135,7 @@ def build_detail_section(results: Sequence[ProcessingResult]) -> str:
             original_price = _money(product.price, product.currency)
             cny_price = _cny(result.cny_price) if result.cny_price is not None else "—"
             risk = result.risk.value if result.risk is not None else "—"
-            rule_ids = ";".join(result.matched_rule_ids) or "—"
+            rule_ids = _cell(";".join(result.matched_rule_ids) or "—")
 
         name, category, material, origin = product_cells
         lines.append(
@@ -180,7 +185,9 @@ def build_summary_section(results: Sequence[ProcessingResult]) -> str:
         f"| 违规 | {counts[RiskLevel.VIOLATION]} |",
         f"| **合计** | **{evaluated}** |",
         "",
-        f"三档风险数量之和：{sum(counts.values())}；实际评估数：{evaluated}。",
+        "三档风险数量之和："
+        + " + ".join(str(counts[level]) for level in RiskLevel)
+        + f" = {sum(counts.values())}；实际评估数：{evaluated}。",
         "",
         "### 2.2 Top 风险类目",
         "",

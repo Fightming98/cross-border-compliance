@@ -86,6 +86,16 @@ class PricingTests(unittest.TestCase):
             convert_to_cny("1.00", "EUR", self.rates),
         )
 
+    def test_extreme_amount_and_rate_raise_pricing_error(self):
+        rates = {"CNY": Decimal("1.0")}
+        for price, exchange_rates in (
+            (Decimal("1e1000000"), rates),
+            (Decimal("1"), {"CNY": Decimal("1e1000000")}),
+        ):
+            with self.subTest(price=price, rates=exchange_rates):
+                with self.assertRaises(PricingError):
+                    convert_to_cny(price, "CNY", exchange_rates)
+
 
 if __name__ == "__main__":
     unittest.main()

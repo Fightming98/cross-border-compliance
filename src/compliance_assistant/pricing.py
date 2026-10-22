@@ -7,7 +7,7 @@
 from __future__ import annotations
 
 from collections.abc import Mapping
-from decimal import Decimal, InvalidOperation, ROUND_HALF_UP
+from decimal import Decimal, DecimalException, InvalidOperation, ROUND_HALF_UP
 
 from .errors import PricingError
 
@@ -69,7 +69,9 @@ def convert_to_cny(
 
     try:
         return (amount * rate).quantize(CENT, rounding=ROUND_HALF_UP)
-    except InvalidOperation as exc:
+    except DecimalException as exc:
+        # 极大金额/汇率可能触发 Overflow，而不能只捕获 InvalidOperation；
+        # 统一转换为业务异常，避免泄漏 decimal 实现细节。
         raise PricingError(
-            f"金额换算失败: price={price!r}, currency={currency_code!r}"
+            f"金额换算失败: price={price!r}, currency={currency_code!r}: {exc}"
         ) from exc

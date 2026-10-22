@@ -48,6 +48,24 @@ class ValidationTests(unittest.TestCase):
         with self.assertRaises(ValidationError):
             self._validate(expected_input_count=120)
 
+    def test_non_processing_result_is_rejected(self):
+        with self.assertRaises(ValidationError):
+            self._validate([object()])
+
+    def test_non_sku_input_is_rejected(self):
+        results = list(self.results)
+        normal = next(r for r in results if r.disposition == "正常评估")
+        results[results.index(normal)] = replace(normal, sku_input=None)
+        with self.assertRaises(ValidationError):
+            self._validate(results)
+
+    def test_non_product_is_rejected(self):
+        results = list(self.results)
+        normal = next(r for r in results if r.disposition == "正常评估")
+        results[results.index(normal)] = replace(normal, product=object())
+        with self.assertRaises(ValidationError):
+            self._validate(results)
+
     def test_empty_results(self):
         with self.assertRaises(ValidationError):
             self._validate([])
@@ -55,6 +73,15 @@ class ValidationTests(unittest.TestCase):
     def test_reversed_order_is_rejected(self):
         with self.assertRaises(ValidationError):
             self._validate(list(reversed(self.results)))
+
+    def test_disposition_must_be_enum(self):
+        results = list(self.results)
+        normal = next(r for r in results if r.disposition == "正常评估")
+        results[results.index(normal)] = replace(
+            normal, disposition="正常评估"
+        )
+        with self.assertRaises(ValidationError):
+            self._validate(results)
 
     def test_missing_result_cannot_have_product(self):
         results = list(self.results)

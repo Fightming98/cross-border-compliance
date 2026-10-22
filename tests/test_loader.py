@@ -77,6 +77,38 @@ class SkuInputLoaderTests(TempDirTestCase):
         with self.assertRaises(CsvLoadError):
             load_sku_inputs(path)
 
+    def test_blank_line_is_rejected(self):
+        path = self.temp_path("sku.csv")
+        path.write_text(
+            "sku_ref,batch_no\n00001,B1\n\n00002,B2\n",
+            encoding="utf-8-sig",
+        )
+        with self.assertRaises(CsvLoadError):
+            load_sku_inputs(path)
+
+    def test_duplicate_header_is_rejected(self):
+        path = self.temp_path("sku.csv")
+        path.write_text(
+            "sku_ref,batch_no,batch_no\n00001,B1,B2\n",
+            encoding="utf-8-sig",
+        )
+        with self.assertRaises(CsvLoadError):
+            load_sku_inputs(path)
+
+    def test_duplicate_sku_ref_is_preserved_by_row(self):
+        path = write_csv(
+            self.temp_path("sku.csv"),
+            [
+                {"sku_ref": "00001", "batch_no": "B1"},
+                {"sku_ref": "00001", "batch_no": "B2"},
+            ],
+        )
+        records = load_sku_inputs(path)
+        self.assertEqual(2, len(records))
+        self.assertEqual(["00001", "00001"], [item.sku_ref for item in records])
+        self.assertEqual(["B1", "B2"], [item.batch_no for item in records])
+        self.assertEqual([2, 3], [item.line_no for item in records])
+
     def test_extra_value_is_malformed(self):
         path = self.temp_path("sku.csv")
         path.write_text(
@@ -163,6 +195,12 @@ class DatabaseLoaderTests(TempDirTestCase):
     def test_missing_database_file(self):
         with self.assertRaises(DatabaseLoadError):
             load_products(self.temp_path("missing.db"))
+
+    def test_corrupt_database_file(self):
+        path = self.temp_path("corrupt.db")
+        path.write_bytes(b"this is not a sqlite database")
+        with self.assertRaises(DatabaseLoadError):
+            load_products(path)
 
     def test_missing_table(self):
         path = self.temp_path("empty.db")

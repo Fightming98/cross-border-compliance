@@ -8,6 +8,7 @@
 
 - 第一轮审计提示：`Prompt/01数据审计与需求确认.md`
 - 第二轮编码提示：`Prompt/02核心业务编码实现.md`
+- 第三轮审查提示：`Prompt/03独立代码审查与缺陷修复.md`
 - 原始题目：`instructions.md`
 
 ## 二、正式编码前的输入材料
@@ -37,19 +38,28 @@
    - `validation.py`：输入、结果、价格/规则复算与完整性等式；
    - `report.py`：Markdown 渲染、Top 类目、写前校验、原子写入、写后复核。
 3. 创建 `main.py`：默认路径、命令行参数、错误处理和退出码。
-4. 创建 `tests/`：7 个测试模块 + 辅助数据构造，共 97 个测试。
+4. 创建 `tests/`：测试模块 + 辅助数据构造，第二阶段共 97 个测试。
 5. 执行 `python -m unittest discover -s tests -v`，全部通过。
 6. 执行 `python main.py`，生成 `reports/compliance_report.md`，核对 120/115/5/5/110 与 47/56/7。
 7. 自查并修正报告渲染层对原始字符串的处理，确保 `sku_ref` 等原始值不被隐式改写。
 8. 编写 README、验收说明和本索引，完成最终重跑。
+9. 第三阶段重新阅读全部生产代码、测试、文档和 Git 状态，记录 97 个测试基线。
+10. 编写独立参考实现，直接读取原始 CSV/SQLite，逐 SKU 复算处置、规则、风险、价格与 Top 类目。
+11. 补充边界测试并先运行修复前版本，得到 `4 failures, 2 errors`；据此修复空行、重复表头、CR 转义、极端金额和风险等式展示问题。
+12. 人工审查校验层类型边界，复现普通字符串冒充枚举、非法结果对象触发 `AttributeError`，修复并补测试。
+13. 重新执行编译检查、121 个测试和正式运行，核对报告 120/110/5/5、47/56/7、Top 类目及四条等式。
+14. 校验原始文件 SHA-256、数据库 sidecar 与临时文件，更新 README、验收说明、审查报告和真实运行记录。
 
 ## 四、实际执行的命令与结果
 
 | 命令 | 实际结果 |
 |---|---|
-| `python -m unittest discover -s tests -v` | `Ran 97 tests`，`OK` |
-| `python main.py` | 退出码 0；120 条输入；115 在库；5 已下架；5 缺失；110 评估；合规 47 / 待确认 56 / 违规 7；报告写入 `reports/compliance_report.md` |
-| `python -m compileall -q main.py src tests` | 退出码 0，全部模块可编译 |
+| `python -m unittest discover -s tests -v`（第二阶段基线） | `Ran 97 tests in 0.680s`，`OK`；见 `reports/stage3_baseline_tests.txt` |
+| 修复前定向测试 | `Ran 60 tests in 0.966s`，`FAILED (failures=4, errors=2)`；见 `reports/stage3_pre_fix_tests.txt` |
+| 基线类型边界复现 | CR-006 普通字符串未报错；CR-007 抛 `AttributeError`；见 `reports/stage3_pre_fix_type_checks.txt` |
+| `python -m compileall -q main.py src tests`（最终） | 退出码 0，全部模块可编译 |
+| `python -m unittest discover -s tests -v`（最终） | `Ran 121 tests in 1.058s`，`OK`；见 `reports/test_results.txt` |
+| `python main.py`（最终） | 退出码 0；120 条输入；115 在库；5 已下架；5 缺失；110 评估；合规 47 / 待确认 56 / 违规 7；报告写入 `reports/compliance_report.md`；见 `reports/run_log.txt` |
 
 原始文件在运行前后 SHA-256 一致，数据库未产生 `-wal` / `-shm` / `-journal` 文件；详见 `audit/07_数据审计汇总.json` 的 `source_integrity` 与 `docs/踩坑与验收说明.md`。
 
@@ -66,6 +76,8 @@
 | 报告明细/汇总/自检 | `report.build_detail_section`、`build_summary_section`、`build_integrity_section` |
 | 报告复核 | `report.verify_report_file` |
 | 命令行运行 | `main.run`、`main.main` |
+| 独立逐 SKU 对账 | `tests/test_independent_reconciliation.py` |
+| 审查缺陷与修复证据 | `docs/第三阶段代码审查与修复报告.md` |
 
 ## 六、说明
 
