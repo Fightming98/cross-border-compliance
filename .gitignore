@@ -23,3 +23,6 @@ desktop.ini
 # 临时输出
 *.tmp
 *.log.tmp
+
+# 本地 AI 原始会话（仅随提交压缩包提供，不推送到公开仓库）
+ai_records/
