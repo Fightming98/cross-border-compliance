@@ -5,25 +5,16 @@ from __future__ import annotations
 import argparse
 import sys
 import traceback
-from collections import Counter
 from pathlib import Path
 
+from src.compliance_assistant.application_service import (
+    run_compliance_check,
+    write_details_csv,
+)
 from src.compliance_assistant.errors import ComplianceError
-from src.compliance_assistant.loader import (
-    load_exchange_rates,
-    load_products,
-    load_rules,
-    load_sku_inputs,
-)
-from src.compliance_assistant.models import Disposition, RiskLevel
-from src.compliance_assistant.processor import process_sku_inputs
+from src.compliance_assistant.html_report import generate_html_report
+from src.compliance_assistant.models import RiskLevel
 from src.compliance_assistant.report import generate_report, verify_report_file
-from src.compliance_assistant.validation import (
-    compute_stats,
-    validate_database_snapshot,
-    validate_processing_results,
-    validate_sku_inputs,
-)
 
 PROJECT_ROOT = Path(__file__).resolve().parent
 DEFAULT_CSV = PROJECT_ROOT / "sku_list.csv"
@@ -54,6 +45,18 @@ def build_parser() -> argparse.ArgumentParser:
         help=f"报告输出路径（默认: {DEFAULT_OUTPUT}）",
     )
     parser.add_argument(
+        "--html-output",
+        type=Path,
+        default=None,
+        help="可选：同时生成独立 HTML 报告到指定路径",
+    )
+    parser.add_argument(
+        "--csv-output",
+        type=Path,
+        default=None,
+        help="可选：同时导出 CSV 明细到指定路径",
+    )
+    parser.add_argument(
         "--expected-count",
         type=int,
         default=120,
@@ -67,41 +70,39 @@ def run(
     db_path: str | Path,
     output_path: str | Path,
     expected_count: int = 120,
+    *,
+    html_output: str | Path | None = None,
+    csv_output: str | Path | None = None,
 ) -> Path:
-    """执行完整流程并返回报告路径；任何失败都抛出 ComplianceError。"""
+    """执行完整流程并返回 Markdown 报告路径；任何失败都抛出 ComplianceError。"""
 
-    sku_inputs = load_sku_inputs(csv_path)
-    validate_sku_inputs(sku_inputs, expected_input_count=expected_count)
-
-    products = load_products(db_path)
-    rules = load_rules(db_path)
-    exchange_rates = load_exchange_rates(db_path)
-    validate_database_snapshot(products, rules, exchange_rates)
-
-    results = process_sku_inputs(sku_inputs, products, rules, exchange_rates)
-
-    stats = validate_processing_results(
-        results,
+    outcome = run_compliance_check(
+        csv_path,
+        db_path,
         expected_input_count=expected_count,
-        exchange_rates=exchange_rates,
-        rules=rules,
     )
 
     report_path = generate_report(
-        results,
+        outcome.results,
         output_path,
         expected_input_count=expected_count,
     )
     # 落盘后再次复核，确保交给用户的确实是一份完整报告。
     verify_report_file(
         report_path,
-        expected_detail_rows=len(results),
-        expected_sku_refs=[item.sku_ref for item in sku_inputs],
+        expected_detail_rows=len(outcome.results),
+        expected_sku_refs=[item.sku_ref for item in outcome.sku_inputs],
     )
 
-    risk_counts = Counter(
-        result.risk for result in results if result.disposition == Disposition.NORMAL
-    )
+    html_path = None
+    if html_output is not None:
+        html_path = generate_html_report(outcome, html_output)
+    csv_path = None
+    if csv_output is not None:
+        csv_path = write_details_csv(outcome, csv_output)
+
+    stats = outcome.stats
+    risk_counts = outcome.risk_counts
     print("跨境商品合规检查完成")
     print(f"  清单读取数: {stats.n_input}")
     print(f"  在库数（含已下架）: {stats.n_matched}")
@@ -115,6 +116,10 @@ def run(
         f"违规 {risk_counts[RiskLevel.VIOLATION]}"
     )
     print(f"  报告路径: {report_path}")
+    if html_path is not None:
+        print(f"  HTML 报告路径: {html_path}")
+    if csv_path is not None:
+        print(f"  CSV 明细路径: {csv_path}")
     return report_path
 
 
@@ -125,7 +130,14 @@ def main(argv: list[str] | None = None) -> int:
         parser.error("--expected-count 必须为正整数")
 
     try:
-        run(args.csv, args.db, args.output, args.expected_count)
+        run(
+            args.csv,
+            args.db,
+            args.output,
+            args.expected_count,
+            html_output=args.html_output,
+            csv_output=args.csv_output,
+        )
     except ComplianceError as exc:
         print(f"处理失败: {exc}", file=sys.stderr)
         return 1

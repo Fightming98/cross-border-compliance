@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+{% block title %}合规检查工作台 · 跨境商品合规检查{% endblock %}
+{% block content %}
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-copy">
+    <p class="eyebrow"><span class="eyebrow-rule" aria-hidden="true"></span>LOCAL COMPLIANCE WORKBENCH</p>
+    <h1 id="hero-title">把一份 SKU 清单，变成<br><em>可追溯</em>的合规结论。</h1>
+    <p class="hero-lead">上传 CSV 清单，在本地完成商品匹配、规则判断与人民币价格换算。结果看板、Markdown 报告、独立 HTML 报告和 CSV 明细全部来自同一次后端计算。</p>
+    <div class="hero-badges" aria-label="运行特征">
+      <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.2 7.8 8 9 4.8-1.2 8-4.5 8-9V6l-8-3Z"/></svg>数据库只读</span>
+      <span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>仅本机访问</span>
+      <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z"/><path d="M8 9h8M8 13h5"/></svg>三类报告同源</span>
+    </div>
+  </div>
+  <aside class="hero-aside" aria-label="验收基线">
+    <p class="aside-kicker">内置样本验收基线</p>
+    <div class="baseline-grid">
+      <span><strong>120</strong><small>清单行数</small></span>
+      <span><strong>115</strong><small>在库商品</small></span>
+      <span><strong>110</strong><small>实际评估</small></span>
+      <span><strong>47</strong><small>合规</small></span>
+      <span><strong>56</strong><small>待确认</small></span>
+      <span><strong>7</strong><small>违规</small></span>
+    </div>
+    <p class="aside-note">对应项目自带 <code>sku_list.csv</code>；上传其他清单时以实际结果为准。</p>
+  </aside>
+</section>
+
+<section class="workspace" aria-labelledby="upload-title">
+  <div class="upload-card panel">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">NEW CHECK</p>
+        <h2 id="upload-title">上传待检清单</h2>
+      </div>
+      <span class="format-pill">CSV · 最大 2 MB</span>
+    </div>
+    <form id="upload-form" method="post" action="{{ url_for('api_create_report') }}" enctype="multipart/form-data" novalidate>
+      <label class="drop-zone" id="drop-zone" for="csv-file">
+        <input class="visually-hidden" id="csv-file" name="file" type="file" accept=".csv,text/csv">
+        <span class="drop-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 16V4"/><path d="m7 9 5-5 5 5"/><path d="M4 15v4h16v-4"/></svg>
+        </span>
+        <strong>拖入 CSV 文件，或点击选择</strong>
+        <span class="drop-hint">必须包含 <code>sku_ref</code> 与 <code>batch_no</code> 列；编码支持 UTF-8 / UTF-8 BOM</span>
+        <span class="drop-action">选择本地文件</span>
+      </label>
+
+      <div class="file-summary" id="file-summary" hidden>
+        <span class="file-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/></svg>
+        </span>
+        <span class="file-copy">
+          <strong id="file-name">—</strong>
+          <span id="file-meta">—</span>
+        </span>
+        <button type="button" class="icon-button" id="clear-file" aria-label="移除已选文件">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+
+      <div class="alert alert-error" id="upload-error" role="alert" hidden>
+        <span class="alert-icon" aria-hidden="true">!</span>
+        <div>
+          <strong id="upload-error-title">上传失败</strong>
+          <p id="upload-error-message"></p>
+          <p class="alert-id" id="upload-error-id" hidden></p>
+        </div>
+      </div>
+
+      <div class="upload-footer">
+        <p class="upload-status" id="upload-status" role="status" aria-live="polite">
+          <span class="status-dot is-idle" aria-hidden="true"></span>
+          <span id="upload-status-text">等待选择清单</span>
+        </p>
+        <button type="submit" class="button button-primary button-large" id="upload-button" disabled>
+          <span class="button-label">开始检查</span>
+          <span class="spinner" aria-hidden="true"></span>
+          <svg class="button-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+      <p class="form-note">服务端数据库固定为项目根目录的 <code>compliance.db</code>，以只读方式打开。上传内容只会写入系统临时目录，任务完成后删除。</p>
+    </form>
+  </div>
+
+  <aside class="guide-card">
+    <p class="eyebrow">BEFORE YOU START</p>
+    <h2>检查前约定</h2>
+    <ol class="guide-list">
+      <li>
+        <span class="guide-index">01</span>
+        <div><strong>固定数据源</strong><p>商品、规则和汇率均来自服务端配置的只读数据库，客户端无法指定路径。</p></div>
+      </li>
+      <li>
+        <span class="guide-index">02</span>
+        <div><strong>不静默丢弃</strong><p>已下架与库中缺失保留在明细中，但不会进入规则评估；统计等式逐项复核。</p></div>
+      </li>
+      <li>
+        <span class="guide-index">03</span>
+        <div><strong>任务可清理</strong><p>结果保留在 <code>reports/web_runs/</code>，可随时删除；启动时清理超过 7 天的任务。</p></div>
+      </li>
+    </ol>
+    <div class="guide-callout">
+      <span class="callout-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7h.01"/></svg>
+      </span>
+      <p><strong>最小清单契约</strong><br><code>sku_ref</code> 为五位数字，<code>batch_no</code> 表示批号且不可为空；重复行按输入行独立保留，不去重、不静默丢行。</p>
+    </div>
+  </aside>
+</section>
+
+<section class="process" aria-labelledby="process-title">
+  <div class="process-heading">
+    <p class="eyebrow">HOW IT WORKS</p>
+    <h2 id="process-title">一次上传，三层校验</h2>
+    <p>浏览器只负责展示与筛选；所有业务判断都在 Python 服务端完成。</p>
+  </div>
+  <div class="process-steps">
+    <article>
+      <span class="process-number">1</span>
+      <h3>读取与匹配</h3>
+      <p>校验 CSV 结构、行号与字段格式，以只读连接匹配商品与下架状态。</p>
+    </article>
+    <article>
+      <span class="process-number">2</span>
+      <h3>规则与价格</h3>
+      <p>按类目、材质、产地关键词匹配规则，使用 Decimal 与 ROUND_HALF_UP 换算人民币。</p>
+    </article>
+    <article>
+      <span class="process-number">3</span>
+      <h3>复核与导出</h3>
+      <p>验证结果等式和每条明细，再生成看板、Markdown、HTML 与 CSV。</p>
+    </article>
+  </div>
+</section>
+
+<div class="load-result-bar" id="load-result-bar" hidden>
+  <span class="status-dot is-busy" aria-hidden="true"></span>
+  <span id="load-result-message">正在加载任务结果…</span>
+</div>
+
+{% include "_dashboard.html" %}
+{% endblock %}

@@ -1,0 +1,249 @@
+2026-10-24 09:28:11 | INFO    | job=- | event=app_start version=1.0.0 host=127.0.0.1 port=5000 debug=false database=E:\Desktop\AI全栈工程师校招笔试-材料包\compliance.db results_root=E:\Desktop\AI全栈工程师校招笔试-材料包\reports\web_runs retention_seconds=604800
+2026-10-24 09:28:11 | INFO    | job=4c016fc63bac4f31cbee7f0b40125b1c | event=task_received
+2026-10-24 09:28:11 | INFO    | job=4c016fc63bac4f31cbee7f0b40125b1c | event=upload_received size_bytes=1941
+2026-10-24 09:28:11 | INFO    | job=4c016fc63bac4f31cbee7f0b40125b1c | event=check_completed n_input=120 n_matched=115 n_deleted=5 n_missing=5 n_evaluated=110 risk_compliant=47 risk_pending=56 risk_violation=7
+2026-10-24 09:28:11 | INFO    | job=4c016fc63bac4f31cbee7f0b40125b1c | event=reports_generated markdown_bytes=17940 html_bytes=85143 csv_bytes=14875
+2026-10-24 09:28:11 | INFO    | job=4c016fc63bac4f31cbee7f0b40125b1c | event=task_completed duration_ms=109.6
+2026-10-24 09:28:12 | INFO    | job=4c016fc63bac4f31cbee7f0b40125b1c | event=job_read
+2026-10-24 09:28:12 | INFO    | job=4c016fc63bac4f31cbee7f0b40125b1c | event=report_page_opened
+2026-10-24 09:28:12 | INFO    | job=4c016fc63bac4f31cbee7f0b40125b1c | event=job_deleted
+2026-10-24 09:28:30 | INFO    | job=- | event=app_start version=1.0.0 host=127.0.0.1 port=5000 debug=false database=E:\Desktop\AI全栈工程师校招笔试-材料包\compliance.db results_root=E:\Desktop\AI全栈工程师校招笔试-材料包\reports\web_runs retention_seconds=604800
+2026-10-24 09:28:31 | INFO    | job=2c57cae5fd7126fa8865a1eed057af25 | event=task_received
+2026-10-24 09:28:31 | INFO    | job=2c57cae5fd7126fa8865a1eed057af25 | event=upload_received size_bytes=1941
+2026-10-24 09:28:31 | INFO    | job=2c57cae5fd7126fa8865a1eed057af25 | event=check_completed n_input=120 n_matched=115 n_deleted=5 n_missing=5 n_evaluated=110 risk_compliant=47 risk_pending=56 risk_violation=7
+2026-10-24 09:28:31 | INFO    | job=2c57cae5fd7126fa8865a1eed057af25 | event=reports_generated markdown_bytes=17940 html_bytes=85143 csv_bytes=14875
+2026-10-24 09:28:31 | INFO    | job=2c57cae5fd7126fa8865a1eed057af25 | event=task_completed duration_ms=136.7
+2026-10-24 09:28:31 | INFO    | job=2c57cae5fd7126fa8865a1eed057af25 | event=job_read
+2026-10-24 09:28:31 | INFO    | job=2c57cae5fd7126fa8865a1eed057af25 | event=report_page_opened
+2026-10-24 09:28:31 | INFO    | job=2c57cae5fd7126fa8865a1eed057af25 | event=download kind=markdown
+2026-10-24 09:28:31 | INFO    | job=2c57cae5fd7126fa8865a1eed057af25 | event=download kind=html
+2026-10-24 09:28:31 | INFO    | job=2c57cae5fd7126fa8865a1eed057af25 | event=download kind=csv
+2026-10-24 09:28:31 | WARNING | job=00000000000000000000000000000000 | event=job_not_found
+2026-10-24 09:28:31 | WARNING | job=00000000000000000000000000000000 | event=request_rejected error_id=ERR-62E6BD7F code=job_not_found status=404
+2026-10-24 09:28:31 | INFO    | job=f80ea4ba760d76597e037fd512d8e619 | event=task_received
+2026-10-24 09:28:31 | WARNING | job=f80ea4ba760d76597e037fd512d8e619 | event=request_rejected error_id=ERR-489BA976 code=empty_file status=400
+2026-10-24 09:28:31 | WARNING | job=- | event=request_rejected error_id=ERR-7E90D5A6 code=method_not_allowed status=405
+2026-10-24 09:28:31 | INFO    | job=2c57cae5fd7126fa8865a1eed057af25 | event=job_deleted
+2026-10-24 09:28:31 | WARNING | job=2c57cae5fd7126fa8865a1eed057af25 | event=job_not_found
+2026-10-24 09:28:31 | WARNING | job=2c57cae5fd7126fa8865a1eed057af25 | event=request_rejected error_id=ERR-ABA851AE code=job_not_found status=404
+2026-10-24 09:30:54 | INFO    | job=- | event=app_start version=1.0.0 host=127.0.0.1 port=5000 debug=false database=E:\Desktop\AI全栈工程师校招笔试-材料包\compliance.db results_root=E:\Desktop\AI全栈工程师校招笔试-材料包\reports\web_runs retention_seconds=604800
+2026-10-24 09:31:06 | INFO    | job=- | event=app_start version=1.0.0 host=127.0.0.1 port=5000 debug=false database=E:\Desktop\AI全栈工程师校招笔试-材料包\compliance.db results_root=E:\Desktop\AI全栈工程师校招笔试-材料包\reports\web_runs retention_seconds=604800
+2026-10-24 09:31:19 | INFO    | job=- | event=app_start version=1.0.0 host=127.0.0.1 port=5000 debug=false database=E:\Desktop\AI全栈工程师校招笔试-材料包\compliance.db results_root=E:\Desktop\AI全栈工程师校招笔试-材料包\reports\web_runs retention_seconds=604800
+2026-10-24 09:31:23 | INFO    | job=c12d81595d6afe3b8a87230222602a3b | event=task_received
+2026-10-24 09:31:23 | INFO    | job=c12d81595d6afe3b8a87230222602a3b | event=upload_received size_bytes=1941
+2026-10-24 09:31:23 | INFO    | job=c12d81595d6afe3b8a87230222602a3b | event=check_completed n_input=120 n_matched=115 n_deleted=5 n_missing=5 n_evaluated=110 risk_compliant=47 risk_pending=56 risk_violation=7
+2026-10-24 09:31:23 | INFO    | job=c12d81595d6afe3b8a87230222602a3b | event=reports_generated markdown_bytes=17940 html_bytes=85143 csv_bytes=14875
+2026-10-24 09:31:23 | INFO    | job=c12d81595d6afe3b8a87230222602a3b | event=task_completed duration_ms=138.6
+2026-10-24 09:31:24 | INFO    | job=c12d81595d6afe3b8a87230222602a3b | event=download kind=markdown
+2026-10-24 09:31:25 | INFO    | job=c12d81595d6afe3b8a87230222602a3b | event=download kind=html
+2026-10-24 09:31:25 | INFO    | job=c12d81595d6afe3b8a87230222602a3b | event=download kind=csv
+2026-10-24 09:31:25 | INFO    | job=c12d81595d6afe3b8a87230222602a3b | event=report_page_opened
+2026-10-24 09:31:27 | INFO    | job=c12d81595d6afe3b8a87230222602a3b | event=job_read
+2026-10-24 09:31:27 | INFO    | job=c12d81595d6afe3b8a87230222602a3b | event=job_read
+2026-10-24 09:31:28 | INFO    | job=c12d81595d6afe3b8a87230222602a3b | event=job_deleted
+2026-10-24 09:31:41 | INFO    | job=- | event=app_start version=1.0.0 host=127.0.0.1 port=5000 debug=false database=E:\Desktop\AI全栈工程师校招笔试-材料包\compliance.db results_root=E:\Desktop\AI全栈工程师校招笔试-材料包\reports\web_runs retention_seconds=604800
+2026-10-24 09:31:45 | INFO    | job=6f6277ef02bf02f9fc749fc3b97ef3a6 | event=task_received
+2026-10-24 09:31:45 | INFO    | job=6f6277ef02bf02f9fc749fc3b97ef3a6 | event=upload_received size_bytes=1941
+2026-10-24 09:31:45 | INFO    | job=6f6277ef02bf02f9fc749fc3b97ef3a6 | event=check_completed n_input=120 n_matched=115 n_deleted=5 n_missing=5 n_evaluated=110 risk_compliant=47 risk_pending=56 risk_violation=7
+2026-10-24 09:31:45 | INFO    | job=6f6277ef02bf02f9fc749fc3b97ef3a6 | event=reports_generated markdown_bytes=17940 html_bytes=85143 csv_bytes=14875
+2026-10-24 09:31:45 | INFO    | job=6f6277ef02bf02f9fc749fc3b97ef3a6 | event=task_completed duration_ms=123.4
+2026-10-24 09:31:46 | INFO    | job=6f6277ef02bf02f9fc749fc3b97ef3a6 | event=download kind=markdown
+2026-10-24 09:31:46 | INFO    | job=6f6277ef02bf02f9fc749fc3b97ef3a6 | event=download kind=html
+2026-10-24 09:31:47 | INFO    | job=6f6277ef02bf02f9fc749fc3b97ef3a6 | event=download kind=csv
+2026-10-24 09:31:47 | INFO    | job=6f6277ef02bf02f9fc749fc3b97ef3a6 | event=report_page_opened
+2026-10-24 09:31:49 | INFO    | job=6f6277ef02bf02f9fc749fc3b97ef3a6 | event=job_read
+2026-10-24 09:31:49 | INFO    | job=6f6277ef02bf02f9fc749fc3b97ef3a6 | event=job_read
+2026-10-24 09:31:50 | INFO    | job=6f6277ef02bf02f9fc749fc3b97ef3a6 | event=job_deleted
+2026-10-24 09:33:26 | INFO    | job=- | event=app_start version=1.0.0 host=127.0.0.1 port=5011 debug=false database=E:\Desktop\AI全栈工程师校招笔试-材料包\compliance.db results_root=E:\Desktop\AI全栈工程师校招笔试-材料包\reports\web_runs retention_seconds=604800
+2026-10-24 09:33:30 | INFO    | job=b57301892db64ae2812e936900a758a4 | event=task_received
+2026-10-24 09:33:30 | INFO    | job=b57301892db64ae2812e936900a758a4 | event=upload_received size_bytes=1941
+2026-10-24 09:33:30 | INFO    | job=b57301892db64ae2812e936900a758a4 | event=check_completed n_input=120 n_matched=115 n_deleted=5 n_missing=5 n_evaluated=110 risk_compliant=47 risk_pending=56 risk_violation=7
+2026-10-24 09:33:30 | INFO    | job=b57301892db64ae2812e936900a758a4 | event=reports_generated markdown_bytes=17940 html_bytes=85143 csv_bytes=14875
+2026-10-24 09:33:30 | INFO    | job=b57301892db64ae2812e936900a758a4 | event=task_completed duration_ms=111.5
+2026-10-24 09:33:30 | INFO    | job=b57301892db64ae2812e936900a758a4 | event=job_read
+2026-10-24 09:33:31 | INFO    | job=b57301892db64ae2812e936900a758a4 | event=job_deleted
+2026-10-24 09:33:59 | INFO    | job=- | event=app_start version=1.0.0 host=127.0.0.1 port=5011 debug=false database=E:\Desktop\AI全栈工程师校招笔试-材料包\compliance.db results_root=E:\Desktop\AI全栈工程师校招笔试-材料包\reports\web_runs retention_seconds=604800
+2026-10-24 09:34:03 | INFO    | job=1b023dd3978ee8029b06e87bd25b546e | event=task_received
+2026-10-24 09:34:03 | INFO    | job=1b023dd3978ee8029b06e87bd25b546e | event=upload_received size_bytes=1941
+2026-10-24 09:34:03 | INFO    | job=1b023dd3978ee8029b06e87bd25b546e | event=check_completed n_input=120 n_matched=115 n_deleted=5 n_missing=5 n_evaluated=110 risk_compliant=47 risk_pending=56 risk_violation=7
+2026-10-24 09:34:03 | INFO    | job=1b023dd3978ee8029b06e87bd25b546e | event=reports_generated markdown_bytes=17940 html_bytes=85143 csv_bytes=14875
+2026-10-24 09:34:03 | INFO    | job=1b023dd3978ee8029b06e87bd25b546e | event=task_completed duration_ms=120.0
+2026-10-24 09:34:03 | INFO    | job=1b023dd3978ee8029b06e87bd25b546e | event=job_read
+2026-10-24 09:34:04 | INFO    | job=1b023dd3978ee8029b06e87bd25b546e | event=job_deleted
+2026-10-24 09:34:25 | INFO    | job=- | event=app_start version=1.0.0 host=127.0.0.1 port=5011 debug=false database=E:\Desktop\AI全栈工程师校招笔试-材料包\compliance.db results_root=E:\Desktop\AI全栈工程师校招笔试-材料包\reports\web_runs retention_seconds=604800
+2026-10-24 09:34:29 | INFO    | job=4e6eb806b670ff2d7868598b15c085bb | event=task_received
+2026-10-24 09:34:29 | INFO    | job=4e6eb806b670ff2d7868598b15c085bb | event=upload_received size_bytes=1941
+2026-10-24 09:34:29 | INFO    | job=4e6eb806b670ff2d7868598b15c085bb | event=check_completed n_input=120 n_matched=115 n_deleted=5 n_missing=5 n_evaluated=110 risk_compliant=47 risk_pending=56 risk_violation=7
+2026-10-24 09:34:29 | INFO    | job=4e6eb806b670ff2d7868598b15c085bb | event=reports_generated markdown_bytes=17940 html_bytes=85143 csv_bytes=14875
+2026-10-24 09:34:29 | INFO    | job=4e6eb806b670ff2d7868598b15c085bb | event=task_completed duration_ms=143.1
+2026-10-24 09:34:30 | INFO    | job=4e6eb806b670ff2d7868598b15c085bb | event=job_read
+2026-10-24 09:34:31 | INFO    | job=4e6eb806b670ff2d7868598b15c085bb | event=job_deleted
+2026-10-24 09:34:36 | INFO    | job=- | event=app_start version=1.0.0 host=127.0.0.1 port=5011 debug=false database=E:\Desktop\AI全栈工程师校招笔试-材料包\compliance.db results_root=E:\Desktop\AI全栈工程师校招笔试-材料包\reports\web_runs retention_seconds=604800
+2026-10-24 09:34:40 | INFO    | job=99c5ef13a5aaa8bf3c9fdb3469b0e536 | event=task_received
+2026-10-24 09:34:40 | INFO    | job=99c5ef13a5aaa8bf3c9fdb3469b0e536 | event=upload_received size_bytes=1941
+2026-10-24 09:34:40 | INFO    | job=99c5ef13a5aaa8bf3c9fdb3469b0e536 | event=check_completed n_input=120 n_matched=115 n_deleted=5 n_missing=5 n_evaluated=110 risk_compliant=47 risk_pending=56 risk_violation=7
+2026-10-24 09:34:40 | INFO    | job=99c5ef13a5aaa8bf3c9fdb3469b0e536 | event=reports_generated markdown_bytes=17940 html_bytes=85143 csv_bytes=14875
+2026-10-24 09:34:40 | INFO    | job=99c5ef13a5aaa8bf3c9fdb3469b0e536 | event=task_completed duration_ms=245.5
+2026-10-24 09:34:41 | INFO    | job=99c5ef13a5aaa8bf3c9fdb3469b0e536 | event=job_read
+2026-10-24 09:34:42 | INFO    | job=99c5ef13a5aaa8bf3c9fdb3469b0e536 | event=job_deleted
+2026-10-24 09:34:47 | INFO    | job=- | event=app_start version=1.0.0 host=127.0.0.1 port=5000 debug=false database=E:\Desktop\AI全栈工程师校招笔试-材料包\compliance.db results_root=E:\Desktop\AI全栈工程师校招笔试-材料包\reports\web_runs retention_seconds=604800
+2026-10-24 09:34:51 | INFO    | job=56f40e9c6e2484aaa755ae193b9c1c62 | event=task_received
+2026-10-24 09:34:51 | INFO    | job=56f40e9c6e2484aaa755ae193b9c1c62 | event=upload_received size_bytes=1941
+2026-10-24 09:34:51 | INFO    | job=56f40e9c6e2484aaa755ae193b9c1c62 | event=check_completed n_input=120 n_matched=115 n_deleted=5 n_missing=5 n_evaluated=110 risk_compliant=47 risk_pending=56 risk_violation=7
+2026-10-24 09:34:52 | INFO    | job=56f40e9c6e2484aaa755ae193b9c1c62 | event=reports_generated markdown_bytes=17940 html_bytes=85143 csv_bytes=14875
+2026-10-24 09:34:52 | INFO    | job=56f40e9c6e2484aaa755ae193b9c1c62 | event=task_completed duration_ms=193.7
+2026-10-24 09:34:54 | INFO    | job=56f40e9c6e2484aaa755ae193b9c1c62 | event=download kind=markdown
+2026-10-24 09:34:55 | INFO    | job=56f40e9c6e2484aaa755ae193b9c1c62 | event=download kind=html
+2026-10-24 09:34:55 | INFO    | job=56f40e9c6e2484aaa755ae193b9c1c62 | event=download kind=csv
+2026-10-24 09:34:56 | INFO    | job=56f40e9c6e2484aaa755ae193b9c1c62 | event=report_page_opened
+2026-10-24 09:34:58 | INFO    | job=56f40e9c6e2484aaa755ae193b9c1c62 | event=job_read
+2026-10-24 09:34:59 | INFO    | job=56f40e9c6e2484aaa755ae193b9c1c62 | event=job_read
+2026-10-24 09:35:01 | INFO    | job=08061d0ee09aaa97fc2b8918dbd53d05 | event=task_received
+2026-10-24 09:35:01 | INFO    | job=08061d0ee09aaa97fc2b8918dbd53d05 | event=upload_received size_bytes=14
+2026-10-24 09:35:01 | WARNING | job=08061d0ee09aaa97fc2b8918dbd53d05 | event=input_rejected error_type=CsvLoadError
+2026-10-24 09:35:01 | WARNING | job=08061d0ee09aaa97fc2b8918dbd53d05 | event=request_rejected error_id=ERR-C20568B8 code=invalid_csv status=400
+2026-10-24 09:35:01 | INFO    | job=cf48b2a3d95f15a216b1af781704b776 | event=task_received
+2026-10-24 09:35:01 | INFO    | job=cf48b2a3d95f15a216b1af781704b776 | event=upload_received size_bytes=1941
+2026-10-24 09:35:01 | INFO    | job=cf48b2a3d95f15a216b1af781704b776 | event=check_completed n_input=120 n_matched=115 n_deleted=5 n_missing=5 n_evaluated=110 risk_compliant=47 risk_pending=56 risk_violation=7
+2026-10-24 09:35:02 | INFO    | job=cf48b2a3d95f15a216b1af781704b776 | event=reports_generated markdown_bytes=17940 html_bytes=85143 csv_bytes=14875
+2026-10-24 09:35:02 | INFO    | job=cf48b2a3d95f15a216b1af781704b776 | event=task_completed duration_ms=221.3
+2026-10-24 09:35:02 | INFO    | job=cf48b2a3d95f15a216b1af781704b776 | event=job_deleted
+2026-10-24 09:35:03 | INFO    | job=56f40e9c6e2484aaa755ae193b9c1c62 | event=job_deleted
+2026-10-24 09:35:03 | WARNING | job=cf48b2a3d95f15a216b1af781704b776 | event=delete_rejected
+2026-10-24 09:35:03 | WARNING | job=cf48b2a3d95f15a216b1af781704b776 | event=request_rejected error_id=ERR-11C8F796 code=job_not_found status=404
+2026-10-24 09:35:31 | INFO    | job=- | event=app_start version=1.0.0 host=127.0.0.1 port=5000 debug=false database=E:\Desktop\AI全栈工程师校招笔试-材料包\compliance.db results_root=E:\Desktop\AI全栈工程师校招笔试-材料包\reports\web_runs retention_seconds=604800
+2026-10-24 09:35:35 | INFO    | job=5a52456831bc4ec11e02279fdf1a766b | event=task_received
+2026-10-24 09:35:35 | INFO    | job=5a52456831bc4ec11e02279fdf1a766b | event=upload_received size_bytes=1941
+2026-10-24 09:35:35 | INFO    | job=5a52456831bc4ec11e02279fdf1a766b | event=check_completed n_input=120 n_matched=115 n_deleted=5 n_missing=5 n_evaluated=110 risk_compliant=47 risk_pending=56 risk_violation=7
+2026-10-24 09:35:35 | INFO    | job=5a52456831bc4ec11e02279fdf1a766b | event=reports_generated markdown_bytes=17940 html_bytes=85143 csv_bytes=14875
+2026-10-24 09:35:35 | INFO    | job=5a52456831bc4ec11e02279fdf1a766b | event=task_completed duration_ms=164.2
+2026-10-24 09:35:37 | INFO    | job=5a52456831bc4ec11e02279fdf1a766b | event=download kind=markdown
+2026-10-24 09:35:37 | INFO    | job=5a52456831bc4ec11e02279fdf1a766b | event=download kind=html
+2026-10-24 09:35:38 | INFO    | job=5a52456831bc4ec11e02279fdf1a766b | event=download kind=csv
+2026-10-24 09:35:38 | INFO    | job=5a52456831bc4ec11e02279fdf1a766b | event=report_page_opened
+2026-10-24 09:35:40 | INFO    | job=5a52456831bc4ec11e02279fdf1a766b | event=job_read
+2026-10-24 09:35:41 | INFO    | job=5a52456831bc4ec11e02279fdf1a766b | event=job_read
+2026-10-24 09:35:43 | INFO    | job=d4023c05479d7fade7687cf50f16f79f | event=task_received
+2026-10-24 09:35:43 | INFO    | job=d4023c05479d7fade7687cf50f16f79f | event=upload_received size_bytes=14
+2026-10-24 09:35:43 | WARNING | job=d4023c05479d7fade7687cf50f16f79f | event=input_rejected error_type=CsvLoadError
+2026-10-24 09:35:43 | WARNING | job=d4023c05479d7fade7687cf50f16f79f | event=request_rejected error_id=ERR-E0B3CE36 code=invalid_csv status=400
+2026-10-24 09:35:43 | INFO    | job=7fb75888dcb66b42e32e0b29ea579e5d | event=task_received
+2026-10-24 09:35:43 | INFO    | job=7fb75888dcb66b42e32e0b29ea579e5d | event=upload_received size_bytes=1941
+2026-10-24 09:35:43 | INFO    | job=7fb75888dcb66b42e32e0b29ea579e5d | event=check_completed n_input=120 n_matched=115 n_deleted=5 n_missing=5 n_evaluated=110 risk_compliant=47 risk_pending=56 risk_violation=7
+2026-10-24 09:35:43 | INFO    | job=7fb75888dcb66b42e32e0b29ea579e5d | event=reports_generated markdown_bytes=17940 html_bytes=85143 csv_bytes=14875
+2026-10-24 09:35:43 | INFO    | job=7fb75888dcb66b42e32e0b29ea579e5d | event=task_completed duration_ms=164.6
+2026-10-24 09:35:44 | INFO    | job=7fb75888dcb66b42e32e0b29ea579e5d | event=job_deleted
+2026-10-24 09:35:44 | INFO    | job=5a52456831bc4ec11e02279fdf1a766b | event=job_deleted
+2026-10-24 09:35:44 | WARNING | job=7fb75888dcb66b42e32e0b29ea579e5d | event=delete_rejected
+2026-10-24 09:35:44 | WARNING | job=7fb75888dcb66b42e32e0b29ea579e5d | event=request_rejected error_id=ERR-CEE406D0 code=job_not_found status=404
+2026-10-24 09:36:02 | INFO    | job=- | event=app_start version=1.0.0 host=127.0.0.1 port=5000 debug=false database=E:\Desktop\AI全栈工程师校招笔试-材料包\compliance.db results_root=E:\Desktop\AI全栈工程师校招笔试-材料包\reports\web_runs retention_seconds=604800
+2026-10-24 09:36:06 | INFO    | job=100f9997e9ee87764c9dba49cbe2651f | event=task_received
+2026-10-24 09:36:07 | INFO    | job=100f9997e9ee87764c9dba49cbe2651f | event=upload_received size_bytes=1941
+2026-10-24 09:36:07 | INFO    | job=100f9997e9ee87764c9dba49cbe2651f | event=check_completed n_input=120 n_matched=115 n_deleted=5 n_missing=5 n_evaluated=110 risk_compliant=47 risk_pending=56 risk_violation=7
+2026-10-24 09:36:07 | INFO    | job=100f9997e9ee87764c9dba49cbe2651f | event=reports_generated markdown_bytes=17940 html_bytes=85143 csv_bytes=14875
+2026-10-24 09:36:07 | INFO    | job=100f9997e9ee87764c9dba49cbe2651f | event=task_completed duration_ms=233.8
+2026-10-24 09:36:10 | INFO    | job=100f9997e9ee87764c9dba49cbe2651f | event=download kind=markdown
+2026-10-24 09:36:10 | INFO    | job=100f9997e9ee87764c9dba49cbe2651f | event=download kind=html
+2026-10-24 09:36:11 | INFO    | job=100f9997e9ee87764c9dba49cbe2651f | event=download kind=csv
+2026-10-24 09:36:12 | INFO    | job=100f9997e9ee87764c9dba49cbe2651f | event=report_page_opened
+2026-10-24 09:36:13 | INFO    | job=100f9997e9ee87764c9dba49cbe2651f | event=job_read
+2026-10-24 09:36:14 | INFO    | job=100f9997e9ee87764c9dba49cbe2651f | event=job_read
+2026-10-24 09:36:15 | INFO    | job=0284962e67a8b05c6e1f4f77dc7a3503 | event=task_received
+2026-10-24 09:36:15 | INFO    | job=0284962e67a8b05c6e1f4f77dc7a3503 | event=upload_received size_bytes=14
+2026-10-24 09:36:15 | WARNING | job=0284962e67a8b05c6e1f4f77dc7a3503 | event=input_rejected error_type=CsvLoadError
+2026-10-24 09:36:15 | WARNING | job=0284962e67a8b05c6e1f4f77dc7a3503 | event=request_rejected error_id=ERR-C9FB4696 code=invalid_csv status=400
+2026-10-24 09:36:16 | INFO    | job=a35c33b081779fef81b1a9d5053040d1 | event=task_received
+2026-10-24 09:36:16 | INFO    | job=a35c33b081779fef81b1a9d5053040d1 | event=upload_received size_bytes=1941
+2026-10-24 09:36:16 | INFO    | job=a35c33b081779fef81b1a9d5053040d1 | event=check_completed n_input=120 n_matched=115 n_deleted=5 n_missing=5 n_evaluated=110 risk_compliant=47 risk_pending=56 risk_violation=7
+2026-10-24 09:36:16 | INFO    | job=a35c33b081779fef81b1a9d5053040d1 | event=reports_generated markdown_bytes=17940 html_bytes=85143 csv_bytes=14875
+2026-10-24 09:36:16 | INFO    | job=a35c33b081779fef81b1a9d5053040d1 | event=task_completed duration_ms=162.8
+2026-10-24 09:36:16 | INFO    | job=a35c33b081779fef81b1a9d5053040d1 | event=job_deleted
+2026-10-24 09:36:17 | INFO    | job=100f9997e9ee87764c9dba49cbe2651f | event=job_deleted
+2026-10-24 09:36:17 | WARNING | job=a35c33b081779fef81b1a9d5053040d1 | event=delete_rejected
+2026-10-24 09:36:17 | WARNING | job=a35c33b081779fef81b1a9d5053040d1 | event=request_rejected error_id=ERR-9B47486C code=job_not_found status=404
+2026-10-24 09:36:38 | INFO    | job=- | event=app_start version=1.0.0 host=127.0.0.1 port=5000 debug=false database=E:\Desktop\AI全栈工程师校招笔试-材料包\compliance.db results_root=E:\Desktop\AI全栈工程师校招笔试-材料包\reports\web_runs retention_seconds=604800
+2026-10-24 09:36:43 | INFO    | job=61a4e5ef0b2bd671c8470a5e759ee524 | event=task_received
+2026-10-24 09:36:43 | INFO    | job=61a4e5ef0b2bd671c8470a5e759ee524 | event=upload_received size_bytes=1941
+2026-10-24 09:36:43 | INFO    | job=61a4e5ef0b2bd671c8470a5e759ee524 | event=check_completed n_input=120 n_matched=115 n_deleted=5 n_missing=5 n_evaluated=110 risk_compliant=47 risk_pending=56 risk_violation=7
+2026-10-24 09:36:43 | INFO    | job=61a4e5ef0b2bd671c8470a5e759ee524 | event=reports_generated markdown_bytes=17940 html_bytes=85143 csv_bytes=14875
+2026-10-24 09:36:43 | INFO    | job=61a4e5ef0b2bd671c8470a5e759ee524 | event=task_completed duration_ms=212.6
+2026-10-24 09:36:45 | INFO    | job=61a4e5ef0b2bd671c8470a5e759ee524 | event=download kind=markdown
+2026-10-24 09:36:45 | INFO    | job=61a4e5ef0b2bd671c8470a5e759ee524 | event=download kind=html
+2026-10-24 09:36:45 | INFO    | job=61a4e5ef0b2bd671c8470a5e759ee524 | event=download kind=csv
+2026-10-24 09:36:46 | INFO    | job=61a4e5ef0b2bd671c8470a5e759ee524 | event=report_page_opened
+2026-10-24 09:36:48 | INFO    | job=61a4e5ef0b2bd671c8470a5e759ee524 | event=job_read
+2026-10-24 09:36:49 | INFO    | job=61a4e5ef0b2bd671c8470a5e759ee524 | event=job_read
+2026-10-24 09:36:50 | INFO    | job=4c3e12d99ce508373728cf67df936a8f | event=task_received
+2026-10-24 09:36:50 | INFO    | job=4c3e12d99ce508373728cf67df936a8f | event=upload_received size_bytes=14
+2026-10-24 09:36:50 | WARNING | job=4c3e12d99ce508373728cf67df936a8f | event=input_rejected error_type=CsvLoadError
+2026-10-24 09:36:50 | WARNING | job=4c3e12d99ce508373728cf67df936a8f | event=request_rejected error_id=ERR-14E4F85F code=invalid_csv status=400
+2026-10-24 09:36:51 | INFO    | job=4febfa69fa202013fb38ceeb3c2b0a53 | event=task_received
+2026-10-24 09:36:51 | INFO    | job=4febfa69fa202013fb38ceeb3c2b0a53 | event=upload_received size_bytes=1941
+2026-10-24 09:36:51 | INFO    | job=4febfa69fa202013fb38ceeb3c2b0a53 | event=check_completed n_input=120 n_matched=115 n_deleted=5 n_missing=5 n_evaluated=110 risk_compliant=47 risk_pending=56 risk_violation=7
+2026-10-24 09:36:51 | INFO    | job=4febfa69fa202013fb38ceeb3c2b0a53 | event=reports_generated markdown_bytes=17940 html_bytes=85143 csv_bytes=14875
+2026-10-24 09:36:51 | INFO    | job=4febfa69fa202013fb38ceeb3c2b0a53 | event=task_completed duration_ms=183.6
+2026-10-24 09:36:51 | INFO    | job=4febfa69fa202013fb38ceeb3c2b0a53 | event=job_deleted
+2026-10-24 09:36:52 | INFO    | job=61a4e5ef0b2bd671c8470a5e759ee524 | event=job_deleted
+2026-10-24 09:36:52 | WARNING | job=4febfa69fa202013fb38ceeb3c2b0a53 | event=delete_rejected
+2026-10-24 09:36:52 | WARNING | job=4febfa69fa202013fb38ceeb3c2b0a53 | event=request_rejected error_id=ERR-F1A1BA0D code=job_not_found status=404
+2026-10-24 09:36:52 | WARNING | job=61a4e5ef0b2bd671c8470a5e759ee524 | event=delete_rejected
+2026-10-24 09:36:52 | WARNING | job=61a4e5ef0b2bd671c8470a5e759ee524 | event=request_rejected error_id=ERR-55CBC4DB code=job_not_found status=404
+2026-10-24 09:36:52 | WARNING | job=4febfa69fa202013fb38ceeb3c2b0a53 | event=delete_rejected
+2026-10-24 09:36:52 | WARNING | job=4febfa69fa202013fb38ceeb3c2b0a53 | event=request_rejected error_id=ERR-30A6E15F code=job_not_found status=404
+2026-10-24 09:37:56 | INFO    | job=- | event=app_start version=1.0.0 host=127.0.0.1 port=5000 debug=false database=E:\Desktop\AI全栈工程师校招笔试-材料包\compliance.db results_root=E:\Desktop\AI全栈工程师校招笔试-材料包\reports\web_runs retention_seconds=604800
+2026-10-24 09:38:00 | INFO    | job=06bd9b0fb56be6406fe9b6c96658e10c | event=task_received
+2026-10-24 09:38:00 | INFO    | job=06bd9b0fb56be6406fe9b6c96658e10c | event=upload_received size_bytes=1941
+2026-10-24 09:38:00 | INFO    | job=06bd9b0fb56be6406fe9b6c96658e10c | event=check_completed n_input=120 n_matched=115 n_deleted=5 n_missing=5 n_evaluated=110 risk_compliant=47 risk_pending=56 risk_violation=7
+2026-10-24 09:38:01 | INFO    | job=06bd9b0fb56be6406fe9b6c96658e10c | event=reports_generated markdown_bytes=17940 html_bytes=85143 csv_bytes=14875
+2026-10-24 09:38:01 | INFO    | job=06bd9b0fb56be6406fe9b6c96658e10c | event=task_completed duration_ms=231.5
+2026-10-24 09:38:02 | INFO    | job=06bd9b0fb56be6406fe9b6c96658e10c | event=download kind=markdown
+2026-10-24 09:38:03 | INFO    | job=06bd9b0fb56be6406fe9b6c96658e10c | event=download kind=html
+2026-10-24 09:38:03 | INFO    | job=06bd9b0fb56be6406fe9b6c96658e10c | event=download kind=csv
+2026-10-24 09:38:04 | INFO    | job=06bd9b0fb56be6406fe9b6c96658e10c | event=report_page_opened
+2026-10-24 09:38:05 | INFO    | job=06bd9b0fb56be6406fe9b6c96658e10c | event=job_read
+2026-10-24 09:38:05 | INFO    | job=06bd9b0fb56be6406fe9b6c96658e10c | event=job_read
+2026-10-24 09:38:07 | INFO    | job=2f169e2d88ec126ab4c491988c740cac | event=task_received
+2026-10-24 09:38:07 | INFO    | job=2f169e2d88ec126ab4c491988c740cac | event=upload_received size_bytes=14
+2026-10-24 09:38:07 | WARNING | job=2f169e2d88ec126ab4c491988c740cac | event=input_rejected error_type=CsvLoadError
+2026-10-24 09:38:07 | WARNING | job=2f169e2d88ec126ab4c491988c740cac | event=request_rejected error_id=ERR-8177E526 code=invalid_csv status=400
+2026-10-24 09:38:07 | INFO    | job=e22df3e102fc8e38d623e9991a23c5c9 | event=task_received
+2026-10-24 09:38:07 | INFO    | job=e22df3e102fc8e38d623e9991a23c5c9 | event=upload_received size_bytes=1941
+2026-10-24 09:38:07 | INFO    | job=e22df3e102fc8e38d623e9991a23c5c9 | event=check_completed n_input=120 n_matched=115 n_deleted=5 n_missing=5 n_evaluated=110 risk_compliant=47 risk_pending=56 risk_violation=7
+2026-10-24 09:38:08 | INFO    | job=e22df3e102fc8e38d623e9991a23c5c9 | event=reports_generated markdown_bytes=17940 html_bytes=85143 csv_bytes=14875
+2026-10-24 09:38:08 | INFO    | job=e22df3e102fc8e38d623e9991a23c5c9 | event=task_completed duration_ms=130.6
+2026-10-24 09:38:08 | INFO    | job=e22df3e102fc8e38d623e9991a23c5c9 | event=job_deleted
+2026-10-24 09:38:08 | INFO    | job=06bd9b0fb56be6406fe9b6c96658e10c | event=job_deleted
+2026-10-24 09:38:08 | WARNING | job=e22df3e102fc8e38d623e9991a23c5c9 | event=delete_rejected
+2026-10-24 09:38:08 | WARNING | job=e22df3e102fc8e38d623e9991a23c5c9 | event=request_rejected error_id=ERR-43815879 code=job_not_found status=404
+2026-10-24 09:38:08 | WARNING | job=06bd9b0fb56be6406fe9b6c96658e10c | event=delete_rejected
+2026-10-24 09:38:08 | WARNING | job=06bd9b0fb56be6406fe9b6c96658e10c | event=request_rejected error_id=ERR-E2CE63C1 code=job_not_found status=404
+2026-10-24 09:38:08 | WARNING | job=e22df3e102fc8e38d623e9991a23c5c9 | event=delete_rejected
+2026-10-24 09:38:08 | WARNING | job=e22df3e102fc8e38d623e9991a23c5c9 | event=request_rejected error_id=ERR-1FEF9683 code=job_not_found status=404
+2026-10-24 09:39:54 | INFO    | job=- | event=app_start version=1.0.0 host=127.0.0.1 port=5000 debug=false database=E:\Desktop\AI全栈工程师校招笔试-材料包\compliance.db results_root=E:\Desktop\AI全栈工程师校招笔试-材料包\reports\web_runs retention_seconds=604800
+2026-10-24 09:39:54 | INFO    | job=ab3fb8aaa883032bdc7e3910114d8670 | event=task_received
+2026-10-24 09:39:54 | INFO    | job=ab3fb8aaa883032bdc7e3910114d8670 | event=upload_received size_bytes=1941
+2026-10-24 09:39:54 | INFO    | job=ab3fb8aaa883032bdc7e3910114d8670 | event=check_completed n_input=120 n_matched=115 n_deleted=5 n_missing=5 n_evaluated=110 risk_compliant=47 risk_pending=56 risk_violation=7
+2026-10-24 09:39:55 | INFO    | job=ab3fb8aaa883032bdc7e3910114d8670 | event=reports_generated markdown_bytes=17940 html_bytes=85143 csv_bytes=14875
+2026-10-24 09:39:55 | INFO    | job=ab3fb8aaa883032bdc7e3910114d8670 | event=task_completed duration_ms=131.6
+2026-10-24 09:39:55 | INFO    | job=ab3fb8aaa883032bdc7e3910114d8670 | event=job_read
+2026-10-24 09:39:55 | INFO    | job=ab3fb8aaa883032bdc7e3910114d8670 | event=report_page_opened
+2026-10-24 09:39:55 | INFO    | job=ab3fb8aaa883032bdc7e3910114d8670 | event=download kind=markdown
+2026-10-24 09:39:55 | INFO    | job=ab3fb8aaa883032bdc7e3910114d8670 | event=download kind=html
+2026-10-24 09:39:55 | INFO    | job=ab3fb8aaa883032bdc7e3910114d8670 | event=download kind=csv
+2026-10-24 09:39:55 | WARNING | job=00000000000000000000000000000000 | event=job_not_found
+2026-10-24 09:39:55 | WARNING | job=00000000000000000000000000000000 | event=request_rejected error_id=ERR-9DC8BC04 code=job_not_found status=404
+2026-10-24 09:39:55 | INFO    | job=06f777220460ea34e83a4b3c06469977 | event=task_received
+2026-10-24 09:39:55 | WARNING | job=06f777220460ea34e83a4b3c06469977 | event=request_rejected error_id=ERR-8177D4CA code=empty_file status=400
+2026-10-24 09:39:55 | WARNING | job=- | event=request_rejected error_id=ERR-388CF268 code=method_not_allowed status=405
+2026-10-24 09:39:55 | INFO    | job=ab3fb8aaa883032bdc7e3910114d8670 | event=job_deleted
+2026-10-24 09:39:55 | WARNING | job=ab3fb8aaa883032bdc7e3910114d8670 | event=job_not_found
+2026-10-24 09:39:55 | WARNING | job=ab3fb8aaa883032bdc7e3910114d8670 | event=request_rejected error_id=ERR-7979D286 code=job_not_found status=404
+2026-10-24 10:06:18 | INFO    | job=- | event=app_start version=1.0.0 host=127.0.0.1 port=5000 debug=false database=E:\Desktop\AI全栈工程师校招笔试-材料包\compliance.db results_root=E:\Desktop\AI全栈工程师校招笔试-材料包\reports\web_runs retention_seconds=604800
+2026-10-24 10:07:24 | INFO    | job=7c5a1aee1309134dd05964afd2c4c1ff | event=task_received
+2026-10-24 10:07:25 | INFO    | job=7c5a1aee1309134dd05964afd2c4c1ff | event=upload_received size_bytes=1941
+2026-10-24 10:07:25 | INFO    | job=7c5a1aee1309134dd05964afd2c4c1ff | event=check_completed n_input=120 n_matched=115 n_deleted=5 n_missing=5 n_evaluated=110 risk_compliant=47 risk_pending=56 risk_violation=7
+2026-10-24 10:07:25 | INFO    | job=7c5a1aee1309134dd05964afd2c4c1ff | event=reports_generated markdown_bytes=17940 html_bytes=85143 csv_bytes=14875
+2026-10-24 10:07:25 | INFO    | job=7c5a1aee1309134dd05964afd2c4c1ff | event=task_completed duration_ms=252.8
+2026-10-24 10:08:14 | INFO    | job=7c5a1aee1309134dd05964afd2c4c1ff | event=download kind=markdown
+2026-10-24 10:08:16 | INFO    | job=7c5a1aee1309134dd05964afd2c4c1ff | event=download kind=html
+2026-10-24 10:08:17 | INFO    | job=7c5a1aee1309134dd05964afd2c4c1ff | event=download kind=csv

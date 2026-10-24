@@ -1,0 +1,20 @@
+Web 服务已就绪：http://127.0.0.1:5000/
+首页加载成功，上传区域、字段提示和本地说明可见
+通过真实文件输入选择 sku_list.csv，文件名、大小和按钮状态正确
+浏览器上传完成，任务 06bd9b0fb56be6406fe9b6c96658e10c 已载入
+8 张统计卡实际显示 120/115/110/5/5/47/56/7
+三类图表均显示实际数量、图例、ARIA 文本和数据表
+明细表默认 20 条/页，首行原价显示为 178.97 KRW
+SKU 搜索可用，筛选计数同步更新
+风险/处置/类目筛选、组合空状态与重置均正常
+明细排序可用：SKU 降序后首行为 00120，aria-sort 同步
+分页可用：第 2 页从序号 21 开始，共 6 页
+命中规则可展开/收起，显示规则编号、标题、严重程度和条件
+浏览器三类下载成功；Markdown/CSV 与 CLI 逐字节一致，HTML 120 行离线
+服务端结果快照页展示 120 行、8 张统计卡，并可返回同一任务交互看板
+窄屏溢出诊断：0px；[{'tag': 'table', 'cls': 'data-table details-table', 'id': 'details-table', 'left': 34, 'right': 987.9, 'width': 953.9}, {'tag': 'thead', 'cls': '', 'id': '', 'left': 34, 'right': 987.9, 'width': 953.9}, {'tag': 'tr', 'cls': '', 'id': '', 'left': 34, 'right': 987.9, 'width': 953.9}, {'tag': 'th', 'cls': '', 'id': '', 'left': 296.8, 'right': 424.9, 'width': 128.1}, {'tag': 'button', 'cls': 'sort-button', 'id': '', 'left': 297.3, 'right': 424.4, 'width': 127.1}, {'tag': 'span', 'cls': 'sort-indicator', 'id': '', 'left': 404.5, 'right': 413.4, 'width': 9}, {'tag': 'th', 'cls': '', 'id': '', 'left': 424.9, 'right': 483, 'width': 58}, {'tag': 'button', 'cls': 'sort-button', 'id': '', 'left': 425.4, 'right': 482.5, 'width': 57}, {'tag': 'span', 'cls': 'sort-indicator', 'id': '', 'left': 462.5, 'right': 471.5, 'width': 9}, {'tag': 'th', 'cls': '', 'id': '', 'left': 483, 'right': 552.7, 'width': 69.7}, {'tag': 'button', 'cls': 'sort-button', 'id': '', 'left': 483.5, 'right': 552.2, 'width': 68.7}, {'tag': 'span', 'cls': 'sort-indicator', 'id': '', 'left': 532.3, 'right': 541.2, 'width': 9}]
+390px 窄屏无页面级横向溢出，图表与表格仍可读
+错误清单显示中文原因和错误编号，旧结果被隐藏，不伪装成新任务成功
+重新上传生成新任务；UI 删除确认后结果隐藏、URL 清理、状态明确
+浏览器全程无外部网络请求、失败请求、页面异常或非预期控制台错误
+浏览器验收创建的任务结果均已通过 API 清理

@@ -1,2 +1,4 @@
-# 本项目仅使用 Python 标准库，无需安装任何第三方依赖。
-# 运行环境要求：Python 3.10+
+# Web 本地工作台依赖；核心业务模块仍只使用 Python 标准库。
+# Flask 3.1.x 会安装其运行所需依赖：
+# Werkzeug、Jinja2、MarkupSafe、itsdangerous、click、blinker。
+Flask==3.1.3

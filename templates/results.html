@@ -1,0 +1,277 @@
+{% extends "base.html" %}
+{% block title %}检查结果 {{ job.job_id[:8] }} · 跨境商品合规检查{% endblock %}
+
+{% macro risk_icon(level, extra_class='') -%}
+  <svg class="risk-icon {{ extra_class }}" viewBox="0 0 24 24" aria-hidden="true">
+    {% if level == '合规' %}
+      <circle cx="12" cy="12" r="9"/><path d="m8 12 2.5 2.5L16 9"/>
+    {% elif level == '待确认' %}
+      <path d="M12 3 2.8 20h18.4L12 3Z"/><path d="M12 9v5M12 17h.01"/>
+    {% elif level == '违规' %}
+      <circle cx="12" cy="12" r="9"/><path d="m9 9 6 6M15 9l-6 6"/>
+    {% else %}
+      <circle cx="12" cy="12" r="9"/><path d="M8 12h8"/>
+    {% endif %}
+  </svg>
+{%- endmacro %}
+
+{% macro risk_badge(level) -%}
+  {% if level %}
+    <span class="badge risk-{{ 'compliant' if level == '合规' else 'pending' if level == '待确认' else 'violation' }}">
+      {{ risk_icon(level, 'icon-small') }}{{ level }}
+    </span>
+  {% else %}
+    <span class="muted-value">—</span>
+  {% endif %}
+{%- endmacro %}
+
+{% block content %}
+{% set summary = job.summary %}
+{% set stats = summary %}
+{% set risks = summary.risk_counts %}
+{% set dispositions = summary.disposition_counts %}
+{% set n_evaluated = summary.n_evaluated %}
+{% set max_risk = [risks['合规'], risks['待确认'], risks['违规']] | max %}
+{% set max_disposition = [dispositions['正常评估'], dispositions['已下架'], dispositions['库中缺失']] | max %}
+{% set categories = job.top_categories %}
+{% set max_category = (categories | map(attribute='total') | max) if categories else 1 %}
+{% set rule_lookup = {} %}
+{% for rule in job.rules %}{% set _ = rule_lookup.update({rule.rule_id: rule}) %}{% endfor %}
+
+<div class="result-page-head">
+  <div>
+    <a class="back-link" href="{{ url_for('index') }}">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+      返回检查工作台
+    </a>
+    <p class="eyebrow">TASK REPORT</p>
+    <h1>检查结果</h1>
+    <p class="result-lead">这是一份已保存任务的服务端结果快照。需要筛选、排序和分页时，可在交互式看板中打开同一任务。</p>
+  </div>
+  <div class="head-actions">
+    <a class="button button-primary" href="{{ url_for('index') }}?job={{ job.job_id }}">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z"/><path d="M4 10h16M9 10v9"/></svg>
+      交互看板
+    </a>
+    <a class="button" href="{{ job.links.markdown }}">下载 Markdown</a>
+    <a class="button" href="{{ job.links.html }}">下载 HTML</a>
+    <a class="button" href="{{ job.links.csv }}">下载 CSV</a>
+  </div>
+</div>
+
+<section class="task-card panel" aria-labelledby="task-card-title">
+  <div class="task-card-head">
+    <div>
+      <p class="eyebrow">SNAPSHOT</p>
+      <h2 id="task-card-title">{{ job.source.filename }}</h2>
+    </div>
+    <span class="task-status"><span class="status-dot" aria-hidden="true"></span>检查完成</span>
+  </div>
+  <dl class="task-facts">
+    <div><dt>任务编号</dt><dd><code>{{ job.job_id }}</code></dd></div>
+    <div><dt>完成时间</dt><dd>{{ job.generated_at }}</dd></div>
+    <div><dt>应用版本</dt><dd>v{{ job.version }}</dd></div>
+    <div><dt>源文件大小</dt><dd>{{ "{:,}".format(job.source.size_bytes) }} 字节</dd></div>
+    <div class="fact-wide"><dt>源文件 SHA-256</dt><dd><code class="hash">{{ job.source.sha256 }}</code></dd></div>
+  </dl>
+</section>
+
+<div class="stat-grid result-stat-grid" aria-label="结果总览">
+  <article class="stat-card stat-blue"><span class="stat-label">清单读取数</span><strong>{{ summary.n_input }}</strong><span class="stat-note">CSV 数据行</span></article>
+  <article class="stat-card stat-blue"><span class="stat-label">在库商品数</span><strong>{{ summary.n_matched }}</strong><span class="stat-note">含已下架</span></article>
+  <article class="stat-card stat-teal"><span class="stat-label">正常评估数</span><strong>{{ n_evaluated }}</strong><span class="stat-note">进入规则与价格计算</span></article>
+  <article class="stat-card stat-slate"><span class="stat-label">已下架数</span><strong>{{ summary.n_deleted }}</strong><span class="stat-note">不进入评估</span></article>
+  <article class="stat-card stat-amber"><span class="stat-label">库中缺失数</span><strong>{{ summary.n_missing }}</strong><span class="stat-note">保留在明细中</span></article>
+  <article class="stat-card stat-green"><span class="stat-label">合规</span><strong>{{ risks['合规'] }}</strong><span class="stat-note">占评估数 {{ pct(risks['合规'], n_evaluated) }}</span></article>
+  <article class="stat-card stat-yellow"><span class="stat-label">待确认</span><strong>{{ risks['待确认'] }}</strong><span class="stat-note">占评估数 {{ pct(risks['待确认'], n_evaluated) }}</span></article>
+  <article class="stat-card stat-red"><span class="stat-label">违规</span><strong>{{ risks['违规'] }}</strong><span class="stat-note">占评估数 {{ pct(risks['违规'], n_evaluated) }}</span></article>
+</div>
+
+<div class="chart-grid">
+  <section class="panel chart-panel" aria-labelledby="risk-static-title">
+    <div class="section-heading">
+      <div><p class="eyebrow">RISK DISTRIBUTION</p><h2 id="risk-static-title">风险等级分布</h2></div>
+      <span class="section-note">风险商品占比 {{ pct(risks['待确认'] + risks['违规'], n_evaluated) }}</span>
+    </div>
+    <p class="section-subtitle">仅统计正常评估商品；风险商品 = 待确认 + 违规。</p>
+    <div class="bar-chart" role="img" aria-label="风险等级数量分布，详见下方数据表">
+      <div class="bar-row">
+        <span class="bar-label"><span class="legend-dot dot-compliant"></span>合规</span>
+        <div class="bar-area"><div class="bar-fill bar-compliant" style="width: {{ pct(risks['合规'], max_risk if max_risk else 1) }}"></div></div>
+        <span class="bar-value">{{ risks['合规'] }}<small>{{ pct(risks['合规'], n_evaluated) }}</small></span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label"><span class="legend-dot dot-pending"></span>待确认</span>
+        <div class="bar-area"><div class="bar-fill bar-pending" style="width: {{ pct(risks['待确认'], max_risk if max_risk else 1) }}"></div></div>
+        <span class="bar-value">{{ risks['待确认'] }}<small>{{ pct(risks['待确认'], n_evaluated) }}</small></span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label"><span class="legend-dot dot-violation"></span>违规</span>
+        <div class="bar-area"><div class="bar-fill bar-violation" style="width: {{ pct(risks['违规'], max_risk if max_risk else 1) }}"></div></div>
+        <span class="bar-value">{{ risks['违规'] }}<small>{{ pct(risks['违规'], n_evaluated) }}</small></span>
+      </div>
+    </div>
+    <details class="table-view" open>
+      <summary>风险分布数据表</summary>
+      <div class="mini-table-wrap"><table class="mini-table">
+        <thead><tr><th>风险</th><th>数量</th><th>占评估数</th></tr></thead>
+        <tbody>
+          <tr><td>合规</td><td>{{ risks['合规'] }}</td><td>{{ pct(risks['合规'], n_evaluated) }}</td></tr>
+          <tr><td>待确认</td><td>{{ risks['待确认'] }}</td><td>{{ pct(risks['待确认'], n_evaluated) }}</td></tr>
+          <tr><td>违规</td><td>{{ risks['违规'] }}</td><td>{{ pct(risks['违规'], n_evaluated) }}</td></tr>
+        </tbody>
+      </table></div>
+    </details>
+  </section>
+
+  <section class="panel chart-panel" aria-labelledby="disposition-static-title">
+    <div class="section-heading">
+      <div><p class="eyebrow">DISPOSITION</p><h2 id="disposition-static-title">处置状态分布</h2></div>
+      <span class="section-note">共 {{ summary.n_input }} 条</span>
+    </div>
+    <p class="section-subtitle">已下架与库中缺失不进入规则评估，也不会被标记为合规。</p>
+    <div class="bar-chart" role="img" aria-label="处置状态数量分布，详见下方数据表">
+      <div class="bar-row">
+        <span class="bar-label"><span class="legend-dot dot-normal"></span>正常评估</span>
+        <div class="bar-area"><div class="bar-fill bar-normal" style="width: {{ pct(dispositions['正常评估'], max_disposition if max_disposition else 1) }}"></div></div>
+        <span class="bar-value">{{ dispositions['正常评估'] }}<small>{{ pct(dispositions['正常评估'], summary.n_input) }}</small></span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label"><span class="legend-dot dot-deleted"></span>已下架</span>
+        <div class="bar-area"><div class="bar-fill bar-deleted" style="width: {{ pct(dispositions['已下架'], max_disposition if max_disposition else 1) }}"></div></div>
+        <span class="bar-value">{{ dispositions['已下架'] }}<small>{{ pct(dispositions['已下架'], summary.n_input) }}</small></span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label"><span class="legend-dot dot-missing"></span>库中缺失</span>
+        <div class="bar-area"><div class="bar-fill bar-missing" style="width: {{ pct(dispositions['库中缺失'], max_disposition if max_disposition else 1) }}"></div></div>
+        <span class="bar-value">{{ dispositions['库中缺失'] }}<small>{{ pct(dispositions['库中缺失'], summary.n_input) }}</small></span>
+      </div>
+    </div>
+    <details class="table-view" open>
+      <summary>处置分布数据表</summary>
+      <div class="mini-table-wrap"><table class="mini-table">
+        <thead><tr><th>处置结果</th><th>数量</th><th>占清单数</th></tr></thead>
+        <tbody>
+          <tr><td>正常评估</td><td>{{ dispositions['正常评估'] }}</td><td>{{ pct(dispositions['正常评估'], summary.n_input) }}</td></tr>
+          <tr><td>已下架</td><td>{{ dispositions['已下架'] }}</td><td>{{ pct(dispositions['已下架'], summary.n_input) }}</td></tr>
+          <tr><td>库中缺失</td><td>{{ dispositions['库中缺失'] }}</td><td>{{ pct(dispositions['库中缺失'], summary.n_input) }}</td></tr>
+        </tbody>
+      </table></div>
+    </details>
+  </section>
+
+  <section class="panel chart-panel chart-panel-wide" aria-labelledby="category-static-title">
+    <div class="section-heading">
+      <div><p class="eyebrow">TOP RISK CATEGORIES</p><h2 id="category-static-title">Top 风险类目</h2></div>
+      <span class="section-note">最多 5 个</span>
+    </div>
+    <p class="section-subtitle">违规数降序 → 待确认数降序 → 类目名升序；每个 SKU 只计一次。</p>
+    {% if categories %}
+    <div class="category-chart" role="img" aria-label="Top 风险类目违规与待确认数量，详见下方数据表">
+      {% for item in categories %}
+      <div class="category-row">
+        <span class="category-rank">{{ loop.index }}</span>
+        <span class="category-label">{{ item.category }}</span>
+        <div class="category-track-wrap">
+          <div class="stacked-track" style="width: {{ pct(item.total, max_category) }}">
+            <span class="segment-violation" style="width: {{ pct(item.violations, item.total) }}"></span>
+            <span class="segment-pending" style="width: {{ pct(item.pending, item.total) }}"></span>
+          </div>
+        </div>
+        <span class="bar-value">{{ item.total }}<small>违规 {{ item.violations }} · 待确认 {{ item.pending }}</small></span>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="empty-state">本次没有风险类目记录。</div>
+    {% endif %}
+    <details class="table-view" open>
+      <summary>Top 风险类目数据表</summary>
+      <div class="mini-table-wrap"><table class="mini-table">
+        <thead><tr><th>排名</th><th>类目</th><th>违规</th><th>待确认</th><th>总数</th></tr></thead>
+        <tbody>
+          {% for item in categories %}
+          <tr><td>{{ loop.index }}</td><td>{{ item.category }}</td><td>{{ item.violations }}</td><td>{{ item.pending }}</td><td>{{ item.total }}</td></tr>
+          {% else %}
+          <tr><td colspan="5">无记录</td></tr>
+          {% endfor %}
+        </tbody>
+      </table></div>
+    </details>
+  </section>
+</div>
+
+<section class="panel result-details" aria-labelledby="result-details-title">
+  <div class="section-heading">
+    <div><p class="eyebrow">ALL SKU DETAILS</p><h2 id="result-details-title">全部商品明细</h2></div>
+    <span class="section-note">共 {{ job.details | length }} 条 · 只读快照</span>
+  </div>
+  <p class="section-subtitle">需要按 SKU 搜索、按处置/风险/类目筛选、排序或分页，请使用 <a href="{{ url_for('index') }}?job={{ job.job_id }}">交互看板</a>。</p>
+  <div class="table-scroll">
+    <table class="data-table details-table">
+      <caption class="visually-hidden">全部商品合规检查明细</caption>
+      <thead><tr>
+        <th scope="col">序号</th><th scope="col">SKU</th><th scope="col">批次</th><th scope="col">处置结果</th>
+        <th scope="col">商品名</th><th scope="col">类目</th><th scope="col">材质</th><th scope="col">产地</th>
+        <th scope="col" class="align-right">原价</th><th scope="col" class="align-right">人民币价格</th>
+        <th scope="col">风险标记</th><th scope="col">命中规则</th>
+      </tr></thead>
+      <tbody>
+        {% for item in job.details %}
+        <tr>
+          <td class="cell-index">{{ item.index }}</td>
+          <td><code>{{ item.sku_ref }}</code></td>
+          <td><code>{{ item.batch_no }}</code></td>
+          <td><span class="disposition disposition-{{ 'normal' if item.disposition == '正常评估' else 'deleted' if item.disposition == '已下架' else 'missing' }}">{{ item.disposition }}</span></td>
+          <td class="cell-name">{{ item.name if item.name is not none else '—' }}</td>
+          <td>{{ item.category if item.category is not none else '—' }}</td>
+          <td>{{ item.material if item.material is not none else '—' }}</td>
+          <td>{{ item.origin if item.origin is not none else '—' }}</td>
+          <td class="align-right">{{ (item.original_price ~ ' ' ~ item.currency) if item.original_price is not none else '—' }}</td>
+          <td class="align-right">{{ item.cny_price if item.cny_price is not none else ('—（不适用）' if item.disposition == '已下架' else '—') }}</td>
+          <td>
+            {% if item.risk %}{{ risk_badge(item.risk) }}
+            {% elif item.disposition == '已下架' %}<span class="muted-value">—（不适用）</span>
+            {% else %}<span class="muted-value">—</span>{% endif %}
+          </td>
+          <td class="cell-rules">
+            {% if item.matched_rule_ids %}
+              {% for rule_id in item.matched_rule_ids %}
+                <span class="rule-chip" title="{{ rule_lookup[rule_id].title if rule_id in rule_lookup else rule_id }}">{{ rule_id }}</span>
+              {% endfor %}
+            {% elif item.disposition == '已下架' %}
+              <span class="muted-value">—（不适用）</span>
+            {% else %}
+              <span class="muted-value">—</span>
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="panel integrity-panel" aria-labelledby="integrity-title">
+  <div class="section-heading">
+    <div><p class="eyebrow">INTEGRITY CHECK</p><h2 id="integrity-title">完整性复核</h2></div>
+    <span class="integrity-pill {{ 'is-ok' if job.integrity.all_hold else 'is-bad' }}">
+      {{ '全部等式成立' if job.integrity.all_hold else '存在不成立等式' }}
+    </span>
+  </div>
+  <div class="equation-grid">
+    {% for equation in job.integrity.equations %}
+    <article class="equation-card">
+      <span>{{ equation.name }}</span>
+      <code>{{ equation.expression }}</code>
+      <strong class="{{ 'text-ok' if equation.holds else 'text-bad' }}">{{ '成立' if equation.holds else '不成立' }}</strong>
+    </article>
+    {% endfor %}
+    <article class="equation-card">
+      <span>风险总数等式</span>
+      <code>{{ job.integrity.risk_equation.expression }}（评估数 {{ job.integrity.risk_equation.right }}）</code>
+      <strong class="{{ 'text-ok' if job.integrity.risk_equation.holds else 'text-bad' }}">{{ '成立' if job.integrity.risk_equation.holds else '不成立' }}</strong>
+    </article>
+  </div>
+</section>
+{% endblock %}

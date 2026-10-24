@@ -1,0 +1,236 @@
+<section id="results-panel" class="results-panel" hidden aria-labelledby="results-title">
+  <div class="task-banner">
+    <div class="task-copy">
+      <p class="eyebrow">CURRENT TASK</p>
+      <h2 id="results-title">当前检查结果</h2>
+      <div class="task-meta">
+        <span><span class="meta-label">输入文件</span><strong id="task-source">—</strong></span>
+        <span class="task-id-cell"><span class="meta-label">任务编号</span><code id="task-id">—</code></span>
+        <span><span class="meta-label">完成时间</span><strong id="task-time">—</strong></span>
+      </div>
+    </div>
+    <div class="task-actions">
+      <span class="task-status" id="task-status"><span class="status-dot" aria-hidden="true"></span>检查完成</span>
+      <button type="button" class="button button-danger-ghost" id="delete-job-button">删除任务结果</button>
+    </div>
+  </div>
+
+  <div class="stat-grid" aria-label="结果总览">
+    <article class="stat-card stat-blue">
+      <span class="stat-label">清单读取数</span>
+      <strong id="stat-input">—</strong>
+      <span class="stat-note">CSV 数据行</span>
+    </article>
+    <article class="stat-card stat-blue">
+      <span class="stat-label">在库商品数</span>
+      <strong id="stat-matched">—</strong>
+      <span class="stat-note">含已下架</span>
+    </article>
+    <article class="stat-card stat-teal">
+      <span class="stat-label">正常评估数</span>
+      <strong id="stat-evaluated">—</strong>
+      <span class="stat-note">进入规则与价格计算</span>
+    </article>
+    <article class="stat-card stat-slate">
+      <span class="stat-label">已下架数</span>
+      <strong id="stat-deleted">—</strong>
+      <span class="stat-note">不进入评估</span>
+    </article>
+    <article class="stat-card stat-amber">
+      <span class="stat-label">库中缺失数</span>
+      <strong id="stat-missing">—</strong>
+      <span class="stat-note">保留在明细中</span>
+    </article>
+    <article class="stat-card stat-green">
+      <span class="stat-label">合规</span>
+      <strong id="stat-compliant">—</strong>
+      <span class="stat-note" id="stat-compliant-note">占评估数 —</span>
+    </article>
+    <article class="stat-card stat-yellow">
+      <span class="stat-label">待确认</span>
+      <strong id="stat-pending">—</strong>
+      <span class="stat-note" id="stat-pending-note">占评估数 —</span>
+    </article>
+    <article class="stat-card stat-red">
+      <span class="stat-label">违规</span>
+      <strong id="stat-violation">—</strong>
+      <span class="stat-note" id="stat-violation-note">占评估数 —</span>
+    </article>
+  </div>
+
+  <div class="chart-grid">
+    <section class="panel chart-panel" aria-labelledby="risk-chart-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">RISK DISTRIBUTION</p>
+          <h2 id="risk-chart-title">风险等级分布</h2>
+        </div>
+        <span class="section-note" id="risk-ratio-note">风险商品占比 —</span>
+      </div>
+      <p class="section-subtitle">仅统计正常评估商品；风险商品 = 待确认 + 违规。</p>
+      <div class="legend" aria-hidden="true">
+        <span class="legend-item"><span class="legend-dot dot-compliant"></span>合规</span>
+        <span class="legend-item"><span class="legend-dot dot-pending"></span>待确认</span>
+        <span class="legend-item"><span class="legend-dot dot-violation"></span>违规</span>
+      </div>
+      <div id="risk-chart" class="chart" role="img" aria-label="风险等级数量分布"></div>
+      <details class="table-view">
+        <summary>查看风险分布数据表</summary>
+        <div class="mini-table-wrap">
+          <table class="mini-table">
+            <thead><tr><th>风险</th><th>数量</th><th>占评估数</th></tr></thead>
+            <tbody id="risk-data-body"></tbody>
+          </table>
+        </div>
+      </details>
+    </section>
+
+    <section class="panel chart-panel" aria-labelledby="disposition-chart-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">DISPOSITION</p>
+          <h2 id="disposition-chart-title">处置状态分布</h2>
+        </div>
+        <span class="section-note" id="disposition-total-note">共 — 条</span>
+      </div>
+      <p class="section-subtitle">已下架与库中缺失不进入规则评估，也不会被标记为合规。</p>
+      <div class="legend" aria-hidden="true">
+        <span class="legend-item"><span class="legend-dot dot-normal"></span>正常评估</span>
+        <span class="legend-item"><span class="legend-dot dot-deleted"></span>已下架</span>
+        <span class="legend-item"><span class="legend-dot dot-missing"></span>库中缺失</span>
+      </div>
+      <div id="disposition-chart" class="chart" role="img" aria-label="处置状态数量分布"></div>
+      <details class="table-view">
+        <summary>查看处置分布数据表</summary>
+        <div class="mini-table-wrap">
+          <table class="mini-table">
+            <thead><tr><th>处置结果</th><th>数量</th><th>占清单数</th></tr></thead>
+            <tbody id="disposition-data-body"></tbody>
+          </table>
+        </div>
+      </details>
+    </section>
+
+    <section class="panel chart-panel chart-panel-wide" aria-labelledby="category-chart-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">TOP RISK CATEGORIES</p>
+          <h2 id="category-chart-title">Top 风险类目</h2>
+        </div>
+        <span class="section-note">最多 5 个</span>
+      </div>
+      <p class="section-subtitle">违规数降序 → 待确认数降序 → 类目名升序；每个 SKU 只计一次。</p>
+      <div class="legend" aria-hidden="true">
+        <span class="legend-item"><span class="legend-dot dot-violation"></span>违规</span>
+        <span class="legend-item"><span class="legend-dot dot-pending"></span>待确认</span>
+      </div>
+      <div id="category-chart" class="chart" role="img" aria-label="Top 风险类目对比"></div>
+      <details class="table-view">
+        <summary>查看 Top 风险类目数据表</summary>
+        <div class="mini-table-wrap">
+          <table class="mini-table">
+            <thead><tr><th>排名</th><th>类目</th><th>违规</th><th>待确认</th><th>总数</th></tr></thead>
+            <tbody id="category-data-body"></tbody>
+          </table>
+        </div>
+      </details>
+    </section>
+  </div>
+
+  <section class="panel details-panel" aria-labelledby="details-title">
+    <div class="section-heading details-heading">
+      <div>
+        <p class="eyebrow">SKU DETAILS</p>
+        <h2 id="details-title">商品明细</h2>
+      </div>
+      <div class="result-count" id="result-count" aria-live="polite">当前显示 0 / 0 条</div>
+    </div>
+
+    <div class="toolbar" role="search" aria-label="筛选商品明细">
+      <label class="control control-search">
+        <span class="visually-hidden">按 SKU 或商品名称搜索</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4.2-4.2"/></svg>
+        <input type="search" id="search-input" placeholder="搜索 SKU 或商品名称" autocomplete="off">
+      </label>
+      <label class="control">
+        <span>处置</span>
+        <select id="disposition-filter">
+          <option value="">全部处置</option>
+          <option value="正常评估">正常评估</option>
+          <option value="已下架">已下架</option>
+          <option value="库中缺失">库中缺失</option>
+        </select>
+      </label>
+      <label class="control">
+        <span>风险</span>
+        <select id="risk-filter">
+          <option value="">全部风险</option>
+          <option value="合规">合规</option>
+          <option value="待确认">待确认</option>
+          <option value="违规">违规</option>
+          <option value="__none__">不适用</option>
+        </select>
+      </label>
+      <label class="control">
+        <span>类目</span>
+        <select id="category-filter">
+          <option value="">全部类目</option>
+        </select>
+      </label>
+      <button type="button" class="button button-ghost" id="reset-filters">重置筛选</button>
+    </div>
+
+    <div class="table-scroll">
+      <table class="data-table details-table" id="details-table">
+        <caption class="visually-hidden">商品合规检查明细，可按列排序并分页查看</caption>
+        <thead>
+          <tr>
+            <th scope="col" aria-sort="ascending"><button type="button" class="sort-button" data-sort-key="index">序号<span class="sort-indicator">↑</span></button></th>
+            <th scope="col" aria-sort="none"><button type="button" class="sort-button" data-sort-key="sku_ref">SKU<span class="sort-indicator"></span></button></th>
+            <th scope="col" aria-sort="none"><button type="button" class="sort-button" data-sort-key="batch_no">批次<span class="sort-indicator"></span></button></th>
+            <th scope="col" aria-sort="none"><button type="button" class="sort-button" data-sort-key="disposition">处置结果<span class="sort-indicator"></span></button></th>
+            <th scope="col" aria-sort="none"><button type="button" class="sort-button" data-sort-key="name">商品名<span class="sort-indicator"></span></button></th>
+            <th scope="col" aria-sort="none"><button type="button" class="sort-button" data-sort-key="category">类目<span class="sort-indicator"></span></button></th>
+            <th scope="col" aria-sort="none"><button type="button" class="sort-button" data-sort-key="material">材质<span class="sort-indicator"></span></button></th>
+            <th scope="col" aria-sort="none"><button type="button" class="sort-button" data-sort-key="origin">产地<span class="sort-indicator"></span></button></th>
+            <th scope="col" class="align-right" aria-sort="none"><button type="button" class="sort-button" data-sort-key="original_price">原价<span class="sort-indicator"></span></button></th>
+            <th scope="col" class="align-right" aria-sort="none"><button type="button" class="sort-button" data-sort-key="cny_price">人民币价格<span class="sort-indicator"></span></button></th>
+            <th scope="col" aria-sort="none"><button type="button" class="sort-button" data-sort-key="risk">风险标记<span class="sort-indicator"></span></button></th>
+            <th scope="col">命中规则</th>
+          </tr>
+        </thead>
+        <tbody id="details-body"></tbody>
+      </table>
+    </div>
+    <div id="table-empty" class="empty-state" hidden>当前筛选条件没有匹配记录。</div>
+    <nav class="pagination" id="pagination" aria-label="明细分页">
+      <button type="button" class="button button-ghost" id="prev-page">上一页</button>
+      <div class="page-buttons" id="page-buttons"></div>
+      <button type="button" class="button button-ghost" id="next-page">下一页</button>
+      <span class="page-summary" id="page-summary"></span>
+    </nav>
+  </section>
+
+  <section class="panel export-panel" aria-labelledby="export-title">
+    <div>
+      <p class="eyebrow">EXPORTS</p>
+      <h2 id="export-title">导出与任务清理</h2>
+      <p class="section-subtitle">三类文件均由同一次后端检查结果生成。任务结果保存在本机 <code>reports/web_runs/</code> 下。</p>
+      <p class="storage-note" id="storage-note">当前任务的原始上传文件在处理完成后已从临时目录删除。</p>
+    </div>
+    <div class="export-actions">
+      <a class="button button-primary" id="download-markdown" href="#" role="button">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 20h16"/></svg>
+        Markdown 报告
+      </a>
+      <a class="button" id="download-html" href="#" role="button">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="m8 9-2 3 2 3"/><path d="m16 9 2 3-2 3"/></svg>
+        HTML 报告
+      </a>
+      <a class="button" id="download-csv" href="#" role="button">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 13h6M9 17h6"/></svg>
+        CSV 明细
+      </a>
+    </div>
+  </section>
+</section>

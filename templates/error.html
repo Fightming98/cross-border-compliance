@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}{{ status }} · {{ title }} · 跨境商品合规检查{% endblock %}
+{% block content %}
+<section class="error-page" aria-labelledby="error-title">
+  <div class="error-card panel">
+    <span class="error-code">{{ status }}</span>
+    <p class="eyebrow">REQUEST FAILED</p>
+    <h1 id="error-title">{{ title }}</h1>
+    <p class="error-message">{{ message }}</p>
+    {% if error_id %}
+    <p class="error-reference">错误编号 <code>{{ error_id }}</code>。如需排查，请向本地维护人员提供该编号并查看 <code>logs/application.log</code>。</p>
+    {% endif %}
+    <div class="error-actions">
+      <a class="button button-primary" href="{{ url_for('index') }}">返回检查工作台</a>
+      <button type="button" class="button" id="error-back">返回上一页</button>
+    </div>
+  </div>
+</section>
+{% endblock %}

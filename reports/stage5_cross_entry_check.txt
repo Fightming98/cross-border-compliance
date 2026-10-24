@@ -1,0 +1,7 @@
+跨入口核对通过：Markdown / HTML / CSV 各 120 条明细逐字段一致
+风险汇总一致：合规 47 / 待确认 56 / 违规 7；47 + 56 + 7 = 110
+完整性等式：120 = 115 + 5；115 = 5 + 110；120 = 5 + 5 + 110
+HTML 离线检查：无 <script>、无 http(s) 外部引用
+SHA-256 compliance_report.md: d3d5682193a6babdfc6a8ddc925b6003046154b8795d2103092169ecf72be8be
+SHA-256 compliance_report.html: 13307395115f109c3bcc2369fba03d124ee65e7a1abad9c314bdc1785268c7bf
+SHA-256 compliance_details.csv: c308eeb332e2ad75b05afc95b746717ea2d3c524ebcc569448de2352204f24e2

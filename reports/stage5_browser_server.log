@@ -1,0 +1,71 @@
+2026-10-24 09:37:56 | INFO    | job=- | event=app_start version=1.0.0 host=127.0.0.1 port=5000 debug=false database=E:\Desktop\AI全栈工程师校招笔试-材料包\compliance.db results_root=E:\Desktop\AI全栈工程师校招笔试-材料包\reports\web_runs retention_seconds=604800
+ * Serving Flask app 'web_app'
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+Press CTRL+C to quit
+127.0.0.1 - - [24/Oct/2026 09:37:56] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [24/Oct/2026 09:37:58] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [24/Oct/2026 09:37:58] "GET /static/css/app.css HTTP/1.1" 200 -
+127.0.0.1 - - [24/Oct/2026 09:37:58] "GET /static/js/app.js HTTP/1.1" 200 -
+127.0.0.1 - - [24/Oct/2026 09:37:59] "GET /static/images/logo.svg HTTP/1.1" 200 -
+2026-10-24 09:38:00 | INFO    | job=06bd9b0fb56be6406fe9b6c96658e10c | event=task_received
+2026-10-24 09:38:00 | INFO    | job=06bd9b0fb56be6406fe9b6c96658e10c | event=upload_received size_bytes=1941
+2026-10-24 09:38:00 | INFO    | job=06bd9b0fb56be6406fe9b6c96658e10c | event=check_completed n_input=120 n_matched=115 n_deleted=5 n_missing=5 n_evaluated=110 risk_compliant=47 risk_pending=56 risk_violation=7
+2026-10-24 09:38:01 | INFO    | job=06bd9b0fb56be6406fe9b6c96658e10c | event=reports_generated markdown_bytes=17940 html_bytes=85143 csv_bytes=14875
+2026-10-24 09:38:01 | INFO    | job=06bd9b0fb56be6406fe9b6c96658e10c | event=task_completed duration_ms=231.5
+127.0.0.1 - - [24/Oct/2026 09:38:01] "POST /api/reports HTTP/1.1" 200 -
+127.0.0.1 - - [24/Oct/2026 09:38:01] "GET /static/images/logo.svg HTTP/1.1" 304 -
+2026-10-24 09:38:02 | INFO    | job=06bd9b0fb56be6406fe9b6c96658e10c | event=download kind=markdown
+127.0.0.1 - - [24/Oct/2026 09:38:02] "GET /api/reports/06bd9b0fb56be6406fe9b6c96658e10c/download/markdown HTTP/1.1" 200 -
+2026-10-24 09:38:03 | INFO    | job=06bd9b0fb56be6406fe9b6c96658e10c | event=download kind=html
+127.0.0.1 - - [24/Oct/2026 09:38:03] "GET /api/reports/06bd9b0fb56be6406fe9b6c96658e10c/download/html HTTP/1.1" 200 -
+2026-10-24 09:38:03 | INFO    | job=06bd9b0fb56be6406fe9b6c96658e10c | event=download kind=csv
+127.0.0.1 - - [24/Oct/2026 09:38:03] "GET /api/reports/06bd9b0fb56be6406fe9b6c96658e10c/download/csv HTTP/1.1" 200 -
+2026-10-24 09:38:04 | INFO    | job=06bd9b0fb56be6406fe9b6c96658e10c | event=report_page_opened
+127.0.0.1 - - [24/Oct/2026 09:38:04] "GET /reports/06bd9b0fb56be6406fe9b6c96658e10c HTTP/1.1" 200 -
+127.0.0.1 - - [24/Oct/2026 09:38:04] "GET /static/css/app.css HTTP/1.1" 304 -
+127.0.0.1 - - [24/Oct/2026 09:38:04] "GET /static/js/app.js HTTP/1.1" 304 -
+127.0.0.1 - - [24/Oct/2026 09:38:04] "GET /static/images/logo.svg HTTP/1.1" 304 -
+127.0.0.1 - - [24/Oct/2026 09:38:05] "GET /?job=06bd9b0fb56be6406fe9b6c96658e10c HTTP/1.1" 200 -
+127.0.0.1 - - [24/Oct/2026 09:38:05] "GET /static/css/app.css HTTP/1.1" 304 -
+127.0.0.1 - - [24/Oct/2026 09:38:05] "GET /static/js/app.js HTTP/1.1" 304 -
+2026-10-24 09:38:05 | INFO    | job=06bd9b0fb56be6406fe9b6c96658e10c | event=job_read
+127.0.0.1 - - [24/Oct/2026 09:38:05] "GET /api/reports/06bd9b0fb56be6406fe9b6c96658e10c HTTP/1.1" 200 -
+127.0.0.1 - - [24/Oct/2026 09:38:05] "GET /static/images/logo.svg HTTP/1.1" 304 -
+127.0.0.1 - - [24/Oct/2026 09:38:05] "GET /?job=06bd9b0fb56be6406fe9b6c96658e10c HTTP/1.1" 200 -
+127.0.0.1 - - [24/Oct/2026 09:38:05] "GET /static/css/app.css HTTP/1.1" 304 -
+127.0.0.1 - - [24/Oct/2026 09:38:05] "GET /static/js/app.js HTTP/1.1" 304 -
+2026-10-24 09:38:05 | INFO    | job=06bd9b0fb56be6406fe9b6c96658e10c | event=job_read
+127.0.0.1 - - [24/Oct/2026 09:38:05] "GET /api/reports/06bd9b0fb56be6406fe9b6c96658e10c HTTP/1.1" 200 -
+127.0.0.1 - - [24/Oct/2026 09:38:05] "GET /static/images/logo.svg HTTP/1.1" 304 -
+127.0.0.1 - - [24/Oct/2026 09:38:06] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [24/Oct/2026 09:38:06] "GET /static/css/app.css HTTP/1.1" 304 -
+127.0.0.1 - - [24/Oct/2026 09:38:06] "GET /static/js/app.js HTTP/1.1" 304 -
+127.0.0.1 - - [24/Oct/2026 09:38:06] "GET /static/images/logo.svg HTTP/1.1" 304 -
+2026-10-24 09:38:07 | INFO    | job=2f169e2d88ec126ab4c491988c740cac | event=task_received
+2026-10-24 09:38:07 | INFO    | job=2f169e2d88ec126ab4c491988c740cac | event=upload_received size_bytes=14
+2026-10-24 09:38:07 | WARNING | job=2f169e2d88ec126ab4c491988c740cac | event=input_rejected error_type=CsvLoadError
+2026-10-24 09:38:07 | WARNING | job=2f169e2d88ec126ab4c491988c740cac | event=request_rejected error_id=ERR-8177E526 code=invalid_csv status=400
+127.0.0.1 - - [24/Oct/2026 09:38:07] "POST /api/reports HTTP/1.1" 400 -
+2026-10-24 09:38:07 | INFO    | job=e22df3e102fc8e38d623e9991a23c5c9 | event=task_received
+2026-10-24 09:38:07 | INFO    | job=e22df3e102fc8e38d623e9991a23c5c9 | event=upload_received size_bytes=1941
+2026-10-24 09:38:07 | INFO    | job=e22df3e102fc8e38d623e9991a23c5c9 | event=check_completed n_input=120 n_matched=115 n_deleted=5 n_missing=5 n_evaluated=110 risk_compliant=47 risk_pending=56 risk_violation=7
+2026-10-24 09:38:08 | INFO    | job=e22df3e102fc8e38d623e9991a23c5c9 | event=reports_generated markdown_bytes=17940 html_bytes=85143 csv_bytes=14875
+2026-10-24 09:38:08 | INFO    | job=e22df3e102fc8e38d623e9991a23c5c9 | event=task_completed duration_ms=130.6
+127.0.0.1 - - [24/Oct/2026 09:38:08] "POST /api/reports HTTP/1.1" 200 -
+127.0.0.1 - - [24/Oct/2026 09:38:08] "GET /static/images/logo.svg HTTP/1.1" 304 -
+2026-10-24 09:38:08 | INFO    | job=e22df3e102fc8e38d623e9991a23c5c9 | event=job_deleted
+127.0.0.1 - - [24/Oct/2026 09:38:08] "DELETE /api/reports/e22df3e102fc8e38d623e9991a23c5c9 HTTP/1.1" 200 -
+127.0.0.1 - - [24/Oct/2026 09:38:08] "GET /static/images/logo.svg HTTP/1.1" 304 -
+2026-10-24 09:38:08 | INFO    | job=06bd9b0fb56be6406fe9b6c96658e10c | event=job_deleted
+127.0.0.1 - - [24/Oct/2026 09:38:08] "DELETE /api/reports/06bd9b0fb56be6406fe9b6c96658e10c HTTP/1.1" 200 -
+2026-10-24 09:38:08 | WARNING | job=e22df3e102fc8e38d623e9991a23c5c9 | event=delete_rejected
+2026-10-24 09:38:08 | WARNING | job=e22df3e102fc8e38d623e9991a23c5c9 | event=request_rejected error_id=ERR-43815879 code=job_not_found status=404
+127.0.0.1 - - [24/Oct/2026 09:38:08] "DELETE /api/reports/e22df3e102fc8e38d623e9991a23c5c9 HTTP/1.1" 404 -
+2026-10-24 09:38:08 | WARNING | job=06bd9b0fb56be6406fe9b6c96658e10c | event=delete_rejected
+2026-10-24 09:38:08 | WARNING | job=06bd9b0fb56be6406fe9b6c96658e10c | event=request_rejected error_id=ERR-E2CE63C1 code=job_not_found status=404
+127.0.0.1 - - [24/Oct/2026 09:38:08] "DELETE /api/reports/06bd9b0fb56be6406fe9b6c96658e10c HTTP/1.1" 404 -
+2026-10-24 09:38:08 | WARNING | job=e22df3e102fc8e38d623e9991a23c5c9 | event=delete_rejected
+2026-10-24 09:38:08 | WARNING | job=e22df3e102fc8e38d623e9991a23c5c9 | event=request_rejected error_id=ERR-1FEF9683 code=job_not_found status=404
+127.0.0.1 - - [24/Oct/2026 09:38:08] "DELETE /api/reports/e22df3e102fc8e38d623e9991a23c5c9 HTTP/1.1" 404 -

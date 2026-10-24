@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>{% block title %}跨境商品合规检查工作台{% endblock %}</title>
+  <link rel="icon" href="{{ url_for('static', filename='images/logo.svg') }}" type="image/svg+xml">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">跳到主要内容</a>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="{{ url_for('index') }}" aria-label="跨境商品合规检查工作台首页">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 4.5 3.2 7.8 8 9 4.8-1.2 8-4.5 8-9V6l-8-3Z"/><path d="m8.5 12 2.2 2.2 4.8-4.8"/></svg>
+        </span>
+        <span class="brand-copy">
+          <strong>跨境合规工作台</strong>
+          <span>Cross-border Compliance</span>
+        </span>
+      </a>
+      <nav class="topnav" aria-label="主导航">
+        <a href="{{ url_for('index') }}" {% if page_name == '检查工作台' %}class="is-current" aria-current="page"{% endif %}>检查工作台</a>
+        <span class="local-pill"><span class="status-dot" aria-hidden="true"></span>仅本机运行</span>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="page-shell">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <strong>跨境商品合规检查工作台</strong>
+        <span>v{{ app_version|default('1.0.0') }}</span>
+      </div>
+      <p>数据由本地 Python 服务读取和计算；上传清单仅用于当前任务，原始 SKU 清单不会被覆盖。</p>
+      <p>这是面向本地演示与测试的工具，不是已经完成公网生产部署的在线服务。</p>
+    </div>
+  </footer>
+  <script src="{{ url_for('static', filename='js/app.js') }}" defer></script>
+</body>
+</html>
